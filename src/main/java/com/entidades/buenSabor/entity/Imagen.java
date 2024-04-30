@@ -14,11 +14,6 @@ import lombok.*;
 @Builder
 public class Imagen extends Base{
 
-    private String url;
-
-    @ManyToOne
-    @JoinColumn(name = "articulo_id")
-    private Articulo articulo;
-
+    private String denominacion;
 
 }

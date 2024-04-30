@@ -1,6 +1,8 @@
 package com.entidades.buenSabor.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.*;
 
 @NoArgsConstructor
@@ -14,5 +16,8 @@ public class Usuario extends Base{
 
     private String auth0Id;
     private String username;
+
+    @OneToOne(mappedBy = "usuario")
+    private Cliente cliente;
 
 }

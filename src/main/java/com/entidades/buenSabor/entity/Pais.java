@@ -19,10 +19,4 @@ import java.util.Set;
 public class Pais extends Base{
 
     private String nombre;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pais")
-    //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA
-    @Builder.Default
-    private Set<Provincia> provincias = new HashSet<>();
-
 }

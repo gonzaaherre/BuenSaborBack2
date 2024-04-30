@@ -2,6 +2,8 @@ package com.entidades.buenSabor.entity;
 
 import com.entidades.buenSabor.entity.enums.FormaPago;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -22,5 +24,8 @@ public class Factura extends Base{
     private String mpPaymentType;
     private FormaPago formaPago;
     private Double totalVenta;
+
+    @OneToOne(mappedBy = "factura")
+    private Pedido pedido;
 
 }

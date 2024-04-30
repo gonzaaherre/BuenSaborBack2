@@ -2,6 +2,7 @@ package com.entidades.buenSabor.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.*;
 
@@ -19,8 +20,18 @@ public class Categoria extends Base{
 
     private String denominacion;
 
+    @OneToMany
+    @JoinColumn(name = "categoria_id")
+    @Builder.Default
+    private Set<Categoria> subCategorias = new HashSet<>();
+
+    @ManyToMany(mappedBy = "categorias")
+    @Builder.Default
+    private Set<Sucursal> sucursales = new HashSet<>();
 
     @OneToMany
     @JoinColumn(name = "categoria_id")
     @Builder.Default
-    private Set<Categoria> subCategorias = new HashSet<>();}
+    private Set<Articulo> articulos = new HashSet<>();
+
+}

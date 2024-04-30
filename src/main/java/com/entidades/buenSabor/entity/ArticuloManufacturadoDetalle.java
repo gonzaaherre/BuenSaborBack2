@@ -14,11 +14,8 @@ import lombok.experimental.SuperBuilder;
 public class ArticuloManufacturadoDetalle extends Base{
 
     @ManyToOne
-    @JoinColumn(name = "articulomanufacturadodetalle_id")
-    private ArticuloManufacturado articuloManufacturado ;
-
-
-    @ManyToOne
-    @JoinColumn(name = "artinsumo_id")
+    @JoinColumn(name = "articulo_insumo_id")
     private ArticuloInsumo articuloInsumo;
+
+    private Integer cantidad;
 }
