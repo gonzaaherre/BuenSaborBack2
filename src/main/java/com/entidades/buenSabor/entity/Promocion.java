@@ -27,7 +27,7 @@ public class Promocion extends Base {
     private Double precioPromocional;
     private TipoPromocion tipoPromocion;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "promocion_id")
     //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA
     @Builder.Default
