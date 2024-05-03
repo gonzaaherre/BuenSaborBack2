@@ -29,6 +29,9 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.json:json:20210307'
+	runtimeOnly 'com.fasterxml.jackson.core:jackson-databind'
+	runtimeOnly 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 }
 
 tasks.named('test') {
