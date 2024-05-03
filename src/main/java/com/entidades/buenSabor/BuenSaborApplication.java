@@ -4,6 +4,7 @@ import com.entidades.buenSabor.entity.enums.Estado;
 import com.entidades.buenSabor.entity.enums.FormaPago;
 import com.entidades.buenSabor.entity.enums.TipoEnvio;
 import com.entidades.buenSabor.entity.enums.TipoPromocion;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -37,13 +38,14 @@ public class BuenSaborApplication {
 	private LocalidadRepository localidadRepository;
 
 	@Autowired
+	private DomicilioRepository domicilioRepository;
+
+	@Autowired
 	private EmpresaRepository empresaRepository;
 
 	@Autowired
 	private SucursalRepository	sucursalRepository;
 
-	@Autowired
-	private DomicilioRepository domicilioRepository;
 
 	@Autowired
 	private UnidadMedidaRepository unidadMedidaRepository;
@@ -56,9 +58,6 @@ public class BuenSaborApplication {
 
 	@Autowired
 	private ArticuloManufacturadoRepository articuloManufacturadoRepository;
-
-	@Autowired
-	private ImagenRepository imagenRepository;
 
 	@Autowired
 	private PromocionRepository promocionRepository;
@@ -75,6 +74,7 @@ public class BuenSaborApplication {
 	}
 
 	@Bean
+	@Transactional
 	CommandLineRunner init () {
 		return args -> {
 			logger.info("----------------ESTOY----FUNCIONANDO---------------------");
@@ -113,8 +113,6 @@ public class BuenSaborApplication {
 			sucursalGodoyCruz.setDomicilio(domicilioSanMartin);
 			empresaBrown.getSucursales().add(sucursalChacras);
 			empresaBrown.getSucursales().add(sucursalGodoyCruz);
-			domicilioRepository.save(domicilioViamonte);
-			domicilioRepository.save(domicilioSanMartin);
 			empresaRepository.save(empresaBrown);
 			sucursalRepository.save(sucursalChacras);
 			sucursalRepository.save(sucursalGodoyCruz);
@@ -164,10 +162,6 @@ public class BuenSaborApplication {
 			Imagen imagenHarina = Imagen.builder().denominacion("https://mandolina.co/wp-content/uploads/2023/03/648366622-1024x683.jpg").build();
 			Imagen imagenQueso = Imagen.builder().denominacion("https://superdepaso.com.ar/wp-content/uploads/2021/06/SANTAROSA-PATEGRAS-04.jpg").build();
 			Imagen imagenTomate = Imagen.builder().denominacion("https://thefoodtech.com/wp-content/uploads/2020/06/Componentes-de-calidad-en-el-tomate-828x548.jpg").build();
-			imagenRepository.save(imagenCoca);
-			imagenRepository.save(imagenHarina);
-			imagenRepository.save(imagenQueso);
-			imagenRepository.save(imagenTomate);
 
 			cocaCola.getImagenes().add(imagenCoca);
 			harina.getImagenes().add(imagenHarina);
@@ -185,8 +179,6 @@ public class BuenSaborApplication {
 			// Crear fotos para los artículos manufacturados
 			Imagen imagenPizzaMuzarella = Imagen.builder().denominacion("https://storage.googleapis.com/fitia-api-bucket/media/images/recipe_images/1002846.jpg").build();
 			Imagen imagenPizzaNapolitana = Imagen.builder().denominacion("https://assets.elgourmet.com/wp-content/uploads/2023/03/8metlvp345_portada-pizza-1024x686.jpg.webp").build();
-			imagenRepository.save(imagenPizzaMuzarella);
-			imagenRepository.save(imagenPizzaNapolitana);
 
 			pizzaMuzarella.getImagenes().add(imagenPizzaMuzarella);
 			pizzaNapolitana.getImagenes().add(imagenPizzaNapolitana);
@@ -248,20 +240,25 @@ public class BuenSaborApplication {
 
 			//Crea un cliente y un usuario
 			Imagen imagenCliente = Imagen.builder().denominacion("https://hips.hearstapps.com/hmg-prod/images/la-la-land-final-1638446140.jpg").build();
-			imagenRepository.save(imagenCliente);
+
 			Usuario usuario = Usuario.builder().username("sebastian").auth0Id("9565a49d-ecc1-4f4e-adea-6cdcb7edc4a3").build();
-			Cliente cliente = Cliente.builder().usuario(usuario)
+			usuarioRepository.save(usuario);
+
+			Domicilio domicilioCliente = Domicilio.builder().cp(5509).calle("Paso Los Andes").numero(500).piso(2).nroDpto(23).localidad(localidad1).build();
+			Domicilio domicilioCliente2 = Domicilio.builder().cp(5509).calle("Pascual Segura").numero(2413).localidad(localidad1).build();
+
+			Cliente cliente = Cliente.builder()
 					.imagen(imagenCliente)
 					.email("correoFalso@gmail.com")
 					.nombre("Sebastian")
 					.apellido("Wilder")
 					.telefono("2615920825")
 					.usuario(usuario)
+					.fechaNacimiento(LocalDate.of(2000,1,5))
 					.build();
 
-			usuarioRepository.save(usuario);
-			usuario.setCliente(cliente);
-			cliente.getDomicilios().add(domicilioViamonte);
+			cliente.getDomicilios().add(domicilioCliente);
+			cliente.getDomicilios().add(domicilioCliente2);
 			clienteRepository.save(cliente);
 
 			//Crea un pedido para el cliente

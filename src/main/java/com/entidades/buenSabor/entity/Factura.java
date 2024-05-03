@@ -25,7 +25,7 @@ public class Factura extends Base{
     private FormaPago formaPago;
     private Double totalVenta;
 
-    @OneToOne(mappedBy = "factura")
+    @OneToOne
     private Pedido pedido;
 
 }

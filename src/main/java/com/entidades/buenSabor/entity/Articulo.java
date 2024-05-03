@@ -20,7 +20,7 @@ public class Articulo extends Base {
     protected String denominacion;
     protected Double precioVenta;
 
-    @OneToMany( fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "articulo_id")
     //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA
     @Builder.Default

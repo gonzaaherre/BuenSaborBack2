@@ -27,13 +27,13 @@ public class Pedido extends Base{
     private FormaPago formaPago;
     private LocalDate fechaPedido;
 
-    @OneToOne
+    @OneToOne(mappedBy = "pedido")
     private Factura factura;
 
     @ManyToOne
     private Sucursal sucursal;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     private Domicilio domicilio;
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

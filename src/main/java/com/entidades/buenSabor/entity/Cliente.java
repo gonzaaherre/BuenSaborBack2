@@ -3,6 +3,7 @@ package com.entidades.buenSabor.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,12 +14,13 @@ import java.util.Set;
 @Entity
 @ToString
 @Builder
-public class Cliente extends Base{
+public class Cliente extends Base {
 
     private String nombre;
     private String apellido;
     private String telefono;
     private String email;
+    private LocalDate fechaNacimiento;
 
     @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
@@ -29,7 +31,7 @@ public class Cliente extends Base{
     @Builder.Default
     private Set<Pedido> pedidos = new HashSet<>();
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Imagen imagen;
 
 

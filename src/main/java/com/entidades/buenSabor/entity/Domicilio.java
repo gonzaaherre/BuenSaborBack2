@@ -29,4 +29,11 @@ public class Domicilio extends Base{
     @Builder.Default
     private Set<Cliente> clientes = new HashSet<>();
 
+    @OneToOne(mappedBy = "domicilio")
+    private Sucursal sucursal;
+
+    @OneToMany(mappedBy = "domicilio")
+    @Builder.Default
+    private Set<Pedido> pedidos = new HashSet<>();
+
 }
