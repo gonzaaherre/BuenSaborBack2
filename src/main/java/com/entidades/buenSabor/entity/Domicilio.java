@@ -1,9 +1,10 @@
 package com.entidades.buenSabor.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,5 +24,9 @@ public class Domicilio extends Base{
     @ManyToOne
     @JoinColumn(name = "localidad_id")
     private Localidad localidad;
+
+    @ManyToMany(mappedBy = "domicilios", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @Builder.Default
+    private Set<Cliente> clientes = new HashSet<>();
 
 }

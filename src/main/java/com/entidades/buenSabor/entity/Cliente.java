@@ -20,7 +20,8 @@ public class Cliente extends Base{
     private String telefono;
     private String email;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "cliente")
@@ -32,12 +33,10 @@ public class Cliente extends Base{
     private Imagen imagen;
 
 
-    @ManyToMany
-    //SE AGREGA EL JOIN TABLE PARA QUE JPA CREE LA TABLA INTERMEDIA EN UNA RELACION MANY TO MANY
-    @JoinTable(name = "cliente_domicilio",
-            joinColumns = @JoinColumn(name = "cliente_id"),
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "Cliente_domicilio",
+            joinColumns = @JoinColumn(name = "Cliente_id"),
             inverseJoinColumns = @JoinColumn(name = "domicilio_id"))
-    //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA
     @Builder.Default
     private Set<Domicilio> domicilios = new HashSet<>();
 }
