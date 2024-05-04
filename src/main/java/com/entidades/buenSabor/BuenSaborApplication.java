@@ -1,9 +1,10 @@
 package com.entidades.buenSabor;
 
-import com.entidades.buenSabor.entity.enums.Estado;
-import com.entidades.buenSabor.entity.enums.FormaPago;
-import com.entidades.buenSabor.entity.enums.TipoEnvio;
-import com.entidades.buenSabor.entity.enums.TipoPromocion;
+import com.entidades.buenSabor.domain.entity.*;
+import com.entidades.buenSabor.domain.entity.enums.Estado;
+import com.entidades.buenSabor.domain.entity.enums.FormaPago;
+import com.entidades.buenSabor.domain.entity.enums.TipoEnvio;
+import com.entidades.buenSabor.domain.entity.enums.TipoPromocion;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,12 +14,9 @@ import org.springframework.context.annotation.Bean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.entidades.buenSabor.repositories.*;
-import com.entidades.buenSabor.entity.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.HashSet;
-import java.util.List;
 
 @SpringBootApplication
 public class BuenSaborApplication {
@@ -72,7 +70,7 @@ public class BuenSaborApplication {
 		SpringApplication.run(BuenSaborApplication.class, args);
 		logger.info("Estoy activo en el main");
 	}
-
+/*
 	@Bean
 	@Transactional
 	CommandLineRunner init () {
@@ -287,5 +285,5 @@ public class BuenSaborApplication {
 
 		};
 	}
-
+*/
 }

@@ -1,8 +1,8 @@
 package com.entidades.buenSabor.utils;
 
-import com.entidades.buenSabor.entity.Localidad;
-import com.entidades.buenSabor.entity.Pais;
-import com.entidades.buenSabor.entity.Provincia;
+import com.entidades.buenSabor.domain.entity.Localidad;
+import com.entidades.buenSabor.domain.entity.Pais;
+import com.entidades.buenSabor.domain.entity.Provincia;
 import com.entidades.buenSabor.repositories.LocalidadRepository;
 import com.entidades.buenSabor.repositories.PaisRepository;
 import com.entidades.buenSabor.repositories.ProvinciaRepository;
@@ -10,13 +10,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-
-import jakarta.persistence.*;
-import java.util.List;
 
 @Component
 class MunicipiosDownloader implements CommandLineRunner {

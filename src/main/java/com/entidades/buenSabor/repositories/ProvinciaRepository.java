@@ -1,6 +1,6 @@
 package com.entidades.buenSabor.repositories;
 
-import com.entidades.buenSabor.entity.Provincia;
+import com.entidades.buenSabor.domain.entity.Provincia;
 
 public interface ProvinciaRepository extends BaseRepository<Provincia,Long> {
     Provincia findByNombre(String nombre);

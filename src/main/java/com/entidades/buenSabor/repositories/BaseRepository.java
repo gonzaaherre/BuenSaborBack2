@@ -1,7 +1,7 @@
 package com.entidades.buenSabor.repositories;
 
 
-import com.entidades.buenSabor.entity.Base;
+import com.entidades.buenSabor.domain.entity.Base;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
