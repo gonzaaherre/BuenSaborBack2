@@ -14,7 +14,7 @@ public class Localidad extends Base{
 
     private String nombre;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "provincia_id")
     private Provincia provincia;
 
