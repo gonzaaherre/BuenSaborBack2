@@ -2,6 +2,7 @@ package com.entidades.buenSabor.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -9,12 +10,12 @@ import lombok.*;
 @Setter
 @Entity
 @ToString
-@Builder
+@SuperBuilder
 public class Localidad extends Base{
 
     private String nombre;
 
-    @ManyToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "provincia_id")
     private Provincia provincia;
 

@@ -4,6 +4,7 @@ import com.entidades.buenSabor.domain.entity.enums.FormaPago;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @ToString
-@Builder
+@SuperBuilder
 public class Factura extends Base{
 
     private LocalDate fechaFacturacion;

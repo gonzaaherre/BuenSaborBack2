@@ -2,6 +2,7 @@ package com.entidades.buenSabor.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +13,7 @@ import java.util.Set;
 @Setter
 @Entity
 @ToString
-@Builder
+@SuperBuilder
 public class Domicilio extends Base{
 
     private String calle;
@@ -21,7 +22,7 @@ public class Domicilio extends Base{
     private Integer piso;
     private Integer nroDpto;
 
-    @ManyToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "localidad_id")
     private Localidad localidad;
 

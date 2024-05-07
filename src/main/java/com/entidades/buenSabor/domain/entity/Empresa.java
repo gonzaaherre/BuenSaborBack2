@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Cascade;
 
 import java.util.HashSet;
@@ -16,7 +17,7 @@ import java.util.Set;
 @Setter
 @Entity
 @ToString
-@Builder
+@SuperBuilder
 public class Empresa extends Base{
 
     private String nombre;

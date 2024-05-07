@@ -18,18 +18,4 @@ public class DomicilioFacadeImp extends BaseFacadeImp<Domicilio, DomicilioDto, L
         super(baseService, baseMapper);
     }
 
-    @Autowired
-    LocalidadService localidadService;
-
-    @Override
-    public DomicilioDto createNew(DomicilioDto request){
-        // Convierte a entidad
-        Domicilio entityToCreate = baseMapper.toEntity(request);
-        //trae la localidad(entidad) del service y la asigna al domicilio
-        entityToCreate.setLocalidad(localidadService.getById(request.getLocalidad().getId()));
-        // Graba una entidad
-        Domicilio entityCreated = baseService.create(entityToCreate);
-        // convierte a Dto para devolver
-        return baseMapper.toDTO(entityCreated);
-    }
 }

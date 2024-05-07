@@ -2,6 +2,7 @@ package com.entidades.buenSabor.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalTime;
 import java.util.HashSet;
@@ -13,7 +14,7 @@ import java.util.Set;
 @Setter
 @Entity
 @ToString
-@Builder
+@SuperBuilder
 public class Sucursal extends Base{
 
     private String nombre;

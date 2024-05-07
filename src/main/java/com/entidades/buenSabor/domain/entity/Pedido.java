@@ -5,6 +5,7 @@ import com.entidades.buenSabor.domain.entity.enums.FormaPago;
 import com.entidades.buenSabor.domain.entity.enums.TipoEnvio;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -16,7 +17,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Builder
+@SuperBuilder
 public class Pedido extends Base{
 
     private LocalTime horaEstimadaFinalizacion;

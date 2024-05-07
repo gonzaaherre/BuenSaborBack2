@@ -3,6 +3,7 @@ package com.entidades.buenSabor.domain.entity;
 import com.entidades.buenSabor.domain.entity.enums.TipoPromocion;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -15,7 +16,7 @@ import java.util.Set;
 @Setter
 @Entity
 @ToString
-@Builder
+@SuperBuilder
 public class Promocion extends Base {
 
     private String denominacion;

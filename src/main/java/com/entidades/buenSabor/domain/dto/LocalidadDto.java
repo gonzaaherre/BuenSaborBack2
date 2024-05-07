@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class LocalidadDto extends BaseDto {
+public class LocalidadDto extends BaseDto{
 
     private String nombre;
     private ProvinciaDto provincia;
