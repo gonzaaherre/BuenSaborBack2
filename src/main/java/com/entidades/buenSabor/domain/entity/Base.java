@@ -19,10 +19,10 @@ import java.io.Serializable;
 public abstract class Base implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
     @Builder.Default
-    public Boolean eliminado = Boolean.FALSE;
+    private Boolean eliminado = Boolean.FALSE;
 
     public Boolean isEliminado(){
         return eliminado;

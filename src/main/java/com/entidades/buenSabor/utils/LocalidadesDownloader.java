@@ -28,11 +28,11 @@ class MunicipiosDownloader implements CommandLineRunner {
     @Override
     public void run(String... args) {
         RestTemplate restTemplate = new RestTemplate();
-        String jsonResponse = restTemplate.getForObject("https://infra.datos.gob.ar/georef/municipios.json", String.class);
+        String jsonResponse = restTemplate.getForObject("https://infra.datos.gob.ar/georef/departamentos.json", String.class);
         JSONObject jsonObject = new JSONObject(jsonResponse);
-        JSONArray municipiosArray = jsonObject.getJSONArray("municipios");
+        JSONArray departamentosArray = jsonObject.getJSONArray("departamentos");
 
-        // Obtener el país
+// Obtener el país
         Pais pais = paisRepository.findById(1L).orElseGet(() -> {
             Pais newPais = new Pais();
             newPais.setId(1L);
@@ -40,13 +40,13 @@ class MunicipiosDownloader implements CommandLineRunner {
             return paisRepository.save(newPais);
         });
 
-        municipiosArray.forEach(obj -> {
-            JSONObject localidadJson = (JSONObject) obj;
+        departamentosArray.forEach(obj -> {
+            JSONObject departamentoJson = (JSONObject) obj;
 
-            Long localidadId = Long.parseLong(localidadJson.getString("id"));
-            String localidadNombre = localidadJson.getString("nombre");
+            Long localidadId = Long.parseLong(departamentoJson.getString("id"));
+            String localidadNombre = departamentoJson.getString("nombre");
 
-            JSONObject provinciaJson = localidadJson.getJSONObject("provincia");
+            JSONObject provinciaJson = departamentoJson.getJSONObject("provincia");
             Long provinciaId = Long.parseLong(provinciaJson.getString("id"));
             String provinciaNombre = provinciaJson.getString("nombre");
 
