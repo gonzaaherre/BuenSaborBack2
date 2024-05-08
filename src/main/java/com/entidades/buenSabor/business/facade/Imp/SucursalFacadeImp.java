@@ -18,30 +18,5 @@ public class SucursalFacadeImp extends BaseFacadeImp<Sucursal, SucursalDto,Long>
         super(baseService, baseMapper);
     }
 
-    @Autowired
-    DomicilioFacade domicilioFacade;
-
-//    @Override
-//    public SucursalDto createNew(SucursalDto request) {
-//        // Convierte a entidad
-//        var entityToCreate = baseMapper.toEntity(request);
-//
-//        // Crea un nuevo domicilio a partir del domicilioDto de la sucursal
-//        DomicilioDto domicilioDto = request.getDomicilioDto();
-//        DomicilioDto domicilioCreado = domicilioFacade.createNew(domicilioDto);
-//
-//        // Convierte el DomicilioDto a Domicilio
-//        Domicilio domicilio = baseMapper.toEntity(domicilioCreado);
-//
-//        // Asigna la sucursal al domicilio
-//        domicilio.setSucursal(entityToCreate);
-//
-//        // Asigna el domicilio a la entidad de la sucursal
-//        entityToCreate.setDomicilio(domicilio);
-//
-//        var entityCreated = baseService.create(entityToCreate);
-//        // convierte a Dto para devolver
-//        return baseMapper.toDTO(entityCreated);
-//    }
 
 }

@@ -1,14 +1,21 @@
 package com.entidades.buenSabor.business.mapper;
 
+
 import com.entidades.buenSabor.domain.dto.EmpresaDto;
-import com.entidades.buenSabor.domain.dto.SucursalDto;
+
+import com.entidades.buenSabor.domain.dto.LocalidadDto;
 import com.entidades.buenSabor.domain.entity.Empresa;
-import com.entidades.buenSabor.domain.entity.Sucursal;
+
+import com.entidades.buenSabor.domain.entity.Localidad;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring", uses = SucursalMapper.class)
-public interface EmpresaMapper {
+import java.util.List;
+
+@Mapper(componentModel = "spring")
+public interface EmpresaMapper extends BaseMapper<Empresa, EmpresaDto> {
     EmpresaDto toDTO(Empresa source);
 
     Empresa toEntity(EmpresaDto source);
+
+    List<EmpresaDto> toDTOsList(List<Empresa> source);
 }
