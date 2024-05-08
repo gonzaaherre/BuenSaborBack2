@@ -1,8 +1,8 @@
 package com.entidades.buenSabor.utils;
 
-import com.entidades.buenSabor.domain.entity.Localidad;
-import com.entidades.buenSabor.domain.entity.Pais;
-import com.entidades.buenSabor.domain.entity.Provincia;
+import com.entidades.buenSabor.domain.entities.Localidad;
+import com.entidades.buenSabor.domain.entities.Pais;
+import com.entidades.buenSabor.domain.entities.Provincia;
 import com.entidades.buenSabor.repositories.LocalidadRepository;
 import com.entidades.buenSabor.repositories.PaisRepository;
 import com.entidades.buenSabor.repositories.ProvinciaRepository;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-class MunicipiosDownloader implements CommandLineRunner {
+class LocalidadesDownloader implements CommandLineRunner {
 
     @Autowired
     private LocalidadRepository localidadRepository;

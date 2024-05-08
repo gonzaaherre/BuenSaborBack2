@@ -1,7 +1,6 @@
 package com.entidades.buenSabor.repositories;
 
-
-import com.entidades.buenSabor.domain.entity.ArticuloManufacturado;
+import com.entidades.buenSabor.domain.entities.ArticuloManufacturado;
 import org.springframework.stereotype.Repository;
 
 @Repository

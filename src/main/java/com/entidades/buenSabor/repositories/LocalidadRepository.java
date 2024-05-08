@@ -1,12 +1,8 @@
 package com.entidades.buenSabor.repositories;
 
-import com.entidades.buenSabor.domain.entity.Localidad;
+import com.entidades.buenSabor.domain.entities.Localidad;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface LocalidadRepository extends BaseRepository<Localidad,Long> {
-    List<Localidad> findByProvinciaId(Long id);
-    Localidad findByNombre(String nombre);
+public interface LocalidadRepository extends BaseRepository<Localidad,Long>{
 }
