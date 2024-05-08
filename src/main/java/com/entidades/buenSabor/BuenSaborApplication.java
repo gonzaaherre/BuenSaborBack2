@@ -1,22 +1,11 @@
 package com.entidades.buenSabor;
 
-import com.entidades.buenSabor.domain.entity.*;
-import com.entidades.buenSabor.domain.entity.enums.Estado;
-import com.entidades.buenSabor.domain.entity.enums.FormaPago;
-import com.entidades.buenSabor.domain.entity.enums.TipoEnvio;
-import com.entidades.buenSabor.domain.entity.enums.TipoPromocion;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.entidades.buenSabor.repositories.*;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 @SpringBootApplication
 public class BuenSaborApplication {

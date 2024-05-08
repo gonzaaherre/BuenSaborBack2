@@ -5,7 +5,7 @@ import com.entidades.buenSabor.business.facade.PaisFacade;
 import com.entidades.buenSabor.business.mapper.BaseMapper;
 import com.entidades.buenSabor.business.service.Base.BaseService;
 import com.entidades.buenSabor.domain.dto.PaisDto;
-import com.entidades.buenSabor.domain.entity.Pais;
+import com.entidades.buenSabor.domain.entities.Pais;
 import org.springframework.stereotype.Service;
 
 

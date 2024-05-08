@@ -1,5 +1,5 @@
 package com.entidades.buenSabor.business.service.Base;
-import com.entidades.buenSabor.domain.entity.Base;
+import com.entidades.buenSabor.domain.entities.Base;
 import com.entidades.buenSabor.repositories.BaseRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +32,7 @@ public abstract class BaseServiceImp<E extends Base,ID extends Serializable> imp
 
     @Override
     public List<E> getAll(){
-        var entities = baseRepository.getAll();
+        var entities = baseRepository.findAll();
         logger.info("Obtenidas entidades {}",entities);
         return entities;
     }
