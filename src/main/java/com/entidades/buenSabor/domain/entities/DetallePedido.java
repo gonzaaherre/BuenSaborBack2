@@ -11,7 +11,7 @@ import org.hibernate.envers.Audited;
 @Setter
 @Getter
 @ToString
-@Builder
+@SuperBuilder
 //@Audited
 public class DetallePedido extends Base{
     private Integer cantidad;

@@ -3,6 +3,7 @@ package com.entidades.buenSabor.domain.entities;
 import com.example.buensaboruno.domain.enums.TipoPromocion;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.envers.NotAudited;
 
 import java.time.LocalDate;
@@ -16,7 +17,7 @@ import java.util.Set;
 @Setter
 @Getter
 @ToString
-@Builder
+@SuperBuilder
 //@Audited
 public class Promocion  extends Base{
     private String denominacion;

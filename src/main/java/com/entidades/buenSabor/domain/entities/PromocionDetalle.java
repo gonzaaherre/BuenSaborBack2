@@ -2,6 +2,7 @@ package com.entidades.buenSabor.domain.entities;
 
 import jakarta.persistence.Entity;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.envers.Audited;
 
 @Entity
@@ -9,7 +10,7 @@ import org.hibernate.envers.Audited;
 @NoArgsConstructor
 @Setter
 @Getter
-@Builder
+@SuperBuilder
 //@Audited
 public class PromocionDetalle extends Base{
     private String detalle;
