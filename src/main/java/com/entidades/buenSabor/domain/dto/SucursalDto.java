@@ -16,8 +16,5 @@ public class SucursalDto extends BaseDto {
     private String nombre;
     private LocalTime horarioApertura;
     private LocalTime horarioCierre;
-
-    private DomicilioDto domicilioDto;
-
-    private EmpresaDto empresaDto;
+    private DomicilioDto domicilio;
 }

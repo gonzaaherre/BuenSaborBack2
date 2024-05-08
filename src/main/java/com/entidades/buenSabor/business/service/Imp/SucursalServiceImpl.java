@@ -9,16 +9,4 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SucursalServiceImpl extends BaseServiceImp<Sucursal,Long> implements SucursalService {
-
-    @Autowired
-    DomicilioService domicilioService;
-
-    @Override
-    public Sucursal asignarDomicilio(Long id, Long idDomicilio) {
-        var sucursal = getById(id);
-        var domicilio = domicilioService.getById(idDomicilio);
-        sucursal.setDomicilio(domicilio);
-        return update(sucursal, id);
-
-    }
 }
