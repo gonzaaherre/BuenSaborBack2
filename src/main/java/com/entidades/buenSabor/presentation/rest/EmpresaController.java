@@ -9,12 +9,14 @@ import com.entidades.buenSabor.domain.entities.Empresa;
 
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/empresa")
+@CrossOrigin("*")
 public class EmpresaController extends BaseControllerImp<Empresa, EmpresaDto, Long, EmpresaFacadeImpl> {
     public EmpresaController(EmpresaFacadeImpl facade) {
         super(facade);
