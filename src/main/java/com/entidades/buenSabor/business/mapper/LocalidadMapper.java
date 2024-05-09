@@ -1,7 +1,7 @@
 package com.entidades.buenSabor.business.mapper;
 
 import com.entidades.buenSabor.domain.dto.LocalidadDto;
-import com.entidades.buenSabor.domain.entity.Localidad;
+import com.entidades.buenSabor.domain.entities.Localidad;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

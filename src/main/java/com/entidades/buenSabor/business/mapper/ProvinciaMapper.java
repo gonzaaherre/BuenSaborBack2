@@ -2,8 +2,7 @@ package com.entidades.buenSabor.business.mapper;
 
 import com.entidades.buenSabor.domain.dto.PaisDto;
 import com.entidades.buenSabor.domain.dto.ProvinciaDto;
-import com.entidades.buenSabor.domain.entity.Pais;
-import com.entidades.buenSabor.domain.entity.Provincia;
+import com.entidades.buenSabor.domain.entities.Provincia;
 import org.mapstruct.Mapper;
 
 import java.util.List;

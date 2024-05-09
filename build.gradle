@@ -24,17 +24,33 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	//H2 DATABASE
 	runtimeOnly 'com.h2database:h2'
-	annotationProcessor 'org.projectlombok:lombok'
+
+	//SWAGGER
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.1.0'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//JSON
 	implementation 'org.json:json:20210307'
+
+	//JACKSON
+
 	runtimeOnly 'com.fasterxml.jackson.core:jackson-databind'
 	runtimeOnly 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+	//MAPSTRUCT
 	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+
+	//LOMBOK
 	annotationProcessor 'org.projectlombok:lombok', 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+	compileOnly 'org.projectlombok:lombok'
+
+	//ENVERS
+	implementation 'org.hibernate.orm:hibernate-envers:6.4.4.Final'
 }
 
 tasks.named('test') {
