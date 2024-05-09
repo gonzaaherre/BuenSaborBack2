@@ -1,19 +1,37 @@
 package com.entidades.buenSabor;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.entidades.buenSabor.domain.entities.*;
+import com.entidades.buenSabor.domain.enums.*;
+import com.entidades.buenSabor.repositories.*;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.entidades.buenSabor.repositories.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Random;
+import java.util.Set;
+
 
 @SpringBootApplication
 public class BuenSaborApplication {
-
 	private static final Logger logger = LoggerFactory.getLogger(BuenSaborApplication.class);
 
 	@Autowired
 	private ClienteRepository clienteRepository;
+	@Autowired
+	private ImagenPersonaRepository imagenPersonaRepository;
+	@Autowired
+	private PromocionDetalleRepository promocionDetalleRepository;
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 
 	@Autowired
 	private PaisRepository paisRepository;
@@ -25,14 +43,13 @@ public class BuenSaborApplication {
 	private LocalidadRepository localidadRepository;
 
 	@Autowired
-	private DomicilioRepository domicilioRepository;
-
-	@Autowired
 	private EmpresaRepository empresaRepository;
 
 	@Autowired
-	private SucursalRepository	sucursalRepository;
+	private SucursalRepository sucursalRepository;
 
+	@Autowired
+	private DomicilioRepository domicilioRepository;
 
 	@Autowired
 	private UnidadMedidaRepository unidadMedidaRepository;
@@ -47,22 +64,42 @@ public class BuenSaborApplication {
 	private ArticuloManufacturadoRepository articuloManufacturadoRepository;
 
 	@Autowired
+	private ImagenArticuloRepository imagenArticuloRepository;
+
+	@Autowired
 	private PromocionRepository promocionRepository;
+
+	@Autowired
+	private ArticuloManufacturadoDetalleRepository articuloManufacturadoDetalleRepository;
 
 	@Autowired
 	private PedidoRepository pedidoRepository;
 
-	@Autowired
-	private UsuarioRepository usuarioRepository;
-
 	public static void main(String[] args) {
 		SpringApplication.run(BuenSaborApplication.class, args);
-		logger.info("Estoy activo en el main");
+		logger.info("Estoy activo en el main Alberto");
 	}
-/*
+
 	@Bean
 	@Transactional
-	CommandLineRunner init () {
+	CommandLineRunner init(ClienteRepository clienteRepository,
+						   ImagenPersonaRepository imagenPersonaRepository,
+						   PromocionDetalleRepository promocionDetalleRepository,
+						   UsuarioRepository usuarioRepository,
+						   PaisRepository paisRepository,
+						   ProvinciaRepository provinciaRepository,
+						   LocalidadRepository localidadRepository,
+						   EmpresaRepository empresaRepository,
+						   SucursalRepository sucursalRepository,
+						   DomicilioRepository domicilioRepository,
+						   UnidadMedidaRepository unidadMedidaRepository,
+						   CategoriaRepository categoriaRepository,
+						   ArticuloInsumoRepository articuloInsumoRepository,
+						   ArticuloManufacturadoRepository articuloManufacturadoRepository,
+						   ImagenArticuloRepository imagenArticuloRepository,
+						   PromocionRepository promocionRepository,
+						   PedidoRepository pedidoRepository,
+						   EmpleadoRepository empleadoRepository, FacturaRepository facturaRepository) {
 		return args -> {
 			logger.info("----------------ESTOY----FUNCIONANDO---------------------");
 			// Etapa del dashboard
@@ -90,7 +127,7 @@ public class BuenSaborApplication {
 
 			// Crear 1 empresa, 2 sucursales para esa empresa y los Domicilios para esas sucursales
 
-			Empresa empresaCarlos = Empresa.builder().nombre("Lo de Carlos").cuil(30546780).razonSocial("Venta de Alimentos").build();
+			Empresa empresaCarlos = Empresa.builder().nombre("Lo de Carlos").cuil(30546780L).razonSocial("Venta de Alimentos").build();
 			empresaRepository.save(empresaCarlos);
 
 			Sucursal sucursalGuaymallen = Sucursal.builder().
@@ -107,7 +144,7 @@ public class BuenSaborApplication {
 
 			Domicilio domicilioGaboto = Domicilio.builder().cp(7600).calle("Gaboto").numero(3475).
 					localidad(localidad2).build();
-// GRABAMOS DOMICILIOS
+			// GRABAMOS DOMICILIOS
 			domicilioRepository.save(domicilioBerutti);
 			domicilioRepository.save(domicilioGaboto);
 
@@ -122,10 +159,10 @@ public class BuenSaborApplication {
 			//ASIGNAMOS EMPRESA A SUCURSALES
 			sucursalGuaymallen.setEmpresa(empresaCarlos);
 			sucursalMarDelPlata.setEmpresa(empresaCarlos);
-// Grabo las sucursales
+			// Grabo las sucursales
 			sucursalRepository.save(sucursalGuaymallen);
 			sucursalRepository.save(sucursalMarDelPlata);
-// Grabi empresa
+			// Grabi empresa
 			empresaRepository.save(empresaCarlos);
 
 			// Crear Categorías de productos y subCategorías de los mismos
@@ -149,14 +186,14 @@ public class BuenSaborApplication {
 			Categoria categoriaInsumos = Categoria.builder().denominacion("Insumos").
 					build();
 
-	// Grabo la categoría de insumos y de Manufacturados
+			// Grabo la categoría de insumos y de Manufacturados
 			categoriaRepository.save(categoriaPizzas);
 			categoriaRepository.save(categoriaInsumos);
-	// Asigno subCategorías
+			// Asigno subCategorías
 
 			categoriaBebidas.getSubCategorias().add(categoriaGaseosas);
 			categoriaBebidas.getSubCategorias().add(categoriaTragos);
-		// Grabo las Subcategorías
+			// Grabo las Subcategorías
 			categoriaRepository.save(categoriaBebidas);
 
 			logger.info("---------------voy a asignar a Guaymallen--------------------");
@@ -169,7 +206,7 @@ public class BuenSaborApplication {
 			sucursalGuaymallen.getCategorias().add(categoriaTragos);
 			sucursalGuaymallen.getCategorias().add(categoriaPizzas);
 			logger.info("{}",sucursalGuaymallen);
-// Grabo las categorias que vende esa sucursal
+			// Grabo las categorias que vende esa sucursal
 			sucursalRepository.save(sucursalGuaymallen);
 
 			logger.info("---------------saque el save de abajo-------------------");
@@ -236,7 +273,7 @@ public class BuenSaborApplication {
 			harina.getImagenes().add(imagenArticuloHarina);
 			queso.getImagenes().add(imagenArticuloQueso);
 			tomate.getImagenes().add(imagenArticuloTomate);
-		// Grabamos los Articulos
+			// Grabamos los Articulos
 			articuloInsumoRepository.save(cocaCola);
 			articuloInsumoRepository.save(harina);
 			articuloInsumoRepository.save(queso);
@@ -285,7 +322,7 @@ public class BuenSaborApplication {
 			ArticuloManufacturadoDetalle detalle3 = ArticuloManufacturadoDetalle.builder().articuloInsumo(harina).cantidad(350).build();
 			ArticuloManufacturadoDetalle detalle4 = ArticuloManufacturadoDetalle.builder().articuloInsumo(queso).cantidad(650).build();
 			ArticuloManufacturadoDetalle detalle5 = ArticuloManufacturadoDetalle.builder().articuloInsumo(tomate).cantidad(2).build();
-	// grabamos el Artículo Manufacturado
+			// grabamos el Artículo Manufacturado
 			articuloManufacturadoDetalleRepository.save(detalle1);
 			articuloManufacturadoDetalleRepository.save(detalle2);
 			articuloManufacturadoDetalleRepository.save(detalle3);
@@ -307,10 +344,10 @@ public class BuenSaborApplication {
 
 			categoriaPizzas.getArticulos().add(pizzaMuzarella);
 			categoriaPizzas.getArticulos().add(pizzaNapolitana);
-        // Graba la categoria y los productos asociados
+			// Graba la categoria y los productos asociados
 			categoriaRepository.save(categoriaPizzas);
 
-		//	categoriaRepository.save(categoriaGaseosas); CREO QUE ESTA DE MAS REVISAR
+			//	categoriaRepository.save(categoriaGaseosas); CREO QUE ESTA DE MAS REVISAR
 
 
 			// Crear promocion para sucursal - Dia de los enamorados
@@ -350,10 +387,10 @@ public class BuenSaborApplication {
 // La sucursal buscada, luego debe salvarse nuevamente, pero ahora ya existe es como un Updete
 // Peimero la busco y luego la grabo
 
-		//sucursalRepository.findById();
+			//sucursalRepository.findById();
 //--------------------- ESTOS SAVE SE HACIAN NUEVAMENTE CON LA INSTANCIA ANTERIOR
 //  Por eso daba duplicado, revisa rla logica de esta parte
-		// Sucursal Guaymallee
+			// Sucursal Guaymallee
 			Sucursal sucursalId1 = sucursalRepository.findWithPromocionesById(1L);
 			Sucursal sucursalId2 = sucursalRepository.findWithPromocionesById(2L);
 			Promocion promocionId1 = promocionRepository.findAllWithSucursales(1L);
@@ -405,7 +442,7 @@ public class BuenSaborApplication {
 			cliente.setApellido("Wilder");
 			cliente.setUsuario(usuario);
 			cliente.setTelefono("2615920825");
-		//	cliente.setEstaActivo(true);
+			//	cliente.setEstaActivo(true);
 			cliente.getDomicilios().add(domicilioCliente);
 			clienteRepository.save(cliente);
 
@@ -417,7 +454,7 @@ public class BuenSaborApplication {
 			empleado.setApellido("Falsin");
 			empleado.setUsuario(usuario2);
 			empleado.setTelefono("2612151170");
-		//	empleado.setEstaActivo(true);
+			//	empleado.setEstaActivo(true);
 			empleado.setImagenPersona(imagenEmpleado);
 			empleado.setSucursal(sucursalGuaymallen);
 			sucursalGuaymallen.getEmpleados().add(empleado);
@@ -448,12 +485,12 @@ public class BuenSaborApplication {
 
 			Random random = new Random();
 			Factura facturaBuilder = Factura.builder().fechaFcturacion(LocalDate.now())
-			.mpPaymentId(random.nextInt(1000))  // Se asume un rango máximo de 1000
-			.mpMerchantOrderId(random.nextInt(1000)) // Se asume un rango máximo de 1000
-			.mpPreferenceId("MP-" + random.nextInt(10000))  // Se asume un rango máximo de 10000
-			.mpPaymentType("Tipo" + random.nextInt(10)) // Se asume un rango máximo de 10
-			.formaPago(FormaPago.EFECTIVO)
-			.totalVenta(random.nextDouble() * 1000).build();
+					.mpPaymentId(random.nextInt(1000))  // Se asume un rango máximo de 1000
+					.mpMerchantOrderId(random.nextInt(1000)) // Se asume un rango máximo de 1000
+					.mpPreferenceId("MP-" + random.nextInt(10000))  // Se asume un rango máximo de 10000
+					.mpPaymentType("Tipo" + random.nextInt(10)) // Se asume un rango máximo de 10
+					.formaPago(FormaPago.EFECTIVO)
+					.totalVenta(random.nextDouble() * 1000).build();
 
 			facturaRepository.save(facturaBuilder);
 
@@ -467,8 +504,7 @@ public class BuenSaborApplication {
 			logger.info("{}",sucursalMarDelPlata);
 			logger.info("----------------Pedido ---------------------");
 			logger.info("{}",pedido);
-
 		};
 	}
-*/
+
 }

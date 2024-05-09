@@ -1,7 +1,10 @@
 package com.entidades.buenSabor.domain.entities;
 
-import com.example.buensaboruno.domain.enums.FormaPago;
+
+import com.entidades.buenSabor.domain.enums.FormaPago;
 import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.envers.Audited;

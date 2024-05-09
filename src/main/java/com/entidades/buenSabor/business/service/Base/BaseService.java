@@ -1,7 +1,5 @@
 package com.entidades.buenSabor.business.service.Base;
 
-
-
 import com.entidades.buenSabor.domain.entities.Base;
 
 import java.io.Serializable;

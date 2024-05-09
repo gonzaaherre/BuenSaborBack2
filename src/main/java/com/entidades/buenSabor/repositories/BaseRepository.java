@@ -1,5 +1,6 @@
 package com.entidades.buenSabor.repositories;
 
+
 import com.entidades.buenSabor.domain.entities.Base;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;

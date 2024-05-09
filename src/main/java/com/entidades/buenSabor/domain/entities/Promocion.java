@@ -1,6 +1,6 @@
 package com.entidades.buenSabor.domain.entities;
 
-import com.example.buensaboruno.domain.enums.TipoPromocion;
+import com.entidades.buenSabor.domain.enums.TipoPromocion;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;

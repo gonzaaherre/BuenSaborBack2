@@ -1,31 +1,31 @@
 package com.entidades.buenSabor.domain.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.envers.Audited;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-@Entity
-@AllArgsConstructor
 @NoArgsConstructor
-@Setter
+@AllArgsConstructor
 @Getter
-@ToString
+@Setter
+@Entity
 @SuperBuilder
-//@Audited
 public class Empresa extends Base{
 
     private String nombre;
     private String razonSocial;
-    private Integer cuil;
+    private Long cuil;
 
-    @OneToMany(mappedBy = "empresa",cascade = CascadeType.REFRESH,fetch = FetchType.LAZY)
-    @ToString.Exclude
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "empresa")
+    //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA
     @Builder.Default
-    private Set<Sucursal> Sucursales= new HashSet<>();
+    private Set<Sucursal> sucursales = new HashSet<>();
+
 }

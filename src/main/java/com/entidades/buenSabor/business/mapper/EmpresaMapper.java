@@ -4,10 +4,8 @@ package com.entidades.buenSabor.business.mapper;
 import com.entidades.buenSabor.domain.dto.EmpresaDto;
 
 import com.entidades.buenSabor.domain.dto.EmpresaLargeDto;
-import com.entidades.buenSabor.domain.dto.LocalidadDto;
-import com.entidades.buenSabor.domain.entity.Empresa;
+import com.entidades.buenSabor.domain.entities.Empresa;
 
-import com.entidades.buenSabor.domain.entity.Localidad;
 import org.mapstruct.Mapper;
 
 import java.util.List;

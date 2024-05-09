@@ -1,4 +1,4 @@
-package com.example.buensaboruno.domain.enums;
+package com.entidades.buenSabor.domain.enums;
 
 public enum Rol {
     ADMIN,

@@ -1,6 +1,5 @@
 package com.entidades.buenSabor.domain.entities;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;

@@ -37,10 +37,7 @@ dependencies {
 	//JSON
 	implementation 'org.json:json:20210307'
 
-	//JACKSON
 
-	runtimeOnly 'com.fasterxml.jackson.core:jackson-databind'
-	runtimeOnly 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 
 	//MAPSTRUCT
 	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
