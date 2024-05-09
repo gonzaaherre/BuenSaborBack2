@@ -20,4 +20,6 @@ public class SucursalDto extends BaseDto {
     private DomicilioDto domicilio;
 
     private EmpresaDto empresa;
+
+
 }
