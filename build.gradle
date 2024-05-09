@@ -52,6 +52,11 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+jar {
+	manifest {
+		attributes 'BuenSaborApplication': 'com.entidades.buenSabor.BuenSaborApplication'
+	}
+}
 
 tasks.jar {
 	enabled = true
