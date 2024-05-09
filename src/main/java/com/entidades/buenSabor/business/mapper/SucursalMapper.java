@@ -8,7 +8,7 @@ import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = DomicilioMapper.class)
+@Mapper(componentModel = "spring", uses = DomicilioMapper.class )
 public interface SucursalMapper extends BaseMapper<Sucursal, SucursalDto>{
 
     SucursalDto toDTO(Sucursal source);
