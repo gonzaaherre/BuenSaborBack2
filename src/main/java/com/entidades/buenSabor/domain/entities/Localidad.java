@@ -16,9 +16,7 @@ import java.util.List;
 public class Localidad extends Base{
     private String nombre;
 
-
-
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Provincia provincia;
 
 }

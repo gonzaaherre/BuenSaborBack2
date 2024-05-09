@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class Provincia extends Base {
     private String nombre;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Pais pais;
 
 }

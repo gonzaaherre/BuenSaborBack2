@@ -37,8 +37,6 @@ dependencies {
 	//JSON
 	implementation 'org.json:json:20210307'
 
-
-
 	//MAPSTRUCT
 	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
 

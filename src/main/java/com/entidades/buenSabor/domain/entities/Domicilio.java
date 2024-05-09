@@ -5,8 +5,6 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.NotAudited;
 
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -23,7 +21,7 @@ public class Domicilio extends Base{
     private Integer piso;
     private Integer nroDpto;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @NotAudited
     private Localidad localidad;
 
