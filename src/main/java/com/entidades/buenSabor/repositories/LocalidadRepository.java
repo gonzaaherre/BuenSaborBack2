@@ -1,6 +1,6 @@
 package com.entidades.buenSabor.repositories;
 
-import com.entidades.buenSabor.domain.entity.Localidad;
+import com.entidades.buenSabor.domain.entities.Localidad;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.entidades.buenSabor.domain.entity.enums;
+package com.entidades.buenSabor.domain.entities.enums;
 
 public enum Estado {
     Preparacion,

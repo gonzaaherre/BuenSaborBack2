@@ -1,4 +1,4 @@
-package com.entidades.buenSabor.domain.entity;
+package com.entidades.buenSabor.domain.entities;
 
 import jakarta.persistence.Entity;
 import lombok.*;
@@ -11,9 +11,9 @@ import lombok.experimental.SuperBuilder;
 @Entity
 @ToString
 @SuperBuilder
-public class UnidadMedida extends Base{
+public class Usuario extends Base{
 
-    private String denominacion;
+    private String auth0Id;
+    private String username;
 
 }
-

@@ -1,4 +1,4 @@
-package com.entidades.buenSabor.domain.entity;
+package com.entidades.buenSabor.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

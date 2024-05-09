@@ -1,5 +1,5 @@
 package com.entidades.buenSabor.business.service.Base;
-import com.entidades.buenSabor.domain.entity.Base;
+import com.entidades.buenSabor.domain.entities.Base;
 import com.entidades.buenSabor.repositories.BaseRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

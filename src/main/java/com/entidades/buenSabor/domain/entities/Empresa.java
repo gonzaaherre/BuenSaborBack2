@@ -1,4 +1,4 @@
-package com.entidades.buenSabor.domain.entity;
+package com.entidades.buenSabor.domain.entities;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -6,7 +6,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.Cascade;
 
 import java.util.HashSet;
 import java.util.Set;

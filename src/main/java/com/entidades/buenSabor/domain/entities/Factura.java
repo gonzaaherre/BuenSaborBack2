@@ -1,6 +1,6 @@
-package com.entidades.buenSabor.domain.entity;
+package com.entidades.buenSabor.domain.entities;
 
-import com.entidades.buenSabor.domain.entity.enums.FormaPago;
+import com.entidades.buenSabor.domain.entities.enums.FormaPago;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import lombok.*;

@@ -1,7 +1,7 @@
 package com.entidades.buenSabor.repositories;
 
 
-import com.entidades.buenSabor.domain.entity.Promocion;
+import com.entidades.buenSabor.domain.entities.Promocion;
 import org.springframework.stereotype.Repository;
 
 @Repository

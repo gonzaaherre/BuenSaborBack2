@@ -1,7 +1,7 @@
 package com.entidades.buenSabor.business.service;
 
 import com.entidades.buenSabor.business.service.Base.BaseService;
-import com.entidades.buenSabor.domain.entity.Provincia;
+import com.entidades.buenSabor.domain.entities.Provincia;
 
 public interface ProvinciaService extends BaseService<Provincia, Long> {
 }

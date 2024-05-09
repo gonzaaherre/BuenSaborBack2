@@ -5,7 +5,7 @@ import com.entidades.buenSabor.business.facade.Imp.EmpresaFacadeImpl;
 import com.entidades.buenSabor.domain.dto.EmpresaDto;
 
 import com.entidades.buenSabor.domain.dto.EmpresaLargeDto;
-import com.entidades.buenSabor.domain.entity.Empresa;
+import com.entidades.buenSabor.domain.entities.Empresa;
 
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
 import org.springframework.http.ResponseEntity;

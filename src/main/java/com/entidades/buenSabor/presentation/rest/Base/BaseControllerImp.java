@@ -2,7 +2,7 @@ package com.entidades.buenSabor.presentation.rest.Base;
 
 import com.entidades.buenSabor.business.facade.Base.BaseFacadeImp;
 import com.entidades.buenSabor.domain.dto.BaseDto;
-import com.entidades.buenSabor.domain.entity.Base;
+import com.entidades.buenSabor.domain.entities.Base;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;

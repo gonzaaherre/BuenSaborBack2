@@ -1,8 +1,8 @@
-package com.entidades.buenSabor.domain.entity;
+package com.entidades.buenSabor.domain.entities;
 
-import com.entidades.buenSabor.domain.entity.enums.Estado;
-import com.entidades.buenSabor.domain.entity.enums.FormaPago;
-import com.entidades.buenSabor.domain.entity.enums.TipoEnvio;
+import com.entidades.buenSabor.domain.entities.enums.Estado;
+import com.entidades.buenSabor.domain.entities.enums.FormaPago;
+import com.entidades.buenSabor.domain.entities.enums.TipoEnvio;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;

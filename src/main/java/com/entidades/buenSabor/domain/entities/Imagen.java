@@ -1,4 +1,4 @@
-package com.entidades.buenSabor.domain.entity;
+package com.entidades.buenSabor.domain.entities;
 
 import jakarta.persistence.Entity;
 import lombok.*;
@@ -11,9 +11,8 @@ import lombok.experimental.SuperBuilder;
 @Entity
 @ToString
 @SuperBuilder
-public class Usuario extends Base{
+public class Imagen extends Base{
 
-    private String auth0Id;
-    private String username;
+    private String denominacion;
 
 }
