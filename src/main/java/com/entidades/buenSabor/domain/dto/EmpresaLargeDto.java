@@ -15,5 +15,5 @@ public class EmpresaLargeDto extends BaseDto{
     private String nombre;
     private String razonSocial;
     private Long cuil;
-    private Set<SucursalDto> sucursales;
+    private Set<ShortSucursal> sucursales;
 }

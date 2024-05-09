@@ -11,19 +11,4 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmpresaServiceImpl extends BaseServiceImp<Empresa,Long> implements EmpresaService {
-
-    @Autowired
-    SucursalService sucursalService;
-
-    @Autowired
-    EmpresaRepository empresaRepository;
-
-    @Override
-    public Empresa addSucursal(Long idEmpresa, Long idSucursal) {
-        Empresa empresa = empresaRepository.findWithSucursalesById(idEmpresa);
-        empresa.getSucursales().add(sucursalService.getById(idSucursal));
-        return empresa;
-
-        
-    }
 }
