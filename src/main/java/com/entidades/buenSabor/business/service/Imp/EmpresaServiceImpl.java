@@ -23,5 +23,7 @@ public class EmpresaServiceImpl extends BaseServiceImp<Empresa,Long> implements 
         Empresa empresa = empresaRepository.findWithSucursalesById(idEmpresa);
         empresa.getSucursales().add(sucursalService.getById(idSucursal));
         return empresa;
+
+        
     }
 }
