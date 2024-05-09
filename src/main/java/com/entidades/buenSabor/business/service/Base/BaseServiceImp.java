@@ -32,7 +32,7 @@ public abstract class BaseServiceImp<E extends Base,ID extends Serializable> imp
 
     @Override
     public List<E> getAll(){
-        var entities = baseRepository.findAll();
+        var entities = baseRepository.getAll();
         logger.info("Obtenidas entidades {}",entities);
         return entities;
     }
