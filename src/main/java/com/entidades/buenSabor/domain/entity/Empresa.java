@@ -22,7 +22,7 @@ public class Empresa extends Base{
 
     private String nombre;
     private String razonSocial;
-    private Integer cuil;
+    private Long cuil;
 
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "empresa")
