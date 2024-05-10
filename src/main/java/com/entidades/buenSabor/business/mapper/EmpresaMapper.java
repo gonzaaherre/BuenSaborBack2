@@ -12,11 +12,5 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface EmpresaMapper extends BaseMapper<Empresa, EmpresaDto> {
-    EmpresaDto toDTO(Empresa source);
-
     EmpresaLargeDto toLargeDto(Empresa empresa);
-
-    Empresa toEntity(EmpresaDto source);
-
-    List<EmpresaDto> toDTOsList(List<Empresa> source);
 }

@@ -8,7 +8,4 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface PaisMapper extends BaseMapper<Pais, PaisDto>{
-    PaisDto toDTO(Pais source);
-    public Pais toEntity(PaisDto source);
-    List<PaisDto> toDTOsList(List<Pais> source);
 }

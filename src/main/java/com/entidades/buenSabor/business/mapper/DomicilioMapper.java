@@ -8,10 +8,4 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", uses = LocalidadMapper.class)
 public interface DomicilioMapper extends BaseMapper<Domicilio, DomicilioDto> {
-
-    DomicilioDto toDTO(Domicilio source);
-
-    Domicilio toEntity(DomicilioDto source);
-
-    List<DomicilioDto> toDTOsList(List<Domicilio> source);
 }

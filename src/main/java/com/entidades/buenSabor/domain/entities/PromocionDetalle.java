@@ -1,10 +1,9 @@
 package com.entidades.buenSabor.domain.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.envers.Audited;
 
 @Entity
 @AllArgsConstructor
@@ -16,6 +15,6 @@ import org.hibernate.envers.Audited;
 public class PromocionDetalle extends Base{
     private String detalle;
 
-    @ManyToMany
+    @ManyToOne
     private Articulo articulo;
 }
