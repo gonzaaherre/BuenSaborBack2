@@ -22,6 +22,10 @@ public abstract class Base implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
-    protected boolean eliminado;
+    protected Boolean eliminado = Boolean.FALSE;
+
+    public Boolean isEliminado(){
+        return eliminado;
+    }
 }
 

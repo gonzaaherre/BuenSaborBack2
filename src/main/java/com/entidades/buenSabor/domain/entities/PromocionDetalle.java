@@ -1,6 +1,7 @@
 package com.entidades.buenSabor.domain.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.envers.Audited;
@@ -14,4 +15,7 @@ import org.hibernate.envers.Audited;
 //@Audited
 public class PromocionDetalle extends Base{
     private String detalle;
+
+    @ManyToMany
+    private Articulo articulo;
 }

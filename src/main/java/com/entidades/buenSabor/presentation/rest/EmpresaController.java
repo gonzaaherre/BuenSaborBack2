@@ -19,7 +19,7 @@ public class EmpresaController extends BaseControllerImp<Empresa, EmpresaDto, Lo
         super(facade);
     }
 
-    @GetMapping("/empresa/sucursales/{idEmpresa}")
+    @GetMapping("/sucursales/{idEmpresa}")
     public ResponseEntity<EmpresaLargeDto> getEmpresaSucursales(@PathVariable Long idEmpresa){
         return ResponseEntity.ok(facade.getEmpresaSucursales(idEmpresa));
     }
