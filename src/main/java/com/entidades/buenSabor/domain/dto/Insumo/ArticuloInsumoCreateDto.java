@@ -13,7 +13,7 @@ import lombok.Setter;
 public class ArticuloInsumoCreateDto {
     private String denominacion;
     private Double precioVenta;
-    private Long unidadMedida;
+    private Long idUnidadMedida;
     private Double precioCompra;
     private Integer stockActual;
     private Integer stockMaximo;

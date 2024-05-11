@@ -12,11 +12,11 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArticuloManufacturadoDto extends BaseDto {
+    private String denominacion;
     private String descripcion;
     private Integer tiempoEstimadoMinutos;
+    private Double precioVenta;
     private String preparacion;
     private UnidadMedidaDto unidadMedida;
     private Set<ArticuloManufacturadoDetalleDto> articuloManufacturadoDetalles;
-
-
 }

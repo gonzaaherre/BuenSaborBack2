@@ -15,5 +15,5 @@ public class DomicilioCreateDto {
     private Integer cp;
     private Integer piso;
     private Integer nroDpto;
-    private Long localidad;
+    private Long idLocalidad;
 }

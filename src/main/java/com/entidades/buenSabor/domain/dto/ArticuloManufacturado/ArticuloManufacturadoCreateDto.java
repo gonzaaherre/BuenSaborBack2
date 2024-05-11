@@ -13,9 +13,11 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArticuloManufacturadoCreateDto {
+    private String denominacion;
     private String descripcion;
     private Integer tiempoEstimadoMinutos;
+    private Double precioVenta;
     private String preparacion;
-    private Long unidadMedida;
+    private Long idUnidadMedida;
     private Set<Long> idsArticuloManufacturadoDetalles;
 }
