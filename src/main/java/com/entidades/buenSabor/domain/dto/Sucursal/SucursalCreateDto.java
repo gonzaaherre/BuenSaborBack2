@@ -18,5 +18,5 @@ public class SucursalCreateDto {
     private LocalTime horarioCierre;
     private Boolean esCasaMatriz;
     private DomicilioCreateDto domicilio;
-    private Long empresa;
+    private Long idEmpresa;
 }

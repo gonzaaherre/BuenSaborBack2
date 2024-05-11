@@ -9,6 +9,6 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring", uses = {LocalidadService.class})
 public interface DomicilioMapper extends BaseMapper<Domicilio, DomicilioDto, DomicilioCreateDto> {
-    @Mapping(target = "localidad", qualifiedByName = "getById")
+    @Mapping(target = "localidad", source = "idLocalidad",qualifiedByName = "getById")
     Domicilio toEntityCreate(DomicilioCreateDto source);
 }

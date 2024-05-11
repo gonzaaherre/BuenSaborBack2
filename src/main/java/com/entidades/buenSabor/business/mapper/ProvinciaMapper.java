@@ -9,6 +9,6 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring", uses = {PaisService.class})
 public interface ProvinciaMapper extends BaseMapper<Provincia,ProvinciaDto, ProvinciaCreateDto>{
-    @Mapping(target = "pais", qualifiedByName = "getById")
+    @Mapping(target = "pais", source = "idPais",qualifiedByName = "getById")
     Provincia toEntityCreate(ProvinciaCreateDto source);
 }

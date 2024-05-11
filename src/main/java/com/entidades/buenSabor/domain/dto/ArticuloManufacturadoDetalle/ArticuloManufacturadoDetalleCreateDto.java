@@ -11,5 +11,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ArticuloManufacturadoDetalleCreateDto {
     private Integer cantidad;
-    private Long articuloInsumo;
+    private Long idArticuloInsumo;
 }

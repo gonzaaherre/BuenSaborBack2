@@ -9,6 +9,6 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring", uses = {DomicilioMapper.class, EmpresaService.class} )
 public interface SucursalMapper extends BaseMapper<Sucursal, SucursalDto, SucursalCreateDto>{
-    @Mapping(target = "empresa", qualifiedByName = "getById")
+    @Mapping(target = "empresa", source = "idEmpresa", qualifiedByName = "getById")
     public Sucursal toEntityCreate(SucursalCreateDto source);
 }
