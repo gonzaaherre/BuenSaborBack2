@@ -1,5 +1,6 @@
-package com.entidades.buenSabor.domain.dto;
+package com.entidades.buenSabor.domain.dto.Empresa;
 
+import com.entidades.buenSabor.domain.dto.BaseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-public class EmpresaDto extends BaseDto{
+public class EmpresaDto extends BaseDto {
 
     private String nombre;
     private String razonSocial;

@@ -1,4 +1,4 @@
-package com.entidades.buenSabor.domain.dto;
+package com.entidades.buenSabor.domain.dto.Pais;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,8 +7,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class UnidadMedidaDto extends BaseDto{
-    private String denominacion;
+@AllArgsConstructor
+public class PaisCreateDto {
+    private String nombre;
 }

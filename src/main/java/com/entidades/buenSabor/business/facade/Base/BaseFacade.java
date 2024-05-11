@@ -5,8 +5,8 @@ import com.entidades.buenSabor.domain.dto.BaseDto;
 import java.io.Serializable;
 import java.util.List;
 
-public interface BaseFacade <D extends BaseDto, ID extends Serializable>{
-    public D createNew(D request);
+public interface BaseFacade <D extends BaseDto,DC , ID extends Serializable>{
+    public D createNew(DC request);
     public D getById(Long id);
     public List<D> getAll();
     public void deleteById(Long id);

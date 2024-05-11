@@ -1,11 +1,14 @@
 package com.entidades.buenSabor.business.mapper;
 
-import com.entidades.buenSabor.domain.dto.ProvinciaDto;
+import com.entidades.buenSabor.business.service.PaisService;
+import com.entidades.buenSabor.domain.dto.Provincia.ProvinciaCreateDto;
+import com.entidades.buenSabor.domain.dto.Provincia.ProvinciaDto;
 import com.entidades.buenSabor.domain.entities.Provincia;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-import java.util.List;
-
-@Mapper(componentModel = "spring")
-public interface ProvinciaMapper extends BaseMapper<Provincia,ProvinciaDto>{
+@Mapper(componentModel = "spring", uses = {PaisService.class})
+public interface ProvinciaMapper extends BaseMapper<Provincia,ProvinciaDto, ProvinciaCreateDto>{
+    @Mapping(target = "pais", qualifiedByName = "getById")
+    Provincia toEntityCreate(ProvinciaCreateDto source);
 }

@@ -1,15 +1,15 @@
-package com.entidades.buenSabor.domain.dto;
+package com.entidades.buenSabor.domain.dto.ArticuloManufacturadoDetalle;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ArticuloManufacturadoDetalleDto extends BaseDto{
+public class ArticuloManufacturadoDetalleCreateDto {
     private Integer cantidad;
-    private ArticuloInsumoDto articuloInsumo;
+    private Long articuloInsumo;
 }

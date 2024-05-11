@@ -1,7 +1,8 @@
 package com.entidades.buenSabor.presentation.rest;
 
 import com.entidades.buenSabor.business.facade.Imp.LocalidadFacadeImp;
-import com.entidades.buenSabor.domain.dto.LocalidadDto;
+import com.entidades.buenSabor.domain.dto.Localidad.LocalidadCreateDto;
+import com.entidades.buenSabor.domain.dto.Localidad.LocalidadDto;
 import com.entidades.buenSabor.domain.entities.Localidad;
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
 import org.slf4j.Logger;
@@ -14,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/localidad")
 @CrossOrigin("*")
-public class LocalidadController extends BaseControllerImp<Localidad, LocalidadDto, Long, LocalidadFacadeImp> {
+public class LocalidadController extends BaseControllerImp<Localidad, LocalidadDto, LocalidadCreateDto,Long, LocalidadFacadeImp> {
 
     public LocalidadController(LocalidadFacadeImp facade) {
         super(facade);

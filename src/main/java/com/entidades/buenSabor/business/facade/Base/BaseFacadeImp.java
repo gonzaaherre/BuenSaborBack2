@@ -10,19 +10,19 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class BaseFacadeImp <E extends Base,D extends BaseDto,ID extends Serializable> implements BaseFacade<D,ID> {
+public abstract class BaseFacadeImp <E extends Base,D extends BaseDto, DC,ID extends Serializable> implements BaseFacade<D, DC,ID> {
 
     protected BaseService<E,ID> baseService;
-    protected BaseMapper<E,D> baseMapper;
+    protected BaseMapper<E,D,DC> baseMapper;
 
-    public BaseFacadeImp(BaseService<E,ID> baseService, BaseMapper<E,D> baseMapper) {
+    public BaseFacadeImp(BaseService<E,ID> baseService, BaseMapper<E,D, DC> baseMapper) {
         this.baseService = baseService;
         this.baseMapper = baseMapper;
     }
 
-    public D createNew(D request){
+    public D createNew(DC request){
         // Convierte a entidad
-        var entityToCreate = baseMapper.toEntity(request);
+        var entityToCreate = baseMapper.toEntityCreate(request);
         // Graba una entidad
         var entityCreated = baseService.create(entityToCreate);
         // convierte a Dto para devolver
