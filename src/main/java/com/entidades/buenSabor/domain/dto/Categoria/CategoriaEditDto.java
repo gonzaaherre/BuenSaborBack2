@@ -5,16 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Set;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoriaCreateDto {
+public class CategoriaEditDto {
     private String denominacion;
-
-    private Set<Long> idSucursales;
-
-    private boolean esInsumo;
 }
