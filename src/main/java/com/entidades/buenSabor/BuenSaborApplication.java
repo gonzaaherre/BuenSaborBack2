@@ -79,7 +79,7 @@ public class BuenSaborApplication {
 		SpringApplication.run(BuenSaborApplication.class, args);
 		logger.info("Estoy activo en el main");
 	}
-/*
+
 	@Bean
 	@Transactional
 	CommandLineRunner init(ClienteRepository clienteRepository,
@@ -166,25 +166,31 @@ public class BuenSaborApplication {
 			empresaRepository.save(empresaCarlos);
 
 			// Crear Categorías de productos y subCategorías de los mismos
-			Categoria categoriaBebidas = Categoria.builder().denominacion("Bebidas").
+			Categoria categoriaBebidas = Categoria.builder().denominacion("Bebidas")
+					.esInsumo(true).
 					build();
 			categoriaRepository.save(categoriaBebidas);
 
 			Categoria categoriaGaseosas = Categoria.builder().denominacion("Gaseosas").
-					build();
+			esInsumo(true)
+			.build();
 			categoriaRepository.save(categoriaGaseosas);
 
-			Categoria categoriaTragos = Categoria.builder().denominacion("Tragos").
-					build();
+			Categoria categoriaTragos = Categoria.builder().denominacion("Tragos")
+					.esInsumo(true)
+					.build();
 			categoriaRepository.save(categoriaTragos);
 
-			Categoria categoriaPizzas = Categoria.builder().denominacion("Pizzas").
-					build();
+			Categoria categoriaPizzas = Categoria.builder().denominacion("Pizzas")
+					.esInsumo(false)
+					.build();
 
 
 
-			Categoria categoriaInsumos = Categoria.builder().denominacion("Insumos").
-					build();
+			Categoria categoriaInsumos = Categoria.builder()
+					.denominacion("Insumos")
+					.esInsumo(true)
+					.build();
 
 			// Grabo la categoría de insumos y de Manufacturados
 			categoriaRepository.save(categoriaPizzas);
@@ -505,6 +511,6 @@ public class BuenSaborApplication {
 			logger.info("----------------Pedido ---------------------");
 			logger.info("{}",pedido);
 		};
-	}*/
+	}
 
 }
