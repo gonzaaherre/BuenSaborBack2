@@ -1,0 +1,27 @@
+EMPRESA
+
+
+{
+  "nombre": "empresa1",
+  "razonSocial": "razonSocial",
+  "cuil": 27527
+}
+
+
+SUCURSAL
+
+{
+  "nombre": "sucu1",
+  "horarioApertura": "12:30:00",
+  "horarioCierre": "22:30:00",
+  "esCasaMatriz": true,
+  "domicilio": {
+    "calle": "Suipacha",
+    "numero": 1509,
+    "cp": 5500,
+    "piso": 0,
+    "nroDpto": 0,
+    "idLocalidad": 352
+  },
+  "idEmpresa": 1
+}
