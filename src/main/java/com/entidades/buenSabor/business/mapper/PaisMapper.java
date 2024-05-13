@@ -6,5 +6,5 @@ import com.entidades.buenSabor.domain.entities.Pais;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface PaisMapper extends BaseMapper<Pais, PaisDto, PaisCreateDto>{
+public interface PaisMapper extends BaseMapper<Pais, PaisDto, PaisCreateDto,PaisCreateDto>{
 }

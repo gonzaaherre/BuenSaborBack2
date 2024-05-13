@@ -10,12 +10,12 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class BaseFacadeImp <E extends Base,D extends BaseDto, DC,ID extends Serializable> implements BaseFacade<D, DC,ID> {
+public abstract class BaseFacadeImp <E extends Base,D extends BaseDto, DC, DE,ID extends Serializable> implements BaseFacade<D, DC, DE,ID> {
 
     protected BaseService<E,ID> baseService;
-    protected BaseMapper<E,D,DC> baseMapper;
+    protected BaseMapper<E,D,DC, DE> baseMapper;
 
-    public BaseFacadeImp(BaseService<E,ID> baseService, BaseMapper<E,D, DC> baseMapper) {
+    public BaseFacadeImp(BaseService<E,ID> baseService, BaseMapper<E,D, DC, DE> baseMapper) {
         this.baseService = baseService;
         this.baseMapper = baseMapper;
     }
@@ -51,10 +51,11 @@ public abstract class BaseFacadeImp <E extends Base,D extends BaseDto, DC,ID ext
         baseService.deleteById(id);
     }
 
-    public D update(D request, ID id){
-        var entityToUpdate = baseMapper.toEntity(request);
-        var entityUpdated = baseService.update(entityToUpdate, id);
-        return baseMapper.toDTO(entityUpdated);
+    public D update(DE request, ID id){
+        var entityToUpdate = baseService.getById(id);
+        var entityUpdatedByMapper = baseMapper.toUpdate(entityToUpdate, request);
+        var entityUpdatedByService = baseService.update(entityUpdatedByMapper, id);
+        return baseMapper.toDTO(entityUpdatedByService);
     }
 
 }

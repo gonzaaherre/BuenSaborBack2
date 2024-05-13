@@ -1,8 +1,5 @@
 package com.entidades.buenSabor.domain.dto.Sucursal;
 
-import com.entidades.buenSabor.domain.dto.BaseDto;
-import com.entidades.buenSabor.domain.dto.Domicilio.DomicilioDto;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,13 +12,10 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ShortSucursal extends BaseDto {
-    private String nombre;
+public class SucursalEditDto {
     @Schema(type = "string", format = "time", pattern = "HH:mm:ss", description = "Horario de apertura en formato HH:mm:ss")
     private LocalTime horarioApertura;
     @Schema(type = "string", format = "time", pattern = "HH:mm:ss", description = "Horario de apertura en formato HH:mm:ss")
-    //@Schema sirve para darle formato a LocalTime
     private LocalTime horarioCierre;
     private Boolean esCasaMatriz;
-    private DomicilioDto domicilio;
 }

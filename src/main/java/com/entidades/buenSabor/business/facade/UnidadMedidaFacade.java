@@ -4,5 +4,5 @@ import com.entidades.buenSabor.business.facade.Base.BaseFacade;
 import com.entidades.buenSabor.domain.dto.UnidadMedida.UnidadMedidaCreateDto;
 import com.entidades.buenSabor.domain.dto.UnidadMedida.UnidadMedidaDto;
 
-public interface UnidadMedidaFacade extends BaseFacade<UnidadMedidaDto, UnidadMedidaCreateDto,Long> {
+public interface UnidadMedidaFacade extends BaseFacade<UnidadMedidaDto, UnidadMedidaCreateDto, UnidadMedidaCreateDto,Long> {
 }

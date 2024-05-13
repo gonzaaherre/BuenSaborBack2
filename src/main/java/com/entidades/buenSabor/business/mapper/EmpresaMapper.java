@@ -10,6 +10,6 @@ import com.entidades.buenSabor.domain.entities.Empresa;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface EmpresaMapper extends BaseMapper<Empresa, EmpresaDto, EmpresaCreateDto> {
+public interface EmpresaMapper extends BaseMapper<Empresa, EmpresaDto, EmpresaCreateDto,EmpresaCreateDto> {
     EmpresaLargeDto toLargeDto(Empresa empresa);
 }

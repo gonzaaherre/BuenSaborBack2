@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/localidad")
 @CrossOrigin("*")
-public class LocalidadController extends BaseControllerImp<Localidad, LocalidadDto, LocalidadCreateDto,Long, LocalidadFacadeImp> {
+public class LocalidadController extends BaseControllerImp<Localidad, LocalidadDto, LocalidadCreateDto, LocalidadCreateDto,Long, LocalidadFacadeImp> {
 
     public LocalidadController(LocalidadFacadeImp facade) {
         super(facade);

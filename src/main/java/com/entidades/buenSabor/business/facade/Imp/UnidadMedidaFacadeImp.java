@@ -10,8 +10,8 @@ import com.entidades.buenSabor.domain.entities.UnidadMedida;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UnidadMedidaFacadeImp extends BaseFacadeImp<UnidadMedida, UnidadMedidaDto, UnidadMedidaCreateDto, Long> implements UnidadMedidaFacade {
-    public UnidadMedidaFacadeImp(BaseService<UnidadMedida, Long> baseService, BaseMapper<UnidadMedida, UnidadMedidaDto, UnidadMedidaCreateDto> baseMapper) {
+public class UnidadMedidaFacadeImp extends BaseFacadeImp<UnidadMedida, UnidadMedidaDto, UnidadMedidaCreateDto, UnidadMedidaCreateDto, Long> implements UnidadMedidaFacade {
+    public UnidadMedidaFacadeImp(BaseService<UnidadMedida, Long> baseService, BaseMapper<UnidadMedida, UnidadMedidaDto, UnidadMedidaCreateDto, UnidadMedidaCreateDto> baseMapper) {
         super(baseService, baseMapper);
     }
 }

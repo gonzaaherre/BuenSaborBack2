@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/empresa")
 @CrossOrigin("*")
-public class EmpresaController extends BaseControllerImp<Empresa, EmpresaDto, EmpresaCreateDto,Long, EmpresaFacadeImpl> {
+public class EmpresaController extends BaseControllerImp<Empresa, EmpresaDto, EmpresaCreateDto, EmpresaCreateDto,Long, EmpresaFacadeImpl> {
     public EmpresaController(EmpresaFacadeImpl facade) {
         super(facade);
     }

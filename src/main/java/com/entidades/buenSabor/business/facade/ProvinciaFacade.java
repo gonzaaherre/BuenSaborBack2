@@ -6,6 +6,6 @@ import com.entidades.buenSabor.domain.dto.Provincia.ProvinciaDto;
 
 import java.util.List;
 
-public interface ProvinciaFacade extends BaseFacade<ProvinciaDto, ProvinciaCreateDto, Long> {
+public interface ProvinciaFacade extends BaseFacade<ProvinciaDto, ProvinciaCreateDto, ProvinciaCreateDto, Long> {
     List<ProvinciaDto> findByPaisId(Long id);
 }

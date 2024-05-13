@@ -11,7 +11,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring", uses = {ArticuloManufacturadoDetalleService.class, UnidadMedidaService.class})
-public interface ArticuloManufacturadoMapper extends BaseMapper<ArticuloManufacturado, ArticuloManufacturadoDto, ArticuloManufacturadoCreateDto> {
+public interface ArticuloManufacturadoMapper extends BaseMapper<ArticuloManufacturado, ArticuloManufacturadoDto, ArticuloManufacturadoCreateDto,ArticuloManufacturadoCreateDto> {
 
     @Mappings({
         @Mapping(source = "idsArticuloManufacturadoDetalles", target = "articuloManufacturadoDetalles", qualifiedByName = "getById"),

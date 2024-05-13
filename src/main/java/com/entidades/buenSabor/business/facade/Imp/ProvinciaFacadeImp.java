@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProvinciaFacadeImp extends BaseFacadeImp<Provincia, ProvinciaDto, ProvinciaCreateDto, Long> implements ProvinciaFacade {
+public class ProvinciaFacadeImp extends BaseFacadeImp<Provincia, ProvinciaDto, ProvinciaCreateDto, ProvinciaCreateDto, Long> implements ProvinciaFacade {
 
-    public ProvinciaFacadeImp(BaseService<Provincia, Long> baseService, BaseMapper<Provincia, ProvinciaDto,ProvinciaCreateDto> baseMapper) {
+    public ProvinciaFacadeImp(BaseService<Provincia, Long> baseService, BaseMapper<Provincia, ProvinciaDto,ProvinciaCreateDto, ProvinciaCreateDto> baseMapper) {
         super(baseService, baseMapper);
     }
 
