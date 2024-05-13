@@ -5,7 +5,8 @@ import org.springframework.http.ResponseEntity;
 
 import java.io.Serializable;
 import java.util.List;
-
+//DC Dto create
+//DE Dte edit
 public interface BaseController <D extends BaseDto, DC, DE, ID extends Serializable> {
     ResponseEntity<D> getById(ID id);
 
