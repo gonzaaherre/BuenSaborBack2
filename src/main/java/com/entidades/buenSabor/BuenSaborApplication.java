@@ -79,7 +79,7 @@ public class BuenSaborApplication {
 		SpringApplication.run(BuenSaborApplication.class, args);
 		logger.info("Estoy activo en el main");
 	}
-
+/*
 	@Bean
 	@Transactional
 	CommandLineRunner init(ClienteRepository clienteRepository,
@@ -511,6 +511,6 @@ public class BuenSaborApplication {
 			logger.info("----------------Pedido ---------------------");
 			logger.info("{}",pedido);
 		};
-	}
+	}*/
 
 }
