@@ -161,7 +161,7 @@ public class BuenSaborApplication {
 			sucursalRepository.save(sucursalMarDelPlata);
 			// Grabi empresa
 			empresaRepository.save(empresaCarlos);
-/*
+
 			// Crear Categorías de productos y subCategorías de los mismos
 			Categoria categoriaBebidas = Categoria.builder().denominacion("Bebidas").
 					build();
@@ -225,7 +225,7 @@ public class BuenSaborApplication {
 			logger.info("---------------grabe Mardel Plata--------------------");
 
 
-
+/*
 
 			// Crear Unidades de medida
 			UnidadMedida unidadMedidaLitros = UnidadMedida.builder().denominacion("Litros").build();
