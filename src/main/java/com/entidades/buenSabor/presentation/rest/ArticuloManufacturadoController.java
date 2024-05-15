@@ -3,7 +3,7 @@ package com.entidades.buenSabor.presentation.rest;
 import com.entidades.buenSabor.business.facade.Imp.ArticuloManufacturadoFacadeImp;
 import com.entidades.buenSabor.domain.dto.ArticuloManufacturado.ArticuloManufacturadoCreateDto;
 import com.entidades.buenSabor.domain.dto.ArticuloManufacturado.ArticuloManufacturadoDto;
-import com.entidades.buenSabor.domain.dto.ArticuloManufacturadoDetalle.ArticuloManufacturadoDetalleDto;
+import com.entidades.buenSabor.domain.dto.Imagen.ImagenCreate;
 import com.entidades.buenSabor.domain.entities.ArticuloManufacturado;
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +22,12 @@ public class ArticuloManufacturadoController extends BaseControllerImp<ArticuloM
     @GetMapping("/allDetalles/{id}")
     public ResponseEntity<?> findAllDetall(@PathVariable Long id){
         return ResponseEntity.ok(facade.findAllDetalles(id));
+    }
+
+    @PutMapping("/addImagen/{id}")
+    public ResponseEntity<?> addImagen(@PathVariable Long id, @RequestBody ImagenCreate imagen){
+        facade.addImagen(imagen, id);
+        return ResponseEntity.ok().body("Imagen cargada");
     }
 
 }

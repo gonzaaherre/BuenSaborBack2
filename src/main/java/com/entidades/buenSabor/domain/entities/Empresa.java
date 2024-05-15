@@ -20,7 +20,7 @@ public class Empresa extends Base{
 
     private String nombre;
     private String razonSocial;
-    @Column(name = "cuil", unique = true, length = 11)
+    @Column(name = "cuil", unique = true)
     private Long cuil;
 
     @OneToOne

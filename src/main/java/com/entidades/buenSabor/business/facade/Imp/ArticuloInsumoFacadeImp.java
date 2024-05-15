@@ -4,8 +4,11 @@ import com.entidades.buenSabor.MyException.RestrictDeleteException;
 import com.entidades.buenSabor.business.facade.ArticuloInsumoFacade;
 import com.entidades.buenSabor.business.facade.Base.BaseFacadeImp;
 import com.entidades.buenSabor.business.mapper.BaseMapper;
+import com.entidades.buenSabor.business.mapper.ImagenArticuloMapper;
 import com.entidades.buenSabor.business.service.ArticuloInsumoService;
 import com.entidades.buenSabor.business.service.Base.BaseService;
+import com.entidades.buenSabor.domain.dto.Imagen.ImagenCreate;
+import com.entidades.buenSabor.domain.dto.Imagen.ImagenDto;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoCreateDto;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoDto;
 import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
@@ -18,10 +21,13 @@ public class ArticuloInsumoFacadeImp extends BaseFacadeImp<ArticuloInsumo, Artic
         super(baseService, baseMapper);
     }
 
+    @Autowired
+    ImagenArticuloMapper mapper;
+    @Autowired
+    ArticuloInsumoService articuloInsumoService;
 
     @Override
-    public void deleteById(Long id) throws RestrictDeleteException {
-        var entity = baseService.getById(id);
-        baseService.deleteById(id);
+    public void addImagen(ImagenCreate imagen, Long id) {
+        articuloInsumoService.addImagen(mapper.toEntityCreate(imagen), id);
     }
 }

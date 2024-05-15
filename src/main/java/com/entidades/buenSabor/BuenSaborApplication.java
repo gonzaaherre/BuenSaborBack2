@@ -133,11 +133,14 @@ public class BuenSaborApplication {
 			Sucursal sucursalGuaymallen = Sucursal.builder().
 					nombre("En Guaymallen").horarioApertura(LocalTime.of(17,0)).
 					horarioCierre(LocalTime.of(23,0)).
+					esCasaMatriz(true).
 					build();
 
 			Sucursal sucursalMarDelPlata = Sucursal.builder().nombre("En MDQ").
 					horarioApertura(LocalTime.of(16,0)).
-					horarioCierre(LocalTime.of(23,30)).build();
+					horarioCierre(LocalTime.of(23,30)).
+					esCasaMatriz(false).
+					build();
 
 			Domicilio domicilioBerutti = Domicilio.builder().cp(5519).calle("Berutti").numero(2684).piso(0).nroDpto(5).
 					localidad(localidad1).build();
