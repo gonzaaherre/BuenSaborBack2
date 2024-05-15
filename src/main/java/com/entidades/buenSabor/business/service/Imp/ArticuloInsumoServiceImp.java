@@ -5,7 +5,9 @@ import com.entidades.buenSabor.business.service.ArticuloInsumoService;
 import com.entidades.buenSabor.business.service.Base.BaseServiceImp;
 import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
 import com.entidades.buenSabor.domain.entities.ArticuloManufacturadoDetalle;
+import com.entidades.buenSabor.domain.entities.ImagenArticulo;
 import com.entidades.buenSabor.repositories.ArticuloManufacturadoDetalleRepository;
+import com.entidades.buenSabor.repositories.ImagenArticuloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,10 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
 
     @Autowired
     private ArticuloManufacturadoDetalleRepository articuloManufacturadoDetalleRepository;
+
+    @Autowired
+    private ImagenArticuloRepository imagenArticuloRepository;
+
     @Override
     public void deleteById(Long id) throws RestrictDeleteException {
         var insumo = getById(id);
@@ -28,6 +34,13 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
     }
 
 
+    @Override
+    public void addImagen(ImagenArticulo imagenArticulo, Long id) {
+        var articulo = getById(id);
+        articulo.getImagenes().add(imagenArticulo);
+        imagenArticuloRepository.save(imagenArticulo);
+        baseRepository.save(articulo);
+    }
 }
 
 
