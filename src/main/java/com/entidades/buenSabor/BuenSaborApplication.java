@@ -79,7 +79,7 @@ public class BuenSaborApplication {
 		SpringApplication.run(BuenSaborApplication.class, args);
 		logger.info("Estoy activo en el main");
 	}
-/*
+
 	@Bean
 	@Transactional
 	CommandLineRunner init(ClienteRepository clienteRepository,
@@ -109,16 +109,16 @@ public class BuenSaborApplication {
 			Pais pais1 = Pais.builder().nombre("Argentina").build();
 			paisRepository.save(pais1);
 			//CREACION DE PROVINCIAS
-			Provincia provincia1 = Provincia.builder().nombre("Mendoza").pais(pais1).build();
-			Provincia provincia2 = Provincia.builder().nombre("Buenos Aires").pais(pais1).build();
+			Provincia provincia1 = Provincia.builder().nombre("Mendoza1").pais(pais1).build();
+			Provincia provincia2 = Provincia.builder().nombre("Buenos Aires1").pais(pais1).build();
 			provinciaRepository.save(provincia1);
 			provinciaRepository.save(provincia2);
 
 			//CREACION DE LOCALIDADES
-			Localidad localidad1 = Localidad.builder().nombre("Lujan de Cuyo").provincia(provincia1).build();
-			Localidad localidad2 = Localidad.builder().nombre("Guaymallen").provincia(provincia1).build();
-			Localidad localidad3 = Localidad.builder().nombre("Mar del Plata").provincia(provincia2).build();
-			Localidad localidad4 = Localidad.builder().nombre("Mar de las Pampas").provincia(provincia2).build();
+			Localidad localidad1 = Localidad.builder().nombre("Lujan de Cuyo1").provincia(provincia1).build();
+			Localidad localidad2 = Localidad.builder().nombre("Guaymallen1").provincia(provincia1).build();
+			Localidad localidad3 = Localidad.builder().nombre("Mar del Plata1").provincia(provincia2).build();
+			Localidad localidad4 = Localidad.builder().nombre("Mar de las Pampas1").provincia(provincia2).build();
 
 			localidadRepository.save(localidad1);
 			localidadRepository.save(localidad2);
@@ -144,9 +144,6 @@ public class BuenSaborApplication {
 
 			Domicilio domicilioGaboto = Domicilio.builder().cp(7600).calle("Gaboto").numero(3475).
 					localidad(localidad2).build();
-			// GRABAMOS DOMICILIOS
-			domicilioRepository.save(domicilioBerutti);
-			domicilioRepository.save(domicilioGaboto);
 
 			//ASOCIAMOS LOS DOMICILIOS A SUCURSAL
 			sucursalGuaymallen.setDomicilio(domicilioBerutti);
@@ -234,7 +231,7 @@ public class BuenSaborApplication {
 			logger.info("---------------grabe Mardel Plata--------------------");
 
 
-
+/*
 
 			// Crear Unidades de medida
 			UnidadMedida unidadMedidaLitros = UnidadMedida.builder().denominacion("Litros").build();
@@ -510,7 +507,7 @@ public class BuenSaborApplication {
 			logger.info("{}",sucursalMarDelPlata);
 			logger.info("----------------Pedido ---------------------");
 			logger.info("{}",pedido);
-		};
-	}*/
+		*/};
+	}
 
 }

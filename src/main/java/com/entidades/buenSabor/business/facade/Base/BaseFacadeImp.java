@@ -1,6 +1,7 @@
 package com.entidades.buenSabor.business.facade.Base;
 
 
+import com.entidades.buenSabor.MyException.RestrictDeleteException;
 import com.entidades.buenSabor.business.mapper.BaseMapper;
 import com.entidades.buenSabor.business.service.Base.BaseService;
 import com.entidades.buenSabor.domain.dto.BaseDto;
@@ -46,7 +47,7 @@ public abstract class BaseFacadeImp <E extends Base,D extends BaseDto, DC, DE,ID
                 .collect(Collectors.toList());
     }
 
-    public void deleteById(ID id){
+    public void deleteById(ID id) throws RestrictDeleteException {
         var entity = baseService.getById(id);
         baseService.deleteById(id);
     }

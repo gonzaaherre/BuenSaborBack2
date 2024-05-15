@@ -1,5 +1,6 @@
 package com.entidades.buenSabor.domain.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
