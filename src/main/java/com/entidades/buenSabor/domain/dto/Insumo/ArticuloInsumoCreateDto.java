@@ -17,5 +17,6 @@ public class ArticuloInsumoCreateDto {
     private Double precioCompra;
     private Integer stockActual;
     private Integer stockMaximo;
+    private Integer stockMinimo;
     private Boolean esParaElaborar;
 }
