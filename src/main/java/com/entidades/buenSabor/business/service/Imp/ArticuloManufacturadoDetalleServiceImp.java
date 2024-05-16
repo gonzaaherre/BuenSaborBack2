@@ -23,9 +23,17 @@ public class ArticuloManufacturadoDetalleServiceImp extends BaseServiceImp<Artic
 
         List<ArticuloManufacturado> articulos = articuloManufacturadoRepository.findByArticuloManufacturadoDetalles(articuloManufacturadoDetalle);
         // Si el size de articulos es igual a 0 es porque el insumo no esta en ningun detalle
-        if(articulos.size() != 0)
-            throw new RestrictDeleteException("No se puede eliminar el detalle por la integridad referencial de los datos");
-        //si el articuloManufacturado no esta en ninguno detalle se elimina
-        baseRepository.delete(articuloManufacturadoDetalle);
+        if(articulos.size() == 0) {
+            //si el articuloManufacturado no esta en ninguno detalle se elimina
+            baseRepository.delete(articuloManufacturadoDetalle);
+        }else{
+            //si el articulo manufacturado esta en algun detalle se elimina de ese detalle
+            for (ArticuloManufacturado a : articulos) {
+                a.getArticuloManufacturadoDetalles().remove(articuloManufacturadoDetalle);
+                articuloManufacturadoRepository.save(a);
+            }
+            //luego lo elimina
+            baseRepository.delete(articuloManufacturadoDetalle);
+        }
     }
 }
