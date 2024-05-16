@@ -16,6 +16,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class SucursalCreateDto {
     private String nombre;
+    //le damos formato a la hora en el json
     @Schema(type = "string", format = "time", pattern = "HH:mm:ss", description = "Horario de apertura en formato HH:mm:ss")
     private LocalTime horarioApertura;
 

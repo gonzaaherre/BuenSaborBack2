@@ -19,9 +19,11 @@ public class EmpresaServiceImpl extends BaseServiceImp<Empresa,Long> implements 
     @Override
     public Empresa getEmpresaSucursales(Long idEmpresa) {
         Empresa empresa = baseRepository.getById(idEmpresa);
+        // Se filtran las sucursales eliminadas y se juntan
         Set<Sucursal> sucursales = empresa.getSucursales().stream()
                 .filter(sucursal -> !sucursal.isEliminado())
                 .collect(Collectors.toSet());
+        // Se actualiza el conjunto de sucursales de la empresa.
         empresa.setSucursales(sucursales);
         return empresa;
     }

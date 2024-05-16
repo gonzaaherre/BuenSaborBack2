@@ -20,6 +20,7 @@ public class Empresa extends Base{
 
     private String nombre;
     private String razonSocial;
+    //unique se utiliza para que el campo no se pueda repetir
     @Column(name = "cuil", unique = true)
     private Long cuil;
 

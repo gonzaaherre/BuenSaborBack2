@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface ArticuloManufacturadoDetalleRepository extends BaseRepository<ArticuloManufacturadoDetalle,Long> {
-
+    // Método para buscar los detalles de artículos manufacturados por un artículo de insumo dado.
     List<ArticuloManufacturadoDetalle> findByArticuloInsumo(@Param("insumo") ArticuloInsumo insumo);
 }

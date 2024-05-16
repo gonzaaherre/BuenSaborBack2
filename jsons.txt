@@ -1,0 +1,120 @@
+EMPRESA
+
+{
+  "nombre": "Empresa 1",
+  "razonSocial": "Sociedad Anonima",
+  "cuil": 123456798912
+}
+
+
+SUCURSAL
+
+{
+  "nombre": "sucu1",
+  "horarioApertura": "12:30:00",
+  "horarioCierre": "22:30:00",
+  "esCasaMatriz": true,
+  "domicilio": {
+    "calle": "Suipacha",
+    "numero": 1509,
+    "cp": 5500,
+    "piso": 0,
+    "nroDpto": 0,
+    "idLocalidad": 352
+  },
+  "idEmpresa": 1
+}
+
+CATEGORIAS
+
+{
+  "denominacion": "Masas",
+  "idSucursales": [
+    1
+  ],
+  "esInsumo": true
+}
+
+{
+  "denominacion": "Bebidas",
+  "idSucursales": [
+    1
+  ],
+  "esInsumo": false
+}
+
+{
+  "denominacion": "Gaseosas",
+  "idSucursales": [
+    1
+  ],
+  "esInsumo": false
+}
+
+UNIDADMEDIDA
+
+{
+  "denominacion": "Kilo"
+}
+
+{
+  "denominacion": "Litros"
+}
+
+ARTICULO INSUMO
+
+{
+  "denominacion": "Harina",
+  "precioVenta": 0,
+  "idUnidadMedida": 1,
+  "precioCompra": 1400,
+  "stockActual": 10,
+  "stockMaximo": 25,
+  "esParaElaborar": true
+}
+
+{
+  "denominacion": "Queso",
+  "precioVenta": 0,
+  "idUnidadMedida": 1,
+  "precioCompra": 2500,
+  "stockActual": 13,
+  "stockMaximo": 20,
+  "esParaElaborar": true
+}
+
+{
+  "denominacion": "Coca Cola",
+  "precioVenta": 2500,
+  "idUnidadMedida": 2,
+  "precioCompra": 2000,
+  "stockActual": 50,
+  "stockMaximo": 75,
+  "esParaElaborar": false
+}
+
+ARTICULOMANUFACTURADODETALLE
+
+{
+  "cantidad": 0.25,
+  "idArticuloInsumo": 1
+}
+
+{
+  "cantidad": 0.15,
+  "idArticuloInsumo": 2
+}
+
+ARTICULOAMANUFACTURADO
+
+{
+  "denominacion": "Pizza de Muzarella",
+  "descripcion": "Deliciosa pizza de muzarella con salsa de tomate y queso fundido",
+  "tiempoEstimadoMinutos": 45,
+  "precioVenta": 8000,
+  "preparacion": "Precalentar el horno a 200°C. Extender la masa de pizza sobre una bandeja. Cubrir con salsa de tomate, añadir generosamente queso muzarella rallado. Hornear durante 15-20 minutos o hasta que esté dorada y crujiente.",
+  "idUnidadMedida": 1,
+  "idsArticuloManufacturadoDetalles": [
+    1,2
+  ]
+}
