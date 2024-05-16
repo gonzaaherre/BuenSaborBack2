@@ -12,6 +12,7 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+//dto para crear
 public class ArticuloManufacturadoCreateDto {
     private String denominacion;
     private String descripcion;

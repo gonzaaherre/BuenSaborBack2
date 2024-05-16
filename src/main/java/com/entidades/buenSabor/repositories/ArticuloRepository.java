@@ -10,5 +10,6 @@ import java.util.List;
 
 @Repository
 public interface ArticuloRepository  extends BaseRepository<Articulo, Long> {
+    // Método para buscar artículos por unidad de medida.
     List<Articulo> findByUnidadMedida(UnidadMedida unidadMedida);
 }
