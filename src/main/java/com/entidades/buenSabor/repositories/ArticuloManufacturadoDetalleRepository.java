@@ -12,6 +12,5 @@ import java.util.List;
 @Repository
 public interface ArticuloManufacturadoDetalleRepository extends BaseRepository<ArticuloManufacturadoDetalle,Long> {
 
-    @Query("SELECT d FROM ArticuloManufacturadoDetalle d WHERE d.articuloInsumo = :insumo")
     List<ArticuloManufacturadoDetalle> findByArticuloInsumo(@Param("insumo") ArticuloInsumo insumo);
 }

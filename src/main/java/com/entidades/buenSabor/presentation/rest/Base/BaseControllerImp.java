@@ -1,5 +1,6 @@
 package com.entidades.buenSabor.presentation.rest.Base;
 
+import com.entidades.buenSabor.MyException.RestrictDeleteException;
 import com.entidades.buenSabor.business.facade.Base.BaseFacadeImp;
 import com.entidades.buenSabor.domain.dto.BaseDto;
 import com.entidades.buenSabor.domain.entities.Base;
@@ -46,7 +47,7 @@ public abstract class BaseControllerImp <E extends Base,D extends BaseDto, DC, D
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteById(@PathVariable ID id){
+    public ResponseEntity<?> deleteById(@PathVariable ID id) throws RestrictDeleteException {
         logger.info("INICIO DELETE BY ID");
         facade.deleteById(id);
         return ResponseEntity.ok(null);

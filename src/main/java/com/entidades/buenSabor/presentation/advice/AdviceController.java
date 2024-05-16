@@ -1,5 +1,6 @@
 package com.entidades.buenSabor.presentation.advice;
 
+import com.entidades.buenSabor.MyException.RestrictDeleteException;
 import com.entidades.buenSabor.domain.dto.ErrorDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,14 @@ public class AdviceController {
                         .errorMsg(e.getMessage())
                         .errorClass(e.getClass().getSimpleName())
                         .build());
+    }
+
+    @ExceptionHandler(value = RestrictDeleteException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResponseEntity<String> handleRestrictDelete(RestrictDeleteException e){
+        String errorMsg = e.getClass().getSimpleName() + " : " + e.getMessage();
+        logger.error(errorMsg);
+        return ResponseEntity.internalServerError().body(errorMsg);
     }
 }
 
