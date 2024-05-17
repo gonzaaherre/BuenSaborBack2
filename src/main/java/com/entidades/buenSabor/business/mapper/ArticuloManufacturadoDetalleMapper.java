@@ -6,9 +6,11 @@ import com.entidades.buenSabor.domain.dto.ArticuloManufacturadoDetalle.ArticuloM
 import com.entidades.buenSabor.domain.entities.ArticuloManufacturadoDetalle;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 // En este caso, se utiliza el componente "spring" para la inyección de dependencias y se especifica
 // la clase de servicio que utiliza.
@@ -22,6 +24,7 @@ public interface ArticuloManufacturadoDetalleMapper extends BaseMapper<ArticuloM
     @Mapping(target = "articuloInsumo", source = "idArticuloInsumo", qualifiedByName = "getById")
     ArticuloManufacturadoDetalle toEntityCreate(ArticuloManufacturadoDetalleCreateDto source);
 
+    @Named("toEntityCreateSetDetalle")
     @Mapping(target = "articuloInsumo", source = "idArticuloInsumo", qualifiedByName = "getById")
     Set<ArticuloManufacturadoDetalle> toEntityCreateSet(Set<ArticuloManufacturadoDetalleCreateDto> dtos);
 }
