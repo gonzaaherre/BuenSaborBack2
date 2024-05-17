@@ -22,6 +22,7 @@ public class ArticuloManufacturado  extends Articulo{
     @Column(length = 510)
     private String descripcion;
     private Integer tiempoEstimadoMinutos;
+    @Column(length = 510)
     private String preparacion;
 
 
