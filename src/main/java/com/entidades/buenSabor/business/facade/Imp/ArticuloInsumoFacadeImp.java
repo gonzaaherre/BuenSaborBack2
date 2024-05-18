@@ -22,12 +22,12 @@ public class ArticuloInsumoFacadeImp extends BaseFacadeImp<ArticuloInsumo, Artic
     }
 
     @Autowired
-    ImagenArticuloMapper mapper;
+    ImagenArticuloMapper imagenMapper;
     @Autowired
     ArticuloInsumoService articuloInsumoService;
 
     @Override
     public void addImagen(ImagenCreate imagen, Long id) {
-        articuloInsumoService.addImagen(mapper.toEntityCreate(imagen), id);
+        articuloInsumoService.addImagen(imagenMapper.toEntityCreate(imagen), id);
     }
 }

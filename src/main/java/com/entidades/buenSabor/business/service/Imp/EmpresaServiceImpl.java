@@ -5,6 +5,7 @@ import com.entidades.buenSabor.business.service.EmpresaService;
 
 import com.entidades.buenSabor.business.service.SucursalService;
 import com.entidades.buenSabor.domain.entities.Empresa;
+import com.entidades.buenSabor.domain.entities.ImagenEmpresa;
 import com.entidades.buenSabor.domain.entities.Sucursal;
 import com.entidades.buenSabor.repositories.EmpresaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,12 @@ public class EmpresaServiceImpl extends BaseServiceImp<Empresa,Long> implements 
         // Se actualiza el conjunto de sucursales de la empresa.
         empresa.setSucursales(sucursales);
         return empresa;
+    }
+
+    @Override
+    public void setImagen(ImagenEmpresa imagen, Long id) {
+        var empresa  = baseRepository.getById(id);
+        empresa.setImagen(imagen);
+        baseRepository.save(empresa);
     }
 }

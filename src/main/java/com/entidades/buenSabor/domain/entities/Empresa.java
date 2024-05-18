@@ -24,7 +24,7 @@ public class Empresa extends Base{
     @Column(name = "cuil", unique = true)
     private Long cuil;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @NotAudited
     private ImagenEmpresa imagen;
 

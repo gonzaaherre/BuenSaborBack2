@@ -21,6 +21,7 @@ public class ArticuloInsumoDto extends BaseDto {
     private Double precioCompra;
     private Integer stockActual;
     private Integer stockMaximo;
+    private Integer stockMinimo;
     private Boolean esParaElaborar;
     private Set<ImagenDto> imagenes;
 }
