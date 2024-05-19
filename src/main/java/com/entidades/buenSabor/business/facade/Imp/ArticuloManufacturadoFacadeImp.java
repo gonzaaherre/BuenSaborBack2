@@ -9,6 +9,7 @@ import com.entidades.buenSabor.business.service.ArticuloManufacturadoService;
 import com.entidades.buenSabor.business.service.Base.BaseService;
 import com.entidades.buenSabor.domain.dto.ArticuloManufacturado.ArticuloManufacturadoCreateDto;
 import com.entidades.buenSabor.domain.dto.ArticuloManufacturado.ArticuloManufacturadoDto;
+import com.entidades.buenSabor.domain.dto.ArticuloManufacturado.ArticuloManufacturadoEditDto;
 import com.entidades.buenSabor.domain.dto.ArticuloManufacturadoDetalle.ArticuloManufacturadoDetalleDto;
 import com.entidades.buenSabor.domain.dto.Imagen.ImagenCreate;
 import com.entidades.buenSabor.domain.dto.Imagen.ImagenDto;
@@ -19,10 +20,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ArticuloManufacturadoFacadeImp extends BaseFacadeImp<ArticuloManufacturado, ArticuloManufacturadoDto, ArticuloManufacturadoCreateDto, ArticuloManufacturadoCreateDto, Long> implements ArticuloManufacturadoFacade {
-    public ArticuloManufacturadoFacadeImp(BaseService<ArticuloManufacturado, Long> baseService, BaseMapper<ArticuloManufacturado, ArticuloManufacturadoDto, ArticuloManufacturadoCreateDto, ArticuloManufacturadoCreateDto> baseMapper) {
-        super(baseService, baseMapper);
-    }
+public class ArticuloManufacturadoFacadeImp extends BaseFacadeImp<ArticuloManufacturado, ArticuloManufacturadoDto, ArticuloManufacturadoCreateDto, ArticuloManufacturadoEditDto, Long> implements ArticuloManufacturadoFacade {
+
 
     @Autowired
     ArticuloManufacturadoService articuloManufacturadoService;
@@ -32,6 +31,10 @@ public class ArticuloManufacturadoFacadeImp extends BaseFacadeImp<ArticuloManufa
 
     @Autowired
     ImagenArticuloMapper mapper;
+
+    public ArticuloManufacturadoFacadeImp(BaseService<ArticuloManufacturado, Long> baseService, BaseMapper<ArticuloManufacturado, ArticuloManufacturadoDto, ArticuloManufacturadoCreateDto, ArticuloManufacturadoEditDto> baseMapper) {
+        super(baseService, baseMapper);
+    }
 
     @Override
     public List<ArticuloManufacturadoDetalleDto> findAllDetalles(Long id) {

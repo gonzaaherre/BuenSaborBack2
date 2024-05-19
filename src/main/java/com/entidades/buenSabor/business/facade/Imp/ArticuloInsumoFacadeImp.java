@@ -11,20 +11,23 @@ import com.entidades.buenSabor.domain.dto.Imagen.ImagenCreate;
 import com.entidades.buenSabor.domain.dto.Imagen.ImagenDto;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoCreateDto;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoDto;
+import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoEditDto;
 import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ArticuloInsumoFacadeImp extends BaseFacadeImp<ArticuloInsumo, ArticuloInsumoDto, ArticuloInsumoCreateDto, ArticuloInsumoCreateDto, Long> implements ArticuloInsumoFacade {
-    public ArticuloInsumoFacadeImp(BaseService<ArticuloInsumo, Long> baseService, BaseMapper<ArticuloInsumo, ArticuloInsumoDto,ArticuloInsumoCreateDto,ArticuloInsumoCreateDto> baseMapper) {
-        super(baseService, baseMapper);
-    }
+public class ArticuloInsumoFacadeImp extends BaseFacadeImp<ArticuloInsumo, ArticuloInsumoDto, ArticuloInsumoCreateDto, ArticuloInsumoEditDto, Long> implements ArticuloInsumoFacade {
+
 
     @Autowired
     ImagenArticuloMapper imagenMapper;
     @Autowired
     ArticuloInsumoService articuloInsumoService;
+
+    public ArticuloInsumoFacadeImp(BaseService<ArticuloInsumo, Long> baseService, BaseMapper<ArticuloInsumo, ArticuloInsumoDto, ArticuloInsumoCreateDto, ArticuloInsumoEditDto> baseMapper) {
+        super(baseService, baseMapper);
+    }
 
     @Override
     public void addImagen(ImagenCreate imagen, Long id) {

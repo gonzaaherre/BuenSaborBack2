@@ -7,6 +7,7 @@ import com.entidades.buenSabor.domain.dto.Sucursal.SucursalEditDto;
 import com.entidades.buenSabor.domain.entities.Sucursal;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring", uses = {DomicilioMapper.class, EmpresaService.class} )
 public interface SucursalMapper extends BaseMapper<Sucursal, SucursalDto, SucursalCreateDto, SucursalEditDto>{

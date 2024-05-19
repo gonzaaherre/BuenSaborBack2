@@ -9,6 +9,7 @@ import com.entidades.buenSabor.business.service.Base.BaseService;
 import com.entidades.buenSabor.business.service.EmpresaService;
 import com.entidades.buenSabor.domain.dto.Empresa.EmpresaCreateDto;
 import com.entidades.buenSabor.domain.dto.Empresa.EmpresaDto;
+import com.entidades.buenSabor.domain.dto.Empresa.EmpresaEditDto;
 import com.entidades.buenSabor.domain.dto.Empresa.EmpresaLargeDto;
 import com.entidades.buenSabor.domain.dto.Imagen.ImagenCreate;
 import com.entidades.buenSabor.domain.entities.Empresa;
@@ -16,11 +17,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmpresaFacadeImpl extends BaseFacadeImp<Empresa, EmpresaDto, EmpresaCreateDto, EmpresaCreateDto,Long> implements EmpresaFacade {
+public class EmpresaFacadeImpl extends BaseFacadeImp<Empresa, EmpresaDto, EmpresaCreateDto, EmpresaEditDto,Long> implements EmpresaFacade {
 
-    public EmpresaFacadeImpl(BaseService<Empresa, Long> baseService, BaseMapper<Empresa, EmpresaDto,EmpresaCreateDto, EmpresaCreateDto>baseMapper) {
+    public EmpresaFacadeImpl(BaseService<Empresa, Long> baseService, BaseMapper<Empresa, EmpresaDto, EmpresaCreateDto, EmpresaEditDto> baseMapper) {
         super(baseService, baseMapper);
     }
+
 
     @Autowired
     EmpresaMapper empresaMapper;
@@ -30,6 +32,8 @@ public class EmpresaFacadeImpl extends BaseFacadeImp<Empresa, EmpresaDto, Empres
 
     @Autowired
     ImagenEmpresaMapper imagenEmpresaMapper;
+
+
 
     @Override
     public EmpresaLargeDto getEmpresaSucursales(Long idEmpresa) {
