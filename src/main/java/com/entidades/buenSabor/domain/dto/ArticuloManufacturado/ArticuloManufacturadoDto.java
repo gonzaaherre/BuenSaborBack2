@@ -21,4 +21,5 @@ public class ArticuloManufacturadoDto extends BaseDto {
     private UnidadMedidaDto unidadMedida;
     private Set<ArticuloManufacturadoDetalleDto> articuloManufacturadoDetalles;
     private Set<ImagenDto> imagenes;
+    private Boolean habilitado;
 }

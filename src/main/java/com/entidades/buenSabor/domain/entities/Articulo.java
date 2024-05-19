@@ -21,6 +21,7 @@ public abstract class Articulo  extends Base {
 
     protected String denominacion;
     protected Double precioVenta;
+    protected boolean habilitado = true;
 
     @ManyToMany(mappedBy = "articulos")
     //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA

@@ -10,4 +10,5 @@ import java.util.List;
 public interface ArticuloManufacturadoService extends BaseService<ArticuloManufacturado, Long> {
     List<ArticuloManufacturadoDetalle> findAllDetalles(Long id);
     public void addImagen(ImagenArticulo imagen, Long id);
+    public void changeHabilitado(Long id);
 }

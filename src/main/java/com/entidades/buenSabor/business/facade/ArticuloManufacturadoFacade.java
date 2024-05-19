@@ -13,4 +13,5 @@ import java.util.List;
 public interface ArticuloManufacturadoFacade extends BaseFacade<ArticuloManufacturadoDto, ArticuloManufacturadoCreateDto, ArticuloManufacturadoCreateDto, Long> {
     List<ArticuloManufacturadoDetalleDto> findAllDetalles(Long id);
     public void addImagen(ImagenCreate imagen, Long id);
+    public void changeHabilitado(Long id);
 }

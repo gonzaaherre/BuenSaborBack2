@@ -33,4 +33,11 @@ public class ArticuloManufacturadoServiceImp extends BaseServiceImp<ArticuloManu
         imagenArticuloRepository.save(imagenArticulo);
         baseRepository.save(articulo);
     }
+
+    @Override
+    public void changeHabilitado(Long id) {
+        var articulo = getById(id);
+        articulo.setHabilitado(!articulo.isHabilitado());
+        baseRepository.save(articulo);
+    }
 }

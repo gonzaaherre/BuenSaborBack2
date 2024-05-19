@@ -30,4 +30,9 @@ public class ArticuloInsumoFacadeImp extends BaseFacadeImp<ArticuloInsumo, Artic
     public void addImagen(ImagenCreate imagen, Long id) {
         articuloInsumoService.addImagen(imagenMapper.toEntityCreate(imagen), id);
     }
+
+    @Override
+    public void changeHabilitado(Long id) {
+        articuloInsumoService.changeHabilitado(id);
+    }
 }

@@ -42,4 +42,9 @@ public class ArticuloManufacturadoFacadeImp extends BaseFacadeImp<ArticuloManufa
     public void addImagen(ImagenCreate imagen, Long id) {
         articuloManufacturadoService.addImagen(mapper.toEntityCreate(imagen), id);
     }
+
+    @Override
+    public void changeHabilitado(Long id) {
+        articuloManufacturadoService.changeHabilitado(id);
+    }
 }

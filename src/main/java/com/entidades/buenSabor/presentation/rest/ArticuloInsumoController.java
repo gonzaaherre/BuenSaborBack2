@@ -22,4 +22,10 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
         facade.addImagen(imagen, id);
         return ResponseEntity.ok().body("Imagen cargada");
     }
+
+    @PutMapping("/changeHabilitado/{id}")
+    public ResponseEntity<?> changeHabilitado(@PathVariable Long id){
+        facade.changeHabilitado(id);
+        return ResponseEntity.ok().body("Se cambio el estado del Insuomo");
+    }
 }

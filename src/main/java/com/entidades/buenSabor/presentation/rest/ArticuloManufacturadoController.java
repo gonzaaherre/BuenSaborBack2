@@ -20,7 +20,7 @@ public class ArticuloManufacturadoController extends BaseControllerImp<ArticuloM
     }
 
     @GetMapping("/allDetalles/{id}")
-    public ResponseEntity<?> findAllDetall(@PathVariable Long id){
+    public ResponseEntity<?> findAllDetalle(@PathVariable Long id){
         return ResponseEntity.ok(facade.findAllDetalles(id));
     }
 
@@ -28,6 +28,12 @@ public class ArticuloManufacturadoController extends BaseControllerImp<ArticuloM
     public ResponseEntity<?> addImagen(@PathVariable Long id, @RequestBody ImagenCreate imagen){
         facade.addImagen(imagen, id);
         return ResponseEntity.ok().body("Imagen cargada");
+    }
+
+    @PutMapping("/changeHabilitado/{id}")
+    public ResponseEntity<?> changeHabilitado(@PathVariable Long id){
+        facade.changeHabilitado(id);
+        return ResponseEntity.ok().body("Se cambio el estado del Insuomo");
     }
 
 }

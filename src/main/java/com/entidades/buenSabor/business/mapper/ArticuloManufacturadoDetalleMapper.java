@@ -24,7 +24,7 @@ public interface ArticuloManufacturadoDetalleMapper extends BaseMapper<ArticuloM
     @Mapping(target = "articuloInsumo", source = "idArticuloInsumo", qualifiedByName = "getById")
     ArticuloManufacturadoDetalle toEntityCreate(ArticuloManufacturadoDetalleCreateDto source);
 
-    @Named("toEntityCreateSetDetalle")
+    @Named("toEntityCreateSetDetalle") //Se asigno el metodo con la anotacion @Named de mapstruct para luego ser usado en ArticuloManufacturadoMapper
     @Mapping(target = "articuloInsumo", source = "idArticuloInsumo", qualifiedByName = "getById")
     Set<ArticuloManufacturadoDetalle> toEntityCreateSet(Set<ArticuloManufacturadoDetalleCreateDto> dtos);
 }

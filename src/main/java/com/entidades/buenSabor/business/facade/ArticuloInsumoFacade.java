@@ -8,4 +8,5 @@ import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoDto;
 
 public interface ArticuloInsumoFacade extends BaseFacade<ArticuloInsumoDto, ArticuloInsumoCreateDto, ArticuloInsumoCreateDto, Long> {
     public void addImagen(ImagenCreate imagen, Long id);
+    public void changeHabilitado(Long id);
 }

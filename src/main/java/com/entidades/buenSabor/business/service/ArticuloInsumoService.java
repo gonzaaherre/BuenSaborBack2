@@ -6,4 +6,5 @@ import com.entidades.buenSabor.domain.entities.ImagenArticulo;
 
 public interface ArticuloInsumoService extends BaseService<ArticuloInsumo, Long> {
     public void addImagen(ImagenArticulo imagenArticulo, Long id);
+    public void changeHabilitado(Long id);
 }
