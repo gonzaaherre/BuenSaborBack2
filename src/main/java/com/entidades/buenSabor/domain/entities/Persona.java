@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.envers.NotAudited;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,6 +25,7 @@ public abstract class Persona extends Base {
     protected String apellido;
     protected String telefono;
     protected String email;
+    protected LocalDate fechaNacimiento;
 
     @OneToOne
     protected Usuario usuario;
