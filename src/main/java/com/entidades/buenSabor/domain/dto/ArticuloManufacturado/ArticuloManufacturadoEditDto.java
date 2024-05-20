@@ -11,6 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ArticuloManufacturadoEditDto {
 
-
     private Long idUnidadMedida;
+    private Double precioVenta;
 }

@@ -1,5 +1,6 @@
 package com.entidades.buenSabor.domain.dto.Empresa;
 
+import com.entidades.buenSabor.domain.dto.Imagen.ImagenCreate;
 import com.entidades.buenSabor.domain.dto.Imagen.ImagenDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,5 +12,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EmpresaEditDto {
-    private ImagenDto imagen;
+    private ImagenCreate imagen;
 }

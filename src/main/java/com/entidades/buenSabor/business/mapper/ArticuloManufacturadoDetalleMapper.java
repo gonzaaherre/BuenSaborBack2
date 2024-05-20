@@ -8,6 +8,7 @@ import com.entidades.buenSabor.domain.dto.ArticuloManufacturadoDetalle.ArticuloM
 import com.entidades.buenSabor.domain.entities.ArticuloManufacturadoDetalle;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
