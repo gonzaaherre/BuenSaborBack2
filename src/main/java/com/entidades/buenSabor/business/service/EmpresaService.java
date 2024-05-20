@@ -6,5 +6,4 @@ import com.entidades.buenSabor.domain.entities.ImagenEmpresa;
 
 public interface EmpresaService extends BaseService<Empresa, Long> {
     public Empresa getEmpresaSucursales(Long idEmpresa);
-    public void setImagen(ImagenEmpresa imagen, Long id);
 }

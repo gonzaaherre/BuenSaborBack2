@@ -29,10 +29,4 @@ public class EmpresaServiceImpl extends BaseServiceImp<Empresa,Long> implements 
         return empresa;
     }
 
-    @Override
-    public void setImagen(ImagenEmpresa imagen, Long id) {
-        var empresa  = baseRepository.getById(id);
-        empresa.setImagen(imagen);
-        baseRepository.save(empresa);
-    }
 }

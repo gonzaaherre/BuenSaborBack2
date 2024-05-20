@@ -23,6 +23,6 @@ public class ArticuloInsumoDto extends BaseDto {
     private Integer stockMaximo;
     private Integer stockMinimo;
     private Boolean esParaElaborar;
-    private Set<ImagenDto> imagenes;
     private Boolean habilitado;
+    private Set<ImagenDto> imagenes;
 }

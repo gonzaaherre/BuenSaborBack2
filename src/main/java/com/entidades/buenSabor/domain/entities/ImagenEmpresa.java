@@ -14,5 +14,6 @@ import lombok.experimental.SuperBuilder;
 @Entity
 @SuperBuilder
 public class ImagenEmpresa extends Base{
+    private String name;
     private String url;
 }

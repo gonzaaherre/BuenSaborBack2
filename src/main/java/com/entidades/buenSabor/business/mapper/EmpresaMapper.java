@@ -12,10 +12,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring", uses = {ImagenEmpresaMapper.class})
+@Mapper(componentModel = "spring")
 public interface EmpresaMapper extends BaseMapper<Empresa, EmpresaDto, EmpresaCreateDto, EmpresaEditDto> {
     EmpresaLargeDto toLargeDto(Empresa empresa);
 
-    @Mapping(source = "imagen.url", target = "imagen.url")
     Empresa toUpdate(@MappingTarget Empresa entity, EmpresaEditDto source);
 }

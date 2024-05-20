@@ -7,7 +7,6 @@ import com.entidades.buenSabor.domain.dto.Empresa.EmpresaDto;
 
 import com.entidades.buenSabor.domain.dto.Empresa.EmpresaEditDto;
 import com.entidades.buenSabor.domain.dto.Empresa.EmpresaLargeDto;
-import com.entidades.buenSabor.domain.dto.Imagen.ImagenCreate;
 import com.entidades.buenSabor.domain.entities.Empresa;
 
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
@@ -27,9 +26,4 @@ public class EmpresaController extends BaseControllerImp<Empresa, EmpresaDto, Em
         return ResponseEntity.ok(facade.getEmpresaSucursales(idEmpresa));
     }
 
-    @PutMapping("/addImagen/{id}")
-    public ResponseEntity<?> addImagen(@PathVariable Long id, @RequestBody ImagenCreate imagen){
-        facade.addImagen(imagen,id);
-        return ResponseEntity.ok("Imagen agregada con exito");
-    }
 }

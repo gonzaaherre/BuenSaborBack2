@@ -24,9 +24,10 @@ public class Empresa extends Base{
     @Column(name = "cuil", unique = true)
     private Long cuil;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "empresa_id")
     @NotAudited
-    private ImagenEmpresa imagen;
+    private Set<ImagenEmpresa> imagenes;
 
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "empresa")

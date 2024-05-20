@@ -20,8 +20,11 @@ public interface ArticuloManufacturadoMapper extends BaseMapper<ArticuloManufact
     // Utiliza la anotación @Mappings para especificar múltiples mapeos entre los campos del DTO y la entidad.
     @Mappings({
         @Mapping(target = "articuloManufacturadoDetalles", qualifiedByName = "toEntityCreateSetDetalle"),
+            //usamos toEntityCreateSetDetalle para utilizar el mapper de ArticuloManufacturadoDetalle para convertir los detalles a entidad
         @Mapping(target = "unidadMedida", source = "idUnidadMedida",qualifiedByName = "getById"),
+           //consumimos el getById para recuperar la unidad de medida de la base de datos
         @Mapping(target = "habilitado", constant = "true")
+            //se utiliza constant ="true" porque mapstruct para los atributos booleanos asigna false por defecto
     })
     // Este método define la transformación de un ArticuloManufacturadoCreateDto a una entidad ArticuloManufacturado.
     public ArticuloManufacturado toEntityCreate(ArticuloManufacturadoCreateDto source);

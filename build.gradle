@@ -24,8 +24,13 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.projectlombok:lombok:1.18.26'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	//CLOUDINARY
+	// https://mvnrepository.com/artifact/com.cloudinary/cloudinary
+	implementation 'com.cloudinary:cloudinary-http44:1.36.0'
+	implementation 'com.cloudinary:cloudinary-taglib:1.36.0'
+	implementation 'io.github.cdimascio:dotenv-java:2.2.4'
 
 	//H2 DATABASE
 	runtimeOnly 'com.h2database:h2'
@@ -42,6 +47,7 @@ dependencies {
 	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
 
 	//LOMBOK
+	implementation 'org.projectlombok:lombok:1.18.26'
 	annotationProcessor 'org.projectlombok:lombok', 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 	compileOnly 'org.projectlombok:lombok'
 
