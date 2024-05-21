@@ -234,7 +234,7 @@ public class BuenSaborApplication {
 			logger.info("---------------grabe Mardel Plata--------------------");
 
 
-/*
+
 
 			// Crear Unidades de medida
 			UnidadMedida unidadMedidaLitros = UnidadMedida.builder().denominacion("Litros").build();
@@ -262,6 +262,53 @@ public class BuenSaborApplication {
 			ArticuloInsumo queso = ArticuloInsumo.builder().denominacion("Queso").unidadMedida(unidadMedidaGramos).esParaElaborar(true).stockActual(20).stockMaximo(50).precioCompra(23.6).precioVenta(66.6).build();
 			ArticuloInsumo tomate = ArticuloInsumo.builder().denominacion("Tomate").unidadMedida(unidadMedidaCantidad).esParaElaborar(true).stockActual(20).stockMaximo(50).precioCompra(23.6).precioVenta(66.6).build();
 
+			articuloInsumoRepository.save(cocaCola);
+			articuloInsumoRepository.save(harina);
+			articuloInsumoRepository.save(queso);
+			articuloInsumoRepository.save(tomate);
+
+
+			// Crear Articulos Manufacturados
+			ArticuloManufacturado pizzaMuzarella = ArticuloManufacturado.builder().
+					denominacion("Pizza Muzarella").
+					descripcion("Una pizza clasica").
+					unidadMedida(unidadMedidaPorciones).
+					precioVenta(130.0).
+					tiempoEstimadoMinutos(15).
+					preparacion("Pasos de preparacion de una muzza de toda la vida").
+					build();
+			ArticuloManufacturado pizzaNapolitana = ArticuloManufacturado.builder().denominacion("Pizza Muzarella").descripcion("Una pizza clasica").unidadMedida(unidadMedidaPorciones).precioVenta(150.0).tiempoEstimadoMinutos(15).preparacion("Pasos de preparacion de una pizza napolitana italiana").build();
+
+			articuloManufacturadoRepository.save(pizzaMuzarella);
+			articuloManufacturadoRepository.save(pizzaNapolitana);
+
+			// Establecer las relaciones entre estos objetos. Art+iculos de la Receta independiente
+			ArticuloManufacturadoDetalle detalle1 = ArticuloManufacturadoDetalle.builder().
+					articuloInsumo(harina).
+					cantidad(300).
+					build();
+			ArticuloManufacturadoDetalle detalle2 = ArticuloManufacturadoDetalle.builder().articuloInsumo(queso).cantidad(600).build();
+			ArticuloManufacturadoDetalle detalle3 = ArticuloManufacturadoDetalle.builder().articuloInsumo(harina).cantidad(350).build();
+			ArticuloManufacturadoDetalle detalle4 = ArticuloManufacturadoDetalle.builder().articuloInsumo(queso).cantidad(650).build();
+			ArticuloManufacturadoDetalle detalle5 = ArticuloManufacturadoDetalle.builder().articuloInsumo(tomate).cantidad(2).build();
+			// grabamos el Artículo Manufacturado
+			articuloManufacturadoDetalleRepository.save(detalle1);
+			articuloManufacturadoDetalleRepository.save(detalle2);
+			articuloManufacturadoDetalleRepository.save(detalle3);
+			articuloManufacturadoDetalleRepository.save(detalle4);
+			articuloManufacturadoDetalleRepository.save(detalle5);
+
+			//ASOCIAMOS LOS DETALLE MANUFACTURADO AL ARTICULO MANUFACTURADO - LA RECETA
+			pizzaMuzarella.getArticuloManufacturadoDetalles().add(detalle1);
+			pizzaMuzarella.getArticuloManufacturadoDetalles().add(detalle2);
+
+			pizzaNapolitana.getArticuloManufacturadoDetalles().add(detalle3);
+			pizzaNapolitana.getArticuloManufacturadoDetalles().add(detalle4);
+			pizzaNapolitana.getArticuloManufacturadoDetalles().add(detalle5);
+			// GRABAMOS LA RECETA
+			articuloManufacturadoRepository.save(pizzaMuzarella);
+			articuloManufacturadoRepository.save(pizzaNapolitana);
+			/*
 			// crear fotos para cada insumo
 			ImagenArticulo imagenArticuloCoca = ImagenArticulo.builder().
 					url("https://m.media-amazon.com/images/I/51v8nyxSOYL._SL1500_.jpg").
