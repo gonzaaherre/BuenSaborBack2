@@ -12,7 +12,12 @@ import com.entidades.buenSabor.domain.dto.Empresa.EmpresaEditDto;
 import com.entidades.buenSabor.domain.dto.Empresa.EmpresaLargeDto;
 import com.entidades.buenSabor.domain.entities.Empresa;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class EmpresaFacadeImpl extends BaseFacadeImp<Empresa, EmpresaDto, EmpresaCreateDto, EmpresaEditDto,Long> implements EmpresaFacade {
@@ -33,6 +38,21 @@ public class EmpresaFacadeImpl extends BaseFacadeImp<Empresa, EmpresaDto, Empres
     @Override
     public EmpresaLargeDto getEmpresaSucursales(Long idEmpresa) {
         return empresaMapper.toLargeDto(empresaService.getEmpresaSucursales(idEmpresa));
+    }
+
+    @Override
+    public ResponseEntity<List<Map<String, Object>>> getAllImagesByEmpresaId(Long id) {
+        return empresaService.getAllImagesByArticuloId(id);
+    }
+
+    @Override
+    public ResponseEntity<String> uploadImages(MultipartFile[] files, Long id) {
+        return empresaService.uploadImages(files,id);
+    }
+
+    @Override
+    public ResponseEntity<String> deleteImage(String publicId, Long id) {
+        return empresaService.deleteImage(publicId,id);
     }
 
 }
