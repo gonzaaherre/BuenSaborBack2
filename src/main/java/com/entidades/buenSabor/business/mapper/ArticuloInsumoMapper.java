@@ -10,10 +10,11 @@ import com.entidades.buenSabor.domain.entities.ArticuloManufacturado;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 // En este caso, se utiliza el componente "spring" para la inyección de dependencias y se especifican
 // las clases de servicio y mappers que utiliza.
-@Mapper(componentModel = "spring", uses = {UnidadMedidaService.class, ImagenArticuloMapper.class, UnidadMedidaMapper.class})
+@Mapper(componentModel = "spring", uses = {UnidadMedidaService.class, ImagenArticuloMapper.class})
 public interface ArticuloInsumoMapper extends BaseMapper<ArticuloInsumo, ArticuloInsumoDto, ArticuloInsumoCreateDto, ArticuloInsumoEditDto> {
 
     // Esta es una instancia estática de la interfaz, que se utiliza para obtener una instancia del Mapper.
