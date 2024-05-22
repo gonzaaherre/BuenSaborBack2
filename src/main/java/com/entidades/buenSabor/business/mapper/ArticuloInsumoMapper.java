@@ -28,7 +28,6 @@ public interface ArticuloInsumoMapper extends BaseMapper<ArticuloInsumo, Articul
     @Mapping(target = "habilitado", constant = "true")
     ArticuloInsumo toEntityCreate(ArticuloInsumoCreateDto source);
 
-    @Mapping(target = "unidadMedida", source = "idUnidadMedida", qualifiedByName = "getById")
     ArticuloInsumo toUpdate(@MappingTarget ArticuloInsumo entity, ArticuloInsumoEditDto source);
 
 

@@ -12,7 +12,6 @@ import lombok.Setter;
 public class ArticuloInsumoEditDto {
 
     private Double precioVenta;
-    private Long idUnidadMedida;
     private Double precioCompra;
     private Integer stockActual;
     private Integer stockMaximo;
