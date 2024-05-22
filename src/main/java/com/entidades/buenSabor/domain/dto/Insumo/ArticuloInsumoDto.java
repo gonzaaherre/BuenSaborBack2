@@ -24,5 +24,6 @@ public class ArticuloInsumoDto extends BaseDto {
     private Integer stockMinimo;
     private Boolean esParaElaborar;
     private Boolean habilitado;
+    private String categoriaNombre;
     private Set<ImagenDto> imagenes;
 }
