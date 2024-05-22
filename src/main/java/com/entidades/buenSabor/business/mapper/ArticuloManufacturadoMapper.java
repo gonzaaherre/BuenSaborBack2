@@ -36,6 +36,7 @@ public interface ArticuloManufacturadoMapper extends BaseMapper<ArticuloManufact
     // Este método define la transformación de un ArticuloManufacturadoCreateDto a una entidad ArticuloManufacturado.
     public ArticuloManufacturado toEntityCreate(ArticuloManufacturadoCreateDto source);
 
+    @Mapping(target = "articuloManufacturadoDetalles", source = "detalles",qualifiedByName = "toEntityCreateSetDetalle")
     public ArticuloManufacturado toUpdate(@MappingTarget ArticuloManufacturado entity, ArticuloManufacturadoEditDto source);
 
 }
