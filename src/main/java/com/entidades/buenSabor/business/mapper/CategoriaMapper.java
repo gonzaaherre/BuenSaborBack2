@@ -28,6 +28,7 @@ public interface CategoriaMapper extends BaseMapper<Categoria, CategoriaDto,Cate
     Categoria toEntityCreate(CategoriaCreateDto source);
 
 
+    //usamos el parametro expression para indicar que vamos a usar un metodo para definir el mapeo
     @Mapping(target = "insumos", expression = "java(filterArticulosInsumo(source))")
     @Mapping(target = "articulosManufacturados", expression = "java(filterArticulosManufacturados(source))")
     CategoriaDto toDTO(Categoria source);

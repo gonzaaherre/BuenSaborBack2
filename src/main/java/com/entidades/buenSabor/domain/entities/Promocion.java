@@ -28,16 +28,7 @@ public class Promocion  extends Base{
     private String descripcionDescuento;
     private Double precioPromocional;
     private TipoPromocion tipoPromocion;
-
-
-    @ManyToMany
-    //SE AGREGA EL JOIN TABLE PARA QUE JPA CREE LA TABLA INTERMEDIA EN UNA RELACION MANY TO MANY
-    @JoinTable(name = "promocion_articulo",
-            joinColumns = @JoinColumn(name = "promocion_id"),
-            inverseJoinColumns = @JoinColumn(name = "articulo_id"))
-    //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA
-    @Builder.Default
-    private Set<Articulo> articulos = new HashSet<>();
+    private Boolean habilitado;
 
     @OneToMany
     //SE AGREGA EL JOIN COLUMN PARA QUE JPA NO CREE LA TABLA INTERMEDIA EN UNA RELACION ONE TO MANY
@@ -52,7 +43,7 @@ public class Promocion  extends Base{
     @ManyToMany (mappedBy = "promociones")
     private Set<Sucursal> sucursales = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="promocion_id")
     @Builder.Default
     private Set<PromocionDetalle> detalles= new HashSet<>();

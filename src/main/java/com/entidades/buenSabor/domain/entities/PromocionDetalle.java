@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 //@Audited
 public class PromocionDetalle extends Base{
-    private String detalle;
+    private int cantidad;
 
     @ManyToOne
     private Articulo articulo;
