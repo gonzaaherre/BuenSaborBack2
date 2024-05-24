@@ -18,5 +18,6 @@ public class EmpresaDto extends BaseDto {
     private String nombre;
     private String razonSocial;
     private Long cuil;
+    private Set<ImagenDto> imagenes;
 }
 
