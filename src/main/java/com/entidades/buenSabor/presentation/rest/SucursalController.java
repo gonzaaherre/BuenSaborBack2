@@ -4,6 +4,7 @@ package com.entidades.buenSabor.presentation.rest;
 import com.entidades.buenSabor.business.facade.Imp.SucursalFacadeImp;
 
 import com.entidades.buenSabor.domain.dto.Categoria.CategoriaDto;
+import com.entidades.buenSabor.domain.dto.Promocion.PromocionDto;
 import com.entidades.buenSabor.domain.dto.Sucursal.SucursalCreateDto;
 import com.entidades.buenSabor.domain.dto.Sucursal.SucursalDto;
 
@@ -26,5 +27,10 @@ public class SucursalController extends BaseControllerImp<Sucursal, SucursalDto,
     @GetMapping("/getCategorias/{idSucursal}")
     public ResponseEntity<List<CategoriaDto>>getCategorias(@PathVariable Long idSucursal){
         return ResponseEntity.ok(facade.findAllCategoriasByIdSucursal(idSucursal));
+    }
+
+    @GetMapping("/getPromociones/{idSucursal}")
+    public ResponseEntity<List<PromocionDto>>getPromociones(@PathVariable Long idSucursal){
+        return ResponseEntity.ok(facade.findAllPromocionesBySucursal(idSucursal));
     }
 }
