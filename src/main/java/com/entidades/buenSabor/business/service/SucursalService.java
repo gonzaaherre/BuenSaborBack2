@@ -11,5 +11,7 @@ public interface SucursalService  extends BaseService<Sucursal, Long> {
     public List<Categoria> findCategoriasBySucursalId(Long idSucursal);
 
     public List<Promocion> findPromocionBySucursalId(Long idSucursal);
+
+
 }
 

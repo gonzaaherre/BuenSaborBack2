@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Optional;
+
 @CrossOrigin("*")
 @RequestMapping("/promocion")
 @RestController
@@ -58,6 +60,17 @@ public class PromocionController extends BaseControllerImp<Promocion, PromocionD
     public ResponseEntity<?> getAll(@PathVariable Long id) {
         try {
             return facade.getAllImagesByPromocionId(id); // Llama al método del servicio para obtener todas las imágenes
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // Manejo básico de errores, se puede mejorar para devolver una respuesta más específica
+        }
+    }
+
+
+    @GetMapping("/getDetallesByid/{id}")
+    public Optional<?> getAl(@PathVariable Long id) {
+        try {
+            return facade.findPromocionWithDetalles(id); // Llama al método del servicio para obtener todas las imágenes
         } catch (Exception e) {
             e.printStackTrace();
             return null; // Manejo básico de errores, se puede mejorar para devolver una respuesta más específica

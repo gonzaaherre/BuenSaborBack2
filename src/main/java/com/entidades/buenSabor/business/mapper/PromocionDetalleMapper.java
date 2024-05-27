@@ -11,13 +11,21 @@ import com.entidades.buenSabor.domain.entities.ArticuloManufacturado;
 import com.entidades.buenSabor.domain.entities.PromocionDetalle;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
+
+import java.util.Set;
 
 
 @Mapper(componentModel = "spring", uses = {ArticuloService.class,ArticuloInsumoMapper.class, ArticuloManufacturadoMapper.class})
 public interface PromocionDetalleMapper extends BaseMapper<PromocionDetalle, PromocionDetalleDto, PromocionDetalleCreate, PromocionDetalleEdit>{
 
     PromocionDetalleMapper INSTANCE = Mappers.getMapper(PromocionDetalleMapper.class);
+
+    //este lo usamos para el mapper de promocion
+    @Named("toEntityCreateSetDetalle")
+    Set<PromocionDetalle> toEntityCreateSetDetalle(Set<PromocionDetalleCreate> dtos);
+
 
     //usamos el parametro expression para indicar que vamos a usar un metodo para definir el mapeo
     @Mapping(target = "insumo", expression = "java(filterArticuloInsumo(source))")

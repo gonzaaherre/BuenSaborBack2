@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class PromocionFacadeImp extends BaseFacadeImp<Promocion, PromocionDto, PromocionCreate, PromocionEdit, Long> implements PromocionFacade {
@@ -42,5 +43,10 @@ public class PromocionFacadeImp extends BaseFacadeImp<Promocion, PromocionDto, P
     @Override
     public ResponseEntity<String> deleteImage(String publicId, Long id) {
         return promocionService.deleteImage(publicId, id);
+    }
+
+    @Override
+    public Optional<Promocion> findPromocionWithDetalles(Long promocionId) {
+        return promocionService.getPromocionWithDetalles(promocionId);
     }
 }

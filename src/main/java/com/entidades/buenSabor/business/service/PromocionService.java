@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 
 public interface PromocionService extends BaseService<Promocion, Long> {
@@ -18,4 +19,8 @@ public interface PromocionService extends BaseService<Promocion, Long> {
     ResponseEntity<String> uploadImages(MultipartFile[] files, Long id);
     // Método para eliminar una imagen por su identificador público y Long
     ResponseEntity<String> deleteImage(String publicId, Long id);
+
+    Optional<Promocion> getPromocionWithDetalles(Long promocionId);
+
+
 }
