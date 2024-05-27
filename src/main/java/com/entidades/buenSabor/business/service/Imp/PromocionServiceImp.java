@@ -6,6 +6,7 @@ import com.entidades.buenSabor.business.service.PromocionService;
 import com.entidades.buenSabor.business.service.SucursalService;
 import com.entidades.buenSabor.domain.entities.ImagenArticulo;
 import com.entidades.buenSabor.domain.entities.Promocion;
+import com.entidades.buenSabor.domain.entities.PromocionDetalle;
 import com.entidades.buenSabor.repositories.ImagenArticuloRepository;
 import com.entidades.buenSabor.repositories.PromocionRepository;
 import org.slf4j.Logger;
@@ -149,8 +150,8 @@ public class PromocionServiceImp extends BaseServiceImp<Promocion, Long> impleme
     }
 
     @Override
-    public Optional<Promocion> getPromocionWithDetalles(Long promocionId) {
-        return promocionRepository.findPromocionWithDetalles(promocionId);
+    public List<PromocionDetalle> getPromocionWithDetalles(Long promocionId) {
+        return promocionRepository.getById(promocionId).getDetalles().stream().toList();
     }
 
 

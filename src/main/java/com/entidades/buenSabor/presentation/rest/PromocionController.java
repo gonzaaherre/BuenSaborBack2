@@ -68,9 +68,9 @@ public class PromocionController extends BaseControllerImp<Promocion, PromocionD
 
 
     @GetMapping("/getDetallesByid/{id}")
-    public Optional<?> getAl(@PathVariable Long id) {
+    public ResponseEntity<?> getAl(@PathVariable Long id) {
         try {
-            return facade.findPromocionWithDetalles(id); // Llama al método del servicio para obtener todas las imágenes
+            return ResponseEntity.ok(facade.findPromocionWithDetalles(id)); // Llama al método del servicio para obtener todas las imágenes
         } catch (Exception e) {
             e.printStackTrace();
             return null; // Manejo básico de errores, se puede mejorar para devolver una respuesta más específica

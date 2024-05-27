@@ -4,6 +4,7 @@ import com.entidades.buenSabor.business.facade.Base.BaseFacade;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionCreate;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionDto;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionEdit;
+import com.entidades.buenSabor.domain.dto.PromocionDetalle.PromocionDetalleDto;
 import com.entidades.buenSabor.domain.entities.Promocion;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,6 +22,6 @@ public interface PromocionFacade extends BaseFacade<PromocionDto, PromocionCreat
     ResponseEntity<String> uploadImages(MultipartFile[] files, Long id);
     // Método para eliminar una imagen por su identificador público y UUID
     ResponseEntity<String> deleteImage(String publicId, Long id);
-    Optional<Promocion> findPromocionWithDetalles(Long promocionId);
+    List<PromocionDetalleDto> findPromocionWithDetalles(Long promocionId);
 
 }
