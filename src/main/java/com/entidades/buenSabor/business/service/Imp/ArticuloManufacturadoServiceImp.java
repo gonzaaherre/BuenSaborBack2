@@ -1,5 +1,6 @@
 package com.entidades.buenSabor.business.service.Imp;
 
+import com.entidades.buenSabor.MyException.RestrictDeleteException;
 import com.entidades.buenSabor.business.service.ArticuloManufacturadoService;
 import com.entidades.buenSabor.business.service.Base.BaseServiceImp;
 import com.entidades.buenSabor.business.service.CloudinaryService;
@@ -8,6 +9,7 @@ import com.entidades.buenSabor.domain.entities.ArticuloManufacturadoDetalle;
 import com.entidades.buenSabor.domain.entities.ImagenArticulo;
 import com.entidades.buenSabor.repositories.ArticuloManufacturadoRepository;
 import com.entidades.buenSabor.repositories.ImagenArticuloRepository;
+import com.entidades.buenSabor.repositories.PromocionDetalleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +33,9 @@ public class ArticuloManufacturadoServiceImp extends BaseServiceImp<ArticuloManu
     @Autowired
     CloudinaryService cloudinaryService;
 
+    @Autowired
+    PromocionDetalleRepository promocionDetalleRepository;
+
     @Override
     public List<ArticuloManufacturadoDetalle> findAllDetalles(Long id) {
         return getById(id).getArticuloManufacturadoDetalles().stream().toList();
@@ -43,6 +48,16 @@ public class ArticuloManufacturadoServiceImp extends BaseServiceImp<ArticuloManu
         baseRepository.save(articulo);
     }
 
+    @Override
+    public void deleteById(Long id) throws RestrictDeleteException {
+        var articulo = getById(id);
+        long detallesPromos = promocionDetalleRepository.countByArticulo(articulo);
+        // Si los detalles son 0 es porque el articulo no esta en ningun detalle
+        if(detallesPromos != 0)
+            throw new RestrictDeleteException("No se puede eliminar el insumo por la integridad referencial de los datos");
+        //si el articulo no esta en ninguno detalle se elimina
+        baseRepository.delete(articulo);
+    }
 
     // Método para obtener todas las imágenes almacenadas
     @Override
