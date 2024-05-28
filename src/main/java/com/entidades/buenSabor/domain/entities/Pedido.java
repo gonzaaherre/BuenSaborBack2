@@ -40,7 +40,7 @@ public class Pedido extends Base{
     @ManyToOne
     private Sucursal sucursal;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Factura factura;
 
     @ManyToOne

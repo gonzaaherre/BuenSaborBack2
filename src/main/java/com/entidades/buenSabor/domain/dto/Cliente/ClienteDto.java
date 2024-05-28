@@ -1,6 +1,8 @@
 package com.entidades.buenSabor.domain.dto.Cliente;
 
 import com.entidades.buenSabor.domain.dto.BaseDto;
+import com.entidades.buenSabor.domain.dto.Domicilio.DomicilioDto;
+import com.entidades.buenSabor.domain.dto.Pedido.PedidoDto;
 import com.entidades.buenSabor.domain.entities.Pedido;
 import com.entidades.buenSabor.domain.enums.Rol;
 import lombok.AllArgsConstructor;
@@ -24,5 +26,7 @@ public class ClienteDto extends BaseDto {
 
     private LocalDate fechaNacimiento;
 
-    private Set<Pedido> pedidos = new HashSet<>();
+    //private Set<PedidoDto> pedidos = new HashSet<>();
+
+    private DomicilioDto domicilio;
 }

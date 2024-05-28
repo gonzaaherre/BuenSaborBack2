@@ -1,5 +1,6 @@
 package com.entidades.buenSabor.domain.dto.Cliente;
 
+import com.entidades.buenSabor.domain.dto.Pedido.PedidoDto;
 import com.entidades.buenSabor.domain.enums.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -20,4 +22,9 @@ public class ClienteCreateDto {
 
     private LocalDate fechaNacimiento;
     private Rol rol;
+
+    private Set<Long> idPedido;
+
+    private Long idDomicilio;
+
 }

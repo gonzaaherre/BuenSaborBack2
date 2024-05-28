@@ -1,7 +1,10 @@
 package com.entidades.buenSabor.domain.dto.Pedido;
 
 import com.entidades.buenSabor.domain.dto.BaseDto;
+import com.entidades.buenSabor.domain.dto.Cliente.ClienteDto;
+import com.entidades.buenSabor.domain.dto.Cliente.ClienteShortDto;
 import com.entidades.buenSabor.domain.dto.Domicilio.DomicilioDto;
+import com.entidades.buenSabor.domain.dto.Domicilio.DomicilioShortDto;
 import com.entidades.buenSabor.domain.dto.Factura.FacturaDto;
 import com.entidades.buenSabor.domain.dto.Sucursal.SucursalShortShort;
 import com.entidades.buenSabor.domain.enums.Estado;
@@ -20,7 +23,7 @@ import java.time.LocalTime;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PedidoDto extends BaseDto {
+public class PedidoDto extends BaseDto {//este va en el get
 
     @Schema(type = "string", format = "time", pattern = "HH:mm:ss", description = "Horario de apertura en formato HH:mm:ss")
     private LocalTime horaEstimadaFinalizacion;
@@ -32,7 +35,9 @@ public class PedidoDto extends BaseDto {
 
     private SucursalShortShort sucursal;
 
-    private DomicilioDto domicilio;
+    private DomicilioShortDto domicilio;
 
     private FacturaDto factura;
+
+    private ClienteShortDto cliente;
 }

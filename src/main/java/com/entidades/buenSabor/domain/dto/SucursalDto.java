@@ -1,5 +1,6 @@
 package com.entidades.buenSabor.domain.dto;
 
+import com.entidades.buenSabor.domain.dto.Domicilio.DomicilioDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

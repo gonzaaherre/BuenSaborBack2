@@ -2,6 +2,7 @@ package com.entidades.buenSabor.domain.dto.Pedido;
 
 import com.entidades.buenSabor.domain.dto.Domicilio.DomicilioCreateDto;
 import com.entidades.buenSabor.domain.dto.Factura.FacturaCreateDto;
+import com.entidades.buenSabor.domain.dto.Factura.FacturaDto;
 import com.entidades.buenSabor.domain.enums.Estado;
 import com.entidades.buenSabor.domain.enums.FormaPago;
 import com.entidades.buenSabor.domain.enums.TipoEnvio;
@@ -31,5 +32,8 @@ public class PedidoCreateDto {//este va en el post
 
     private Long iDdomicilio;
 
-    private Long Idfactura;
+    private FacturaCreateDto factura;
+
+    private Long idCliente;
+
 }

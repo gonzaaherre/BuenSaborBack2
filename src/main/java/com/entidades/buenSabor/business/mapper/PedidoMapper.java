@@ -1,5 +1,6 @@
 package com.entidades.buenSabor.business.mapper;
 
+import com.entidades.buenSabor.business.service.ClienteService;
 import com.entidades.buenSabor.business.service.DomicilioService;
 import com.entidades.buenSabor.business.service.FacturaService;
 import com.entidades.buenSabor.business.service.SucursalService;
@@ -10,7 +11,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-@Mapper(componentModel = "spring", uses = {SucursalService.class, DomicilioService.class, FacturaService.class})
+@Mapper(componentModel = "spring", uses = {SucursalService.class, DomicilioService.class, FacturaService.class, FacturaMapper.class, ClienteService.class})
 public interface PedidoMapper extends BaseMapper<Pedido, PedidoDto, PedidoCreateDto,PedidoCreateDto> {
 
     //source = de donde viene
@@ -18,7 +19,8 @@ public interface PedidoMapper extends BaseMapper<Pedido, PedidoDto, PedidoCreate
     @Mappings({
             @Mapping(target = "sucursal", source = "idSucursal", qualifiedByName = "getById"),
             @Mapping(target = "domicilio", source = "IDdomicilio",qualifiedByName = "getById"), // Mapear directamente el objeto Domicilio
-            @Mapping(target = "factura",source ="idfactura",qualifiedByName = "getById" )
+            @Mapping(target = "factura", source = "factura"),
+            @Mapping(target = "cliente", source = "idCliente",qualifiedByName = "getById")
     })
     Pedido toEntityCreate(PedidoCreateDto source);
 
