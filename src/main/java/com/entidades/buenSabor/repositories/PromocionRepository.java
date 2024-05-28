@@ -28,4 +28,6 @@ public interface PromocionRepository extends BaseRepository<Promocion,Long>{
             "p.horaDesde <= :currentTime AND " +
             "p.horaHasta >= :currentTime")
     List<Promocion> findActivePromociones(LocalDate currentDate, LocalTime currentTime);
+
+    List<Promocion> findByEliminadoFalseAndHabilitadoTrue();
 }

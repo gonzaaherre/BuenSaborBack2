@@ -12,4 +12,5 @@ import java.util.List;
 public interface ArticuloManufacturadoRepository extends BaseRepository<ArticuloManufacturado,Long> {
     // Método para buscar artículos manufacturados por detalles de artículo manufacturado dado.
     List<ArticuloManufacturado> findByArticuloManufacturadoDetalles(ArticuloManufacturadoDetalle detalleId);
+    List<ArticuloManufacturado> findByEliminadoFalseAndHabilitadoTrue();
 }

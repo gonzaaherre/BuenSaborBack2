@@ -60,4 +60,9 @@ public class PromocionFacadeImp extends BaseFacadeImp<Promocion, PromocionDto, P
     public List<PromocionDto> getAllActiveNow() {
         return baseMapper.toDTOsList(promocionService.getAllActiveNow());
     }
+
+    @Override
+    public List<PromocionDto> getHabilitadas() {
+        return baseMapper.toDTOsList(promocionService.getAllHabilitados());
+    }
 }

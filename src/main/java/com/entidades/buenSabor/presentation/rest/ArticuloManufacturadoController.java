@@ -29,6 +29,10 @@ public class ArticuloManufacturadoController extends BaseControllerImp<ArticuloM
         return ResponseEntity.ok().body("Se cambio el estado del Insuomo");
     }
 
+    @GetMapping("/getHabilitados")
+    public ResponseEntity<?> getHabilitados(){
+        return ResponseEntity.ok(facade.getAllHabilitado());
+    }
 
     // Método POST para subir imágenes
     @PostMapping("/uploads")

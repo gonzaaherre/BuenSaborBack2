@@ -31,6 +31,11 @@ public class PromocionController extends BaseControllerImp<Promocion, PromocionD
         return ResponseEntity.ok(facade.getAllActiveNow());
     }
 
+    @GetMapping("/getHabilitadas")
+    public ResponseEntity<?> getHabilitados(){
+        return ResponseEntity.ok(facade.getHabilitadas());
+    }
+
     // Método POST para subir imágenes
     @PostMapping("/uploads")
     public ResponseEntity<String> uploadImages(

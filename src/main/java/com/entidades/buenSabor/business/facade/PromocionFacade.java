@@ -15,9 +15,11 @@ public interface PromocionFacade extends BaseFacade<PromocionDto, PromocionCreat
 
     public void changeHabilitado(Long id);
 
-    List<PromocionDetalleDto> findPromocionWithDetalles(Long promocionId);
+    public List<PromocionDetalleDto> findPromocionWithDetalles(Long promocionId);
 
-    List<PromocionDto> getAllActiveNow();
+    public List<PromocionDto> getAllActiveNow();
+
+    public List<PromocionDto> getHabilitadas();
 
     //Imagenes
     // Método para obtener todas las imágenes almacenadas

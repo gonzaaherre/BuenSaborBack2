@@ -33,6 +33,11 @@ public class ArticuloInsumoFacadeImp extends BaseFacadeImp<ArticuloInsumo, Artic
     }
 
     @Override
+    public List<ArticuloInsumoDto> getAllHabilitados() {
+        return baseMapper.toDTOsList(articuloInsumoService.getAllHabilitados());
+    }
+
+    @Override
     public ResponseEntity<List<Map<String, Object>>> getAllImagesByArticuloId(Long id) {
         return articuloInsumoService.getAllImagesByArticuloId(id);
     }

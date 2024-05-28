@@ -14,6 +14,7 @@ import java.util.Map;
 public interface ArticuloManufacturadoFacade extends BaseFacade<ArticuloManufacturadoDto, ArticuloManufacturadoCreateDto, ArticuloManufacturadoEditDto, Long> {
     List<ArticuloManufacturadoDetalleDto> findAllDetalles(Long id);
     public void changeHabilitado(Long id);
+    public List<ArticuloManufacturadoDto> getAllHabilitado();
 
     //Imagenes
     // Método para obtener todas las imágenes almacenadas

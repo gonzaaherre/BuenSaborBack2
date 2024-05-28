@@ -13,6 +13,7 @@ import java.util.UUID;
 public interface ArticuloInsumoService extends BaseService<ArticuloInsumo, Long> {
     public void changeHabilitado(Long id);
 
+    public List<ArticuloInsumo> getAllHabilitados();
     //Imagenes
     // Método para obtener todas las imágenes almacenadas
     ResponseEntity<List<Map<String, Object>>> getAllImagesByArticuloId(Long id);

@@ -18,6 +18,8 @@ public interface PromocionService extends BaseService<Promocion, Long> {
 
     List<Promocion> getAllActiveNow();
 
+    public List<Promocion> getAllHabilitados();
+
     //Imagenes
     // Método para obtener todas las imágenes almacenadas
     ResponseEntity<List<Map<String, Object>>> getAllImagesByPromocionId(Long id);

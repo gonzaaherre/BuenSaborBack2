@@ -12,6 +12,8 @@ import java.util.Map;
 
 public interface ArticuloInsumoFacade extends BaseFacade<ArticuloInsumoDto, ArticuloInsumoCreateDto, ArticuloInsumoEditDto, Long> {
     public void changeHabilitado(Long id);
+    public List<ArticuloInsumoDto> getAllHabilitados();
+
     //Imagenes
     // Método para obtener todas las imágenes almacenadas
     ResponseEntity<List<Map<String, Object>>> getAllImagesByArticuloId(Long id);

@@ -13,6 +13,7 @@ import java.util.Map;
 public interface ArticuloManufacturadoService extends BaseService<ArticuloManufacturado, Long> {
     List<ArticuloManufacturadoDetalle> findAllDetalles(Long id);
     public void changeHabilitado(Long id);
+    List<ArticuloManufacturado> getAllHabilitados();
 
     //Imagenes
     // Método para obtener todas las imágenes almacenadas

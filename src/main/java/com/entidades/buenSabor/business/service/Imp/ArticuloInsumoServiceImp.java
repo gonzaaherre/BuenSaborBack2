@@ -8,6 +8,7 @@ import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
 import com.entidades.buenSabor.domain.entities.ArticuloManufacturadoDetalle;
 import com.entidades.buenSabor.domain.entities.ImagenArticulo;
 import com.entidades.buenSabor.domain.entities.PromocionDetalle;
+import com.entidades.buenSabor.repositories.ArticuloInsumoRepository;
 import com.entidades.buenSabor.repositories.ArticuloManufacturadoDetalleRepository;
 import com.entidades.buenSabor.repositories.ImagenArticuloRepository;
 import com.entidades.buenSabor.repositories.PromocionDetalleRepository;
@@ -34,6 +35,8 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
     @Autowired
     private CloudinaryService cloudinaryService; // Servicio para interactuar con Cloudinary
 
+    @Autowired
+    ArticuloInsumoRepository articuloInsumoRepository;
 
     @Override
     public void deleteById(Long id) throws RestrictDeleteException {
@@ -52,6 +55,11 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
         var articulo = getById(id);
         articulo.setHabilitado(!articulo.isHabilitado());
         baseRepository.save(articulo);
+    }
+
+    @Override
+    public List<ArticuloInsumo> getAllHabilitados() {
+        return articuloInsumoRepository.findByEliminadoFalseAndHabilitadoTrue();
     }
 
     // Método para obtener todas las imágenes almacenadas

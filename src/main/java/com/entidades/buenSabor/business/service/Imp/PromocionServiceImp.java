@@ -162,5 +162,10 @@ public class PromocionServiceImp extends BaseServiceImp<Promocion, Long> impleme
         return promocionRepository.findActivePromociones(LocalDate.now(), LocalTime.now());
     }
 
+    @Override
+    public List<Promocion> getAllHabilitados() {
+        return promocionRepository.findByEliminadoFalseAndHabilitadoTrue();
+    }
+
 
 }

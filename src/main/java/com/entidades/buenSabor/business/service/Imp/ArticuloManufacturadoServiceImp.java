@@ -49,6 +49,11 @@ public class ArticuloManufacturadoServiceImp extends BaseServiceImp<ArticuloManu
     }
 
     @Override
+    public List<ArticuloManufacturado> getAllHabilitados() {
+        return articuloManufacturadoRepository.findByEliminadoFalseAndHabilitadoTrue();
+    }
+
+    @Override
     public void deleteById(Long id) throws RestrictDeleteException {
         var articulo = getById(id);
         long detallesPromos = promocionDetalleRepository.countByArticulo(articulo);

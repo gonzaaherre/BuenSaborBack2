@@ -29,6 +29,12 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
         return ResponseEntity.ok().body("Se cambio el estado del Insuomo");
     }
 
+    @GetMapping("/getHabilitados")
+    public ResponseEntity<?> getHabilitados(){
+        return ResponseEntity.ok(facade.getAllHabilitados());
+    }
+
+
     // Método POST para subir imágenes
     @PostMapping("/uploads")
     public ResponseEntity<String> uploadImages(
