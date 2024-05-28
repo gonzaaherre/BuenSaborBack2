@@ -6,9 +6,11 @@ import com.entidades.buenSabor.business.service.SucursalService;
 import com.entidades.buenSabor.domain.entities.Categoria;
 import com.entidades.buenSabor.domain.entities.Sucursal;
 import com.entidades.buenSabor.repositories.ArticuloRepository;
+import com.entidades.buenSabor.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -19,6 +21,9 @@ public class CategoriaServiceImp extends BaseServiceImp<Categoria, Long> impleme
 
     @Autowired
     SucursalService sucursalService;
+
+    @Autowired
+    CategoriaRepository categoriaRepository;
 
     @Override
     public Categoria addArticulo(Long idCategoria, Long idArticulo) {
@@ -34,6 +39,16 @@ public class CategoriaServiceImp extends BaseServiceImp<Categoria, Long> impleme
         create(subCategoriaToCreate);
         categoria.getSubCategorias().add(subCategoriaToCreate);
         return baseRepository.save(categoria);
+    }
+
+    @Override
+    public List<Categoria> listCategoriaInsumos() {
+        return categoriaRepository.findByEsInsumoTrue();
+    }
+
+    @Override
+    public List<Categoria> listCategoriaArticulos() {
+        return categoriaRepository.findByEsInsumoFalse();
     }
 
     @Override

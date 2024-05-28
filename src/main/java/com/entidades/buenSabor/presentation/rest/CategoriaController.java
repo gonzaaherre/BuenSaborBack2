@@ -17,7 +17,7 @@ public class CategoriaController extends BaseControllerImp<Categoria, CategoriaD
     public CategoriaController(CategoriaFacadeImp facade) {
         super(facade);
     }
-
+/*
     @PutMapping("/addInsumo/{idCategoria}/{idInsumo}")
     public ResponseEntity<CategoriaDto> addArticuloInsumo(@PathVariable Long idCategoria, @PathVariable Long idInsumo){
         return ResponseEntity.status(HttpStatus.CREATED).body(facade.addInsumo(idCategoria,idInsumo));
@@ -27,9 +27,19 @@ public class CategoriaController extends BaseControllerImp<Categoria, CategoriaD
     public ResponseEntity<CategoriaDto> addArticuloManufacturado(@PathVariable Long idCategoria, @PathVariable Long idArticulo){
         return ResponseEntity.status(HttpStatus.CREATED).body(facade.addInsumo(idCategoria,idArticulo));
     }
-
+*/
     @PutMapping("/addSubCategoria/{idCategoria}")
     public ResponseEntity<CategoriaDto> addSubCategoria(@PathVariable Long idCategoria, @RequestBody CategoriaCreateDto subCategoria){
         return ResponseEntity.status(HttpStatus.CREATED).body(facade.addSubCategoria(idCategoria,subCategoria));
+    }
+
+    @GetMapping("/getCategoriasInsumos")
+    public ResponseEntity<?> listCategoriasInsumos(){
+        return ResponseEntity.ok(facade.listCategoriaInsumos());
+    }
+
+    @GetMapping("/getCategoriasArticulos")
+    public ResponseEntity<?> listCategoriasArticulo(){
+        return ResponseEntity.ok(facade.listCategoriaArticulos());
     }
 }
