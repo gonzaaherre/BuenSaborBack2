@@ -26,6 +26,11 @@ public class PromocionController extends BaseControllerImp<Promocion, PromocionD
         return ResponseEntity.ok("Cambio realizado con exito");
     }
 
+    @GetMapping("/getAllActiveNow")
+    public ResponseEntity<?> getAllActiveNow(){
+        return ResponseEntity.ok(facade.getAllActiveNow());
+    }
+
     // Método POST para subir imágenes
     @PostMapping("/uploads")
     public ResponseEntity<String> uploadImages(
@@ -68,7 +73,7 @@ public class PromocionController extends BaseControllerImp<Promocion, PromocionD
 
 
     @GetMapping("/getDetallesByid/{id}")
-    public ResponseEntity<?> getAl(@PathVariable Long id) {
+    public ResponseEntity<?> getAllDetalles(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(facade.findPromocionWithDetalles(id)); // Llama al método del servicio para obtener todas las imágenes
         } catch (Exception e) {

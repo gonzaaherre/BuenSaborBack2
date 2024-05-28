@@ -55,4 +55,9 @@ public class PromocionFacadeImp extends BaseFacadeImp<Promocion, PromocionDto, P
     public List<PromocionDetalleDto> findPromocionWithDetalles(Long promocionId) {
         return promocionDetalleMapper.toDTOsList(promocionService.getPromocionWithDetalles(promocionId));
     }
+
+    @Override
+    public List<PromocionDto> getAllActiveNow() {
+        return baseMapper.toDTOsList(promocionService.getAllActiveNow());
+    }
 }

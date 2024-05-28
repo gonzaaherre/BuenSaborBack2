@@ -17,6 +17,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 
 @Service
@@ -152,6 +154,12 @@ public class PromocionServiceImp extends BaseServiceImp<Promocion, Long> impleme
     @Override
     public List<PromocionDetalle> getPromocionWithDetalles(Long promocionId) {
         return promocionRepository.getById(promocionId).getDetalles().stream().toList();
+    }
+
+    @Override
+    public List<Promocion> getAllActiveNow() {
+        //enviamos como parametros el dia actual y la hora actual para saber la lista de promociones activas en el momento
+        return promocionRepository.findActivePromociones(LocalDate.now(), LocalTime.now());
     }
 
 
