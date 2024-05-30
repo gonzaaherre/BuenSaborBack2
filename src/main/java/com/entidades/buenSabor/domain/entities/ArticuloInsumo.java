@@ -15,7 +15,7 @@ import java.util.Set;
 @Getter
 @ToString
 @SuperBuilder
-//@Audited
+@Audited
 public class ArticuloInsumo extends Articulo{
     private Double precioCompra;
     private Integer stockActual;

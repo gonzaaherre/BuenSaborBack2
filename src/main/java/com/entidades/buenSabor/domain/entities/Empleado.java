@@ -4,6 +4,7 @@ import com.entidades.buenSabor.domain.enums.Rol;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.envers.Audited;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +15,7 @@ import java.util.Set;
 @Setter
 @Getter
 @SuperBuilder
-//@Audited
+@Audited
 public class Empleado extends Persona{
 
     private Rol tipoEmpleado;

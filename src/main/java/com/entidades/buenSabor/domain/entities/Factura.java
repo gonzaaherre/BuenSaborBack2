@@ -20,7 +20,7 @@ import java.util.List;
 @Getter
 @ToString
 @SuperBuilder
-//@Audited
+@Audited
 public class Factura extends Base{
     private LocalDate fechaFcturacion;
     private Integer mpPaymentId;

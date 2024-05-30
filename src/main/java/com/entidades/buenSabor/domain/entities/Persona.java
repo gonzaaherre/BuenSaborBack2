@@ -3,6 +3,7 @@ package com.entidades.buenSabor.domain.entities;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.envers.Audited;
 import org.hibernate.envers.NotAudited;
 
 import java.io.Serializable;
@@ -16,7 +17,7 @@ import java.util.Set;
 @Getter
 @ToString
 @SuperBuilder
-//@Audited
+@Audited
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Persona extends Base {
 

@@ -13,7 +13,7 @@ import org.hibernate.envers.NotAudited;
 @Getter
 @ToString
 @SuperBuilder
-//@Audited
+@Audited
 public class Domicilio extends Base{
     private String calle;
     private Integer numero;
