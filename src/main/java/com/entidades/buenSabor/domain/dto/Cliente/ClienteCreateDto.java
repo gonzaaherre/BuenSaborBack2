@@ -25,6 +25,6 @@ public class ClienteCreateDto {
 
     private Set<Long> idPedido;
 
-    private Long idDomicilio;
+    private Set<Long> idDomicilio;
 
 }
