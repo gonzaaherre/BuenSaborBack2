@@ -101,7 +101,7 @@ public class BuenSaborApplication {
 						   PedidoRepository pedidoRepository,
 						   EmpleadoRepository empleadoRepository, FacturaRepository facturaRepository) {
 		return args -> {
-			logger.info("----------------ESTOY----FUNCIONANDO---------------------");
+			/*logger.info("----------------ESTOY----FUNCIONANDO---------------------");
 			// Etapa del dashboard
 			// Crear 1 pais
 			// Crear 2 provincias para ese pais
@@ -308,7 +308,7 @@ public class BuenSaborApplication {
 			// GRABAMOS LA RECETA
 			articuloManufacturadoRepository.save(pizzaMuzarella);
 			articuloManufacturadoRepository.save(pizzaNapolitana);
-			/*
+
 			// crear fotos para cada insumo
 			ImagenArticulo imagenArticuloCoca = ImagenArticulo.builder().
 					url("https://m.media-amazon.com/images/I/51v8nyxSOYL._SL1500_.jpg").
