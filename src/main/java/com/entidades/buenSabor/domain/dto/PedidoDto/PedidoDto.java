@@ -33,7 +33,7 @@ public class PedidoDto extends BaseDto {
     private FormaPago formaPago;
     private LocalDate fechaPedido;
 
-    private SucursalShortShort sucursal;
+    //private SucursalShortShort sucursal;
 
     private Set<DetallePedidoDto> detallePedidos;
 }

@@ -15,6 +15,8 @@ import java.util.Set;
 @Mapper(componentModel = "spring", uses = {DetallePedidoService.class, ArticuloService.class})
 public interface DetallePedidoMapper extends BaseMapper<DetallePedido, DetallePedidoDto, DetallePedidoCreateDto,DetallePedidoCreateDto>{
 
+    @Mapping(target = "articuloNombre", source = "articulo.denominacion")
+    DetallePedidoDto toDTO(DetallePedido source);
 
     @Mapping(target = "articulo", source = "idArticulo", qualifiedByName = "getById")
     DetallePedido toEntityCreate(DetallePedidoCreateDto source);
@@ -22,4 +24,5 @@ public interface DetallePedidoMapper extends BaseMapper<DetallePedido, DetallePe
     @Named("toEntityCreateSetArticulo")
     @Mapping(target = "articulo", source = "idArticulo",qualifiedByName = "getById")
     Set<DetallePedido>toEntityCreateSet(Set<DetallePedidoCreateDto> dtos);
+
 }

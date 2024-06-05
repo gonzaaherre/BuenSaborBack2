@@ -14,5 +14,5 @@ import lombok.Setter;
 public class DetallePedidoDto extends BaseDto {
     private Integer cantidad;
     private Double subTotal;
-    private Articulo articulo;
+    private String articuloNombre;
 }

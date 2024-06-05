@@ -30,6 +30,6 @@ public class PedidoCreateDto {//este va en el post
 
     private LocalDate fechaPedido;
 
-    private Long idSucursal;
+   // private Long idSucursal;
     private Set<DetallePedidoCreateDto> detallePedidos;
 }

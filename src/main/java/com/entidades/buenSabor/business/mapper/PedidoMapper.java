@@ -13,8 +13,8 @@ import org.mapstruct.Mappings;
 public interface PedidoMapper extends BaseMapper<Pedido, PedidoDto, PedidoCreateDto,PedidoCreateDto> {
 
     @Mappings({
-            @Mapping( target = "detallePedidos", qualifiedByName = "toEntityCreateSetArticulo"),
-            @Mapping( source = "idSucursal", target = "sucursal", qualifiedByName = "getById")
+            @Mapping( target = "detallePedidos", qualifiedByName = "toEntityCreateSetArticulo")
+           // @Mapping( source = "idSucursal", target = "sucursal", qualifiedByName = "getById")
     })
     Pedido toEntityCreate(PedidoCreateDto source);
 }
