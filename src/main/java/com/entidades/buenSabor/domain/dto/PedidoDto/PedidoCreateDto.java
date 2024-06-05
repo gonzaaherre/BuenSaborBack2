@@ -1,5 +1,7 @@
 package com.entidades.buenSabor.domain.dto.PedidoDto;
 
+import com.entidades.buenSabor.domain.dto.DetallePedido.DetallePedidoCreateDto;
+import com.entidades.buenSabor.domain.dto.DetallePedido.DetallePedidoDto;
 import com.entidades.buenSabor.domain.enums.Estado;
 import com.entidades.buenSabor.domain.enums.FormaPago;
 import com.entidades.buenSabor.domain.enums.TipoEnvio;
@@ -11,6 +13,8 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Set;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -27,4 +31,5 @@ public class PedidoCreateDto {//este va en el post
     private LocalDate fechaPedido;
 
     private Long idSucursal;
+    private Set<DetallePedidoCreateDto> detallePedidos;
 }
