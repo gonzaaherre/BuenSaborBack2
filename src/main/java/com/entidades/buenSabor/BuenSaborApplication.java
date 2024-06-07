@@ -1,7 +1,6 @@
 package com.entidades.buenSabor;
 
 import com.entidades.buenSabor.domain.entities.*;
-import com.entidades.buenSabor.domain.enums.*;
 import com.entidades.buenSabor.repositories.*;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -13,20 +12,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 
-import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Random;
-import java.util.Set;
 
 
 @SpringBootApplication
 public class BuenSaborApplication {
 	private static final Logger logger = LoggerFactory.getLogger(BuenSaborApplication.class);
-
+/*
 	@Autowired
 	private ClienteRepository clienteRepository;
 	@Autowired
-	private ImagenPersonaRepository imagenPersonaRepository;
+	private ImagenEmpleadoRepository imagenEmpleadoRepository;
 	@Autowired
 	private PromocionDetalleRepository promocionDetalleRepository;
 
@@ -74,16 +70,16 @@ public class BuenSaborApplication {
 
 	@Autowired
 	private PedidoRepository pedidoRepository;
-
+*/
 	public static void main(String[] args) {
 		SpringApplication.run(BuenSaborApplication.class, args);
 		logger.info("Estoy activo en el main");
 	}
-
+/*
 	@Bean
 	@Transactional
 	CommandLineRunner init(ClienteRepository clienteRepository,
-						   ImagenPersonaRepository imagenPersonaRepository,
+						   ImagenEmpleadoRepository imagenEmpleadoRepository,
 						   PromocionDetalleRepository promocionDetalleRepository,
 						   UsuarioRepository usuarioRepository,
 						   PaisRepository paisRepository,
@@ -309,7 +305,7 @@ public class BuenSaborApplication {
 			// GRABAMOS LA RECETA
 			articuloManufacturadoRepository.save(pizzaMuzarella);
 			articuloManufacturadoRepository.save(pizzaNapolitana);
-			/*
+
 			// crear fotos para cada insumo
 			ImagenArticulo imagenArticuloCoca = ImagenArticulo.builder().
 					url("https://m.media-amazon.com/images/I/51v8nyxSOYL._SL1500_.jpg").
@@ -558,7 +554,7 @@ public class BuenSaborApplication {
 			logger.info("{}",sucursalMarDelPlata);
 			logger.info("----------------Pedido ---------------------");
 			logger.info("{}",pedido);
-		*/};
-	}
+		};
+	}*/
 
 }

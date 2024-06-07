@@ -16,7 +16,15 @@ import java.util.Set;
 @Getter
 @SuperBuilder
 @Audited
-public class Empleado extends Persona{
+public class Empleado extends Base{
+
+    private String nombre;
+    private String apellido;
+    private String telefono;
+    private String email;
+
+    //@OneToOne
+    //private Usuario usuario;
 
     private Rol tipoEmpleado;
 

@@ -1,7 +1,10 @@
 package com.entidades.buenSabor.domain.entities;
 
 import jakarta.persistence.Entity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 @Entity
@@ -10,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @Getter
 @SuperBuilder
-public class ImagenPersona extends Base{
+public class ImagenCliente extends Base{
     private String name;
     private String url;
 }
