@@ -1,8 +1,10 @@
 package com.entidades.buenSabor.domain.dto.PedidoDto;
 
 import com.entidades.buenSabor.domain.dto.BaseDto;
+import com.entidades.buenSabor.domain.dto.DetallePedido.DetallePedidoDto;
 import com.entidades.buenSabor.domain.dto.Sucursal.ShortSucursal;
 import com.entidades.buenSabor.domain.dto.Sucursal.SucursalDto;
+import com.entidades.buenSabor.domain.dto.Sucursal.SucursalShortShort;
 import com.entidades.buenSabor.domain.enums.Estado;
 import com.entidades.buenSabor.domain.enums.FormaPago;
 import com.entidades.buenSabor.domain.enums.TipoEnvio;
@@ -14,6 +16,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -30,5 +33,7 @@ public class PedidoDto extends BaseDto {
     private FormaPago formaPago;
     private LocalDate fechaPedido;
 
-    private ShortSucursal sucursal;
+    //private SucursalShortShort sucursal;
+
+    private Set<DetallePedidoDto> detallePedidos;
 }

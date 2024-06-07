@@ -2,6 +2,7 @@ package com.entidades.buenSabor.business.mapper;
 
 import com.entidades.buenSabor.business.service.CategoriaService;
 import com.entidades.buenSabor.business.service.UnidadMedidaService;
+import com.entidades.buenSabor.domain.dto.ArticuloManufacturado.ArticuloManufacturadoCategoriaDto;
 import com.entidades.buenSabor.domain.dto.ArticuloManufacturado.ArticuloManufacturadoCreateDto;
 import com.entidades.buenSabor.domain.dto.ArticuloManufacturado.ArticuloManufacturadoDto;
 import com.entidades.buenSabor.domain.dto.ArticuloManufacturado.ArticuloManufacturadoEditDto;
@@ -39,4 +40,7 @@ public interface ArticuloManufacturadoMapper extends BaseMapper<ArticuloManufact
     @Mapping(target = "articuloManufacturadoDetalles", source = "detalles",qualifiedByName = "toEntityCreateSetDetalle")
     public ArticuloManufacturado toUpdate(@MappingTarget ArticuloManufacturado entity, ArticuloManufacturadoEditDto source);
 
+    @Named("toDTOCategoria")
+    @Mapping(source = "categoria.denominacion", target = "categoriaNombre")
+    ArticuloManufacturadoCategoriaDto toDTOCategoria(ArticuloManufacturado source);
 }
