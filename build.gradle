@@ -35,6 +35,9 @@ dependencies {
 	//H2 DATABASE
 	runtimeOnly 'com.h2database:h2'
 
+	// MYSQL
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
 	//SWAGGER
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.1.0'
 
