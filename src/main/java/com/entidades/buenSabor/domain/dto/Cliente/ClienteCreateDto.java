@@ -1,11 +1,13 @@
 package com.entidades.buenSabor.domain.dto.Cliente;
 
+import com.entidades.buenSabor.domain.dto.Domicilio.DomicilioCreateDto;
 import com.entidades.buenSabor.domain.dto.Pedido.PedidoDto;
 import com.entidades.buenSabor.domain.enums.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -20,11 +22,9 @@ public class ClienteCreateDto {
     private String telefono;
     private String email;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaNacimiento;
-    private Rol rol;
 
-    private Set<Long> idPedido;
-
-    private Set<Long> idDomicilio;
+    private Set<DomicilioCreateDto> domicilios;
 
 }

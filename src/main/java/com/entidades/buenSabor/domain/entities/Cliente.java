@@ -1,11 +1,13 @@
 package com.entidades.buenSabor.domain.entities;
 
+import com.entidades.buenSabor.domain.enums.Rol;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.NotAudited;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,10 +23,15 @@ public class Cliente extends Base{
     protected String nombre;
     protected String apellido;
     protected String telefono;
+    @Column(name = "email", unique = true)
     protected String email;
 
     @OneToOne
     protected Usuario usuario;
+
+    private Rol rol = Rol.CLIENTE;
+
+    private LocalDate fechaNacimiento;
 
     @OneToOne
     @NotAudited

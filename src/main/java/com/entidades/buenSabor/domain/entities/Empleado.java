@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.envers.Audited;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +22,10 @@ public class Empleado extends Base{
     private String nombre;
     private String apellido;
     private String telefono;
+    @Column(name = "email", unique = true)
     private String email;
+
+    private LocalDate fechaNacimiento;
 
     //@OneToOne
     //private Usuario usuario;

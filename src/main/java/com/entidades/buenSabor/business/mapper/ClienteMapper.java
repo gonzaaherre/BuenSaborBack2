@@ -11,13 +11,13 @@ import org.mapstruct.Mappings;
 
 import java.util.Set;
 
-@Mapper(componentModel = "spring", uses = { PedidoMapper.class, PedidoService.class, DomicilioService.class})
+@Mapper(componentModel = "spring", uses = { PedidoMapper.class, PedidoService.class, DomicilioMapper.class})
 public interface ClienteMapper extends BaseMapper<Cliente, ClienteDto, ClienteCreateDto,ClienteCreateDto> {
     //source = de donde viene
     //target = a donde va
     @Mappings({
 //            //@Mapping(source = "idPedido", target = "pedidos",qualifiedByName = "getById"),
-            @Mapping(source = "idDomicilio", target = "domicilios",qualifiedByName = "getById")
+            @Mapping(source = "domicilios", target = "domicilios",qualifiedByName = "toEntityCreateSetDomicilio")
     })
     Cliente toEntityCreate(ClienteCreateDto source);
 
