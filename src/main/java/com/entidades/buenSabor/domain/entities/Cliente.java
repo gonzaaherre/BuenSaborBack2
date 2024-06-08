@@ -37,12 +37,8 @@ public class Cliente extends Base{
     @NotAudited
     protected ImagenCliente imagenCliente;
 
-    @ManyToMany
-    //SE AGREGA EL JOIN TABLE PARA QUE JPA CREE LA TABLA INTERMEDIA EN UNA RELACION MANY TO MANY
-    @JoinTable(name = "cliente_domicilio",
-            joinColumns = @JoinColumn(name = "cliente_id"),
-            inverseJoinColumns = @JoinColumn(name = "domicilio_id"))
-    //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "domicilio_id")
     @Builder.Default
     protected Set<Domicilio> domicilios = new HashSet<>();
 

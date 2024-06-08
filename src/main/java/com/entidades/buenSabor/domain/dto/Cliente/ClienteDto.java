@@ -28,5 +28,5 @@ public class ClienteDto extends BaseDto {
 
     //private Set<PedidoDto> pedidos = new HashSet<>();
 
-    private Set<DomicilioDto> domicilio;
+    private Set<DomicilioDto> domicilios;
 }
