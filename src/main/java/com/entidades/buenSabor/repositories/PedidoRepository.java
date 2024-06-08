@@ -1,6 +1,7 @@
 package com.entidades.buenSabor.repositories;
 
-import com.entidades.buenSabor.domain.dto.Estadisticas.CostoGanancia;
+import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.CostoGanancia;
+import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.PedidosCliente;
 import com.entidades.buenSabor.domain.entities.Pedido;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -40,4 +41,11 @@ public interface PedidoRepository extends BaseRepository<Pedido,Long>{
             "LEFT JOIN ArticuloInsumo ai ON a.id = ai.id " +
             "WHERE p.fechaPedido BETWEEN :initialDate AND :endDate")
     CostoGanancia findCostosGananciasByFecha(LocalDate initialDate, LocalDate endDate);
+
+    @Query("SELECT p.cliente.email AS email, COUNT(p) AS cantidadPedidos " +
+            "FROM Pedido p " +
+            "WHERE p.fechaPedido BETWEEN :startDate AND :endDate " +
+            "GROUP BY p.cliente.email " +
+            "ORDER BY cantidadPedidos DESC")
+    List<PedidosCliente> findCantidadPedidosPorCliente(LocalDate startDate, LocalDate endDate);
 }

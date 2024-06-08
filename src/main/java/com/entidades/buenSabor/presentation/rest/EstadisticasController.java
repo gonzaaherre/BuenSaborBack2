@@ -44,4 +44,11 @@ public class EstadisticasController {
             @RequestParam("fechaHasta") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaHasta){
         return ResponseEntity.ok(estadisticasFacade.findCostosGananciasByFecha(fechaDesde, fechaHasta));
     }
+
+    @GetMapping("/pedidosCliente")
+    public ResponseEntity<?> pedidosCliente (
+            @RequestParam("fechaDesde") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaDesde,
+            @RequestParam("fechaHasta") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaHasta){
+        return ResponseEntity.ok(estadisticasFacade.findCantidadPedidosPorCliente(fechaDesde, fechaHasta));
+    }
 }

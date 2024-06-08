@@ -1,7 +1,8 @@
 package com.entidades.buenSabor.business.service;
 
-import com.entidades.buenSabor.domain.dto.Estadisticas.CostoGanancia;
-import com.entidades.buenSabor.domain.dto.Estadisticas.RankingProductos;
+import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.CostoGanancia;
+import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.PedidosCliente;
+import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.RankingProductos;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -12,4 +13,5 @@ public interface EstadisticasService {
     List<Object[]> ingresosDiarios(Date initialDate, Date endDate);
     List<Object[]> ingresosMensuales(Date initialDate, Date endDate);
     CostoGanancia findCostosGananciasByFecha(LocalDate initialDate, LocalDate endDate);
+    List<PedidosCliente> findCantidadPedidosPorCliente(LocalDate startDate, LocalDate endDate);
 }

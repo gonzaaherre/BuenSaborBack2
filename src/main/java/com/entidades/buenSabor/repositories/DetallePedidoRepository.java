@@ -1,6 +1,6 @@
 package com.entidades.buenSabor.repositories;
 
-import com.entidades.buenSabor.domain.dto.Estadisticas.RankingProductos;
+import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.RankingProductos;
 import com.entidades.buenSabor.domain.entities.DetallePedido;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
