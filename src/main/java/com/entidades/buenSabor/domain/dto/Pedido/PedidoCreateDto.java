@@ -5,6 +5,8 @@ import com.entidades.buenSabor.domain.enums.Estado;
 import com.entidades.buenSabor.domain.enums.FormaPago;
 import com.entidades.buenSabor.domain.enums.TipoEnvio;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,7 +33,9 @@ public class PedidoCreateDto {//este va en el post
     private LocalDate fechaPedido;
 
    // private Long idSucursal;
-    private Set<DetallePedidoCreateDto> detallePedidos;
+   @NotNull
+   @Size(min = 1, message = "Un pedido debe tener al menos un detalle de pedido.")
+   private Set<DetallePedidoCreateDto> detallePedidos;
 
     private Long idSucursal;
 

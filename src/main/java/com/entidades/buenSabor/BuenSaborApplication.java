@@ -80,7 +80,7 @@ import java.time.LocalTime;
 			logger.info("Estoy activo en el main");
 		}
 
-		/*@Bean
+		@Bean
 		@Transactional
 		CommandLineRunner init(ClienteRepository clienteRepository,
 							   ImagenEmpleadoRepository imagenEmpleadoRepository,
@@ -526,4 +526,7 @@ import java.time.LocalTime;
 		};
 	}*/
 
-			}
+			};
+		}
+	}
+

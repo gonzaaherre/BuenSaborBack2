@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -61,4 +62,11 @@ public class Sucursal extends  Base{
 
     @ManyToOne
     private Empresa empresa;
+
+    @OneToMany
+    @JoinColumn(name = "sucursal_id")
+    @NotAudited
+    @Builder.Default
+    private Set<Articulo> articulos = new HashSet<>();
+
 }
