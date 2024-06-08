@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -28,6 +29,7 @@ public class PedidoCreateDto {//este va en el post
     private TipoEnvio tipoEnvio;
     private FormaPago formaPago;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaPedido;
 
    // private Long idSucursal;
