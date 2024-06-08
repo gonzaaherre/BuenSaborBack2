@@ -4,6 +4,7 @@ package com.entidades.buenSabor.domain.entities;
 import com.entidades.buenSabor.domain.enums.Estado;
 import com.entidades.buenSabor.domain.enums.FormaPago;
 import com.entidades.buenSabor.domain.enums.TipoEnvio;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -23,7 +24,8 @@ import java.util.Set;
 @SuperBuilder
 @Audited
 public class Pedido extends Base{
-
+    //agrego formato a la hora
+    @Schema(type = "string", format = "time", pattern = "HH:mm:ss", description = "Horario de apertura en formato HH:mm:ss")
     private LocalTime horaEstimadaFinalizacion;
     private Double total;
     private Double totalCosto;

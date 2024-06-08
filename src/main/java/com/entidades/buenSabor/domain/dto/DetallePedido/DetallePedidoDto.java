@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,4 +16,5 @@ public class DetallePedidoDto extends BaseDto {
     private Integer cantidad;
     private Double subTotal;
     private String articuloNombre;
+
 }

@@ -17,7 +17,9 @@ import java.util.Set;
 @ToString
 @SuperBuilder
 @Audited
-public class ArticuloManufacturado  extends Articulo{
+
+public class ArticuloManufacturado extends Articulo{
+
 
     @Column(length = 510)
     private String descripcion;

@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmpleadoFacadeImp extends BaseFacadeImp<Empleado, EmpleadoDto, EmpleadoCreateDto, EmpleadoEditDto, Long> implements EmpleadoFacade {
+
+
+
+
     public EmpleadoFacadeImp(BaseService<Empleado, Long> baseService, BaseMapper<Empleado, EmpleadoDto, EmpleadoCreateDto, EmpleadoEditDto> baseMapper) {
         super(baseService, baseMapper);
     }

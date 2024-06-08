@@ -13,6 +13,4 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class Pais extends Base{
     private String nombre;
-
-
 }

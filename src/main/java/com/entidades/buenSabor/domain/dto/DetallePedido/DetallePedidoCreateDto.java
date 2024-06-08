@@ -13,4 +13,5 @@ public class DetallePedidoCreateDto {
     private Integer cantidad;
     private Double subTotal;
     private Long IdArticulo;
+
 }
