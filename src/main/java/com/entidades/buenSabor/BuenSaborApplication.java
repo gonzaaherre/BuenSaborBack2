@@ -1,6 +1,7 @@
 package com.entidades.buenSabor;
 
 import com.entidades.buenSabor.domain.entities.*;
+import com.entidades.buenSabor.domain.enums.TipoPromocion;
 import com.entidades.buenSabor.repositories.*;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -12,65 +13,66 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 
 @SpringBootApplication
 public class BuenSaborApplication {
 	private static final Logger logger = LoggerFactory.getLogger(BuenSaborApplication.class);
-/*
-	@Autowired
-	private ClienteRepository clienteRepository;
-	@Autowired
-	private ImagenEmpleadoRepository imagenEmpleadoRepository;
-	@Autowired
-	private PromocionDetalleRepository promocionDetalleRepository;
+	/*
+        @Autowired
+        private ClienteRepository clienteRepository;
+        @Autowired
+        private ImagenEmpleadoRepository imagenEmpleadoRepository;
+        @Autowired
+        private PromocionDetalleRepository promocionDetalleRepository;
 
-	@Autowired
-	private UsuarioRepository usuarioRepository;
+        @Autowired
+        private UsuarioRepository usuarioRepository;
 
-	@Autowired
-	private PaisRepository paisRepository;
+        @Autowired
+        private PaisRepository paisRepository;
 
-	@Autowired
-	private ProvinciaRepository provinciaRepository;
+        @Autowired
+        private ProvinciaRepository provinciaRepository;
 
-	@Autowired
-	private LocalidadRepository localidadRepository;
+        @Autowired
+        private LocalidadRepository localidadRepository;
 
-	@Autowired
-	private EmpresaRepository empresaRepository;
+        @Autowired
+        private EmpresaRepository empresaRepository;
 
-	@Autowired
-	private SucursalRepository sucursalRepository;
+        @Autowired
+        private SucursalRepository sucursalRepository;
 
-	@Autowired
-	private DomicilioRepository domicilioRepository;
+        @Autowired
+        private DomicilioRepository domicilioRepository;
 
-	@Autowired
-	private UnidadMedidaRepository unidadMedidaRepository;
+        @Autowired
+        private UnidadMedidaRepository unidadMedidaRepository;
 
-	@Autowired
-	private CategoriaRepository categoriaRepository;
+        @Autowired
+        private CategoriaRepository categoriaRepository;
 
-	@Autowired
-	private ArticuloInsumoRepository articuloInsumoRepository;
+        @Autowired
+        private ArticuloInsumoRepository articuloInsumoRepository;
 
-	@Autowired
-	private ArticuloManufacturadoRepository articuloManufacturadoRepository;
+        @Autowired
+        private ArticuloManufacturadoRepository articuloManufacturadoRepository;
 
-	@Autowired
-	private ImagenArticuloRepository imagenArticuloRepository;
+        @Autowired
+        private ImagenArticuloRepository imagenArticuloRepository;
 
-	@Autowired
-	private PromocionRepository promocionRepository;
+        @Autowired
+        private PromocionRepository promocionRepository;
 
-	@Autowired
-	private ArticuloManufacturadoDetalleRepository articuloManufacturadoDetalleRepository;
+        @Autowired
+        private ArticuloManufacturadoDetalleRepository articuloManufacturadoDetalleRepository;
 
-	@Autowired
-	private PedidoRepository pedidoRepository;
-*/
+        @Autowired
+        private PedidoRepository pedidoRepository;
+    */
 	public static void main(String[] args) {
 		SpringApplication.run(BuenSaborApplication.class, args);
 		logger.info("Estoy activo en el main");
@@ -556,5 +558,4 @@ public class BuenSaborApplication {
 			logger.info("{}",pedido);
 		};
 	}*/
-
 }

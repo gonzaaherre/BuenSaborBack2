@@ -1,7 +1,6 @@
-package com.entidades.buenSabor.domain.dto.PedidoDto;
-
+package com.entidades.buenSabor.domain.dto.Pedido;
 import com.entidades.buenSabor.domain.dto.DetallePedido.DetallePedidoCreateDto;
-import com.entidades.buenSabor.domain.dto.DetallePedido.DetallePedidoDto;
+import com.entidades.buenSabor.domain.dto.Factura.FacturaCreateDto;
 import com.entidades.buenSabor.domain.enums.Estado;
 import com.entidades.buenSabor.domain.enums.FormaPago;
 import com.entidades.buenSabor.domain.enums.TipoEnvio;
@@ -28,10 +27,18 @@ public class PedidoCreateDto {//este va en el post
     private Estado estado;
     private TipoEnvio tipoEnvio;
     private FormaPago formaPago;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaPedido;
 
-   // private Long idSucursal;
+    // private Long idSucursal;
     private Set<DetallePedidoCreateDto> detallePedidos;
+
+    private Long idSucursal;
+
+    private Long iDdomicilio;
+
+    private FacturaCreateDto factura;
+
+    private Long idCliente;
+
 }

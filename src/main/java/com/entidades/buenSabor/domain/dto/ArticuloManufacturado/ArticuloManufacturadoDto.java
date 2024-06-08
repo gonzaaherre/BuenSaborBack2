@@ -14,11 +14,13 @@ import java.util.Set;
 @AllArgsConstructor
 public class ArticuloManufacturadoDto extends BaseDto {
     private String denominacion;
+    private Double precioVenta;
+
+    private UnidadMedidaDto unidadMedida;
+
     private String descripcion;
     private Integer tiempoEstimadoMinutos;
-    private Double precioVenta;
     private String preparacion;
-    private UnidadMedidaDto unidadMedida;
     private Set<ArticuloManufacturadoDetalleDto> articuloManufacturadoDetalles;
     private Boolean habilitado;
     private String categoriaNombre;

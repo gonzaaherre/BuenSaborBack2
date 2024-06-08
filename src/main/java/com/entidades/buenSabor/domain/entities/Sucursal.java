@@ -24,7 +24,7 @@ import java.util.Set;
 @SuperBuilder
 @Audited
 public class Sucursal extends  Base{
-
+    //@Column(unique = true)
     private String nombre;
     @Schema(type = "string", format = "time", pattern = "HH:mm:ss", description = "Horario de apertura en formato HH:mm:ss")
     private LocalTime horarioApertura;
