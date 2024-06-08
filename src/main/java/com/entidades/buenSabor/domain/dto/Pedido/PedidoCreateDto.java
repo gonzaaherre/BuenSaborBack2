@@ -32,10 +32,12 @@ public class PedidoCreateDto {//este va en el post
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaPedido;
 
+
    // private Long idSucursal;
    @NotNull
    @Size(min = 1, message = "Un pedido debe tener al menos un detalle de pedido.")
    private Set<DetallePedidoCreateDto> detallePedidos;
+
 
     private Long idSucursal;
 

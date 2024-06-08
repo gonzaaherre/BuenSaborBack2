@@ -1,6 +1,5 @@
 package com.entidades.buenSabor.domain.dto.Empleado;
 
-
 import com.entidades.buenSabor.domain.enums.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,5 +17,4 @@ public class EmpleadoCreateDto {
     private String email;
     private Rol tipoEmpleado;
     private Long idSucursal;
-
 }
