@@ -77,7 +77,7 @@ public class BuenSaborApplication {
 		SpringApplication.run(BuenSaborApplication.class, args);
 		logger.info("Estoy activo en el main");
 	}
-
+/*
 	@Bean
 	@Transactional
 	CommandLineRunner init(ClienteRepository clienteRepository,
@@ -151,7 +151,6 @@ public class BuenSaborApplication {
 			sucursalRepository.save(sucursalGuaymallen);
 			sucursalRepository.save(sucursalMarDelPlata);
 
-/*
 			//ASOCIAMOS LOS DOMICILIOS A SUCURSAL
 			sucursalGuaymallen.setDomicilio(domicilioBerutti);
 			sucursalMarDelPlata.setDomicilio(domicilioGaboto);
@@ -167,7 +166,7 @@ public class BuenSaborApplication {
 			sucursalRepository.save(sucursalGuaymallen);
 			sucursalRepository.save(sucursalMarDelPlata);
 			// Grabi empresa
-			empresaRepository.save(empresaCarlos);*/
+			empresaRepository.save(empresaCarlos);
 
 			// Crear Categorías de productos y subCategorías de los mismos
 			Categoria categoriaBebidas = Categoria.builder().denominacion("Bebidas")
@@ -381,7 +380,7 @@ public class BuenSaborApplication {
 
 			//	categoriaRepository.save(categoriaGaseosas); CREO QUE ESTA DE MAS REVISAR
 
-/*
+
 			// Crear promocion para sucursal - Dia de los enamorados
 			// Tener en cuenta que esa promocion es exclusivamente para una sucursal determinada d euna empresa determinada
 			Promocion promocionDiaEnamorados = Promocion.builder().denominacion("Dia de los Enamorados")
@@ -458,7 +457,7 @@ public class BuenSaborApplication {
 			ImagenPersona imagenCliente = ImagenPersona.builder().url("https://hips.hearstapps.com/hmg-prod/images/la-la-land-final-1638446140.jpg").build();
 			imagenPersonaRepository.save(imagenCliente);
 			ImagenPersona imagenEmpleado = ImagenPersona.builder().url("https://hips.hearstapps.com/hmg-prod/images/la-la-land-final-1638446140.jpg").build();
-			imagenPersonaRepository.save(imagenEmpleado);*/
+			imagenPersonaRepository.save(imagenEmpleado);
 			Domicilio domicilioCliente = Domicilio.builder().cp(5519).calle("Cangallo").numero(800).piso(0).nroDpto(1).localidad(localidad1).build();
 			//domicilioRepository.save(domicilioCliente);
 			Usuario usuario = Usuario.builder().userName("sebastian").auth0Id("9565a49d-ecc1-4f4e-adea-6cdcb7edc4a3").build();
@@ -515,7 +514,7 @@ public class BuenSaborApplication {
 			pedido.setEmpleado(empleado);
 			pedidoRepository.save(pedido);
 
-			/*Random random = new Random();
+			Random random = new Random();
 			Factura facturaBuilder = Factura.builder().fechaFcturacion(LocalDate.now())
 					.mpPaymentId(random.nextInt(1000))  // Se asume un rango máximo de 1000
 					.mpMerchantOrderId(random.nextInt(1000)) // Se asume un rango máximo de 1000
@@ -535,7 +534,7 @@ public class BuenSaborApplication {
 			logger.info("----------------Sucursal Mardel Plata ---------------------");
 			logger.info("{}",sucursalMarDelPlata);
 			logger.info("----------------Pedido ---------------------");
-			logger.info("{}",pedido);*/
+			logger.info("{}",pedido);
 		};
-	}
+	}*/
 }
