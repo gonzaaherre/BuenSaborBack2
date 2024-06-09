@@ -22,5 +22,8 @@ public class ArticuloInsumo extends Articulo{
     private Integer stockMaximo;
     private Integer stockMinimo;
     private Boolean esParaElaborar;
-    private Long idCategoria;
+
+    public boolean tieneStockSuficiente(int cantidad) {
+        return stockActual >= cantidad;
+    }
 }

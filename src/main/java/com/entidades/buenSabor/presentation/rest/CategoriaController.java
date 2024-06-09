@@ -8,6 +8,7 @@ import com.entidades.buenSabor.domain.entities.Categoria;
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -28,11 +29,26 @@ public class CategoriaController extends BaseControllerImp<Categoria, CategoriaD
         return ResponseEntity.status(HttpStatus.CREATED).body(facade.addInsumo(idCategoria,idArticulo));
     }
 */
+
+    @PostMapping
+    @Override
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
+    public ResponseEntity<CategoriaDto> create(CategoriaCreateDto entity){
+        return super.create(entity);
+    }
+
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     @PutMapping("/addSubCategoria/{idCategoria}")
     public ResponseEntity<CategoriaDto> addSubCategoria(@PathVariable Long idCategoria, @RequestBody CategoriaCreateDto subCategoria){
         return ResponseEntity.status(HttpStatus.CREATED).body(facade.addSubCategoria(idCategoria,subCategoria));
     }
 
+    @PutMapping("/{id}")
+    @Override
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
+    public ResponseEntity<CategoriaDto> edit(CategoriaEditDto entity, Long id){
+        return super.edit(entity,id);
+    }
     @GetMapping("/getCategoriasInsumos")
     public ResponseEntity<?> listCategoriasInsumos(){
         return ResponseEntity.ok(facade.listCategoriaInsumos());

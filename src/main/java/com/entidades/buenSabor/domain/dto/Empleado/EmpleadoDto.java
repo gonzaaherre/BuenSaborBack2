@@ -9,14 +9,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
+import java.time.LocalDate;
+
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmpleadoDto extends BaseDto {
+    private String nombre;
     private String apellido;
     private String telefono;
     private String email;
+    private LocalDate fechaNacimiento;
     private Rol tipoEmpleado;
     private SucursalShortShort sucursal;
+
 }

@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -16,5 +19,7 @@ public class EmpleadoCreateDto {
     private String telefono;
     private String email;
     private Rol tipoEmpleado;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fechaNacimiento;
     private Long idSucursal;
 }

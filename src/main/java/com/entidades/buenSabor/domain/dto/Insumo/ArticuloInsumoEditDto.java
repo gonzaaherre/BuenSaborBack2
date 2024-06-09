@@ -16,4 +16,5 @@ public class ArticuloInsumoEditDto {
     private Integer stockActual;
     private Integer stockMaximo;
     private Integer stockMinimo;
+    //private Long idUnidadMedida;
 }

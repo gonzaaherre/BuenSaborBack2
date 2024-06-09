@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -24,7 +25,7 @@ import java.util.Set;
 @SuperBuilder
 @Audited
 public class Sucursal extends  Base{
-
+    //@Column(unique = true)
     private String nombre;
     @Schema(type = "string", format = "time", pattern = "HH:mm:ss", description = "Horario de apertura en formato HH:mm:ss")
     private LocalTime horarioApertura;
@@ -61,4 +62,11 @@ public class Sucursal extends  Base{
 
     @ManyToOne
     private Empresa empresa;
+
+    @OneToMany
+    @JoinColumn(name = "sucursal_id")
+    @NotAudited
+    @Builder.Default
+    private Set<Articulo> articulos = new HashSet<>();
+
 }

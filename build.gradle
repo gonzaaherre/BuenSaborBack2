@@ -26,6 +26,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
+	//SEGURIDAD
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
 	//CLOUDINARY
 	// https://mvnrepository.com/artifact/com.cloudinary/cloudinary
 	implementation 'com.cloudinary:cloudinary-http44:1.36.0'
@@ -56,6 +60,14 @@ dependencies {
 
 	//ENVERS
 	implementation 'org.hibernate.orm:hibernate-envers:6.4.4.Final'
+
+	// EXCEL
+	// https://mvnrepository.com/artifact/org.apache.poi/poi
+	implementation group: 'org.apache.poi', name: 'poi', version: '5.2.5'
+
+	//Mercado Pago
+	implementation 'com.mercadopago:sdk-java:2.1.24'
+
 }
 
 tasks.named('test') {

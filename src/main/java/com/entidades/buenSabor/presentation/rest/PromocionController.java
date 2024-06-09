@@ -7,6 +7,7 @@ import com.entidades.buenSabor.domain.dto.Promocion.PromocionEdit;
 import com.entidades.buenSabor.domain.entities.Promocion;
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -20,6 +21,21 @@ public class PromocionController extends BaseControllerImp<Promocion, PromocionD
         super(facade);
     }
 
+    @Override
+    @PostMapping
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
+    public ResponseEntity<PromocionDto> create(PromocionCreate entity){
+        return super.create(entity);
+    }
+
+    @Override
+    @PutMapping
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
+    public ResponseEntity<PromocionDto> edit(PromocionEdit edit, Long id){
+        return super.edit(edit, id);
+    }
+
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     @PutMapping("/changeHabilitado/{id}")
     public ResponseEntity<?> changeHabilitado(@PathVariable Long id){
         facade.changeHabilitado(id);
@@ -37,6 +53,7 @@ public class PromocionController extends BaseControllerImp<Promocion, PromocionD
     }
 
     // Método POST para subir imágenes
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     @PostMapping("/uploads")
     public ResponseEntity<String> uploadImages(
             @RequestParam(value = "uploads", required = true) MultipartFile[] files,
@@ -50,6 +67,7 @@ public class PromocionController extends BaseControllerImp<Promocion, PromocionD
     }
 
     // Método POST para eliminar imágenes por su publicId y Long
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     @PostMapping("/deleteImg")
     public ResponseEntity<String> deleteById(
             @RequestParam(value = "publicId", required = true) String publicId,

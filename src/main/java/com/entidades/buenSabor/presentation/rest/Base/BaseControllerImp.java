@@ -7,6 +7,7 @@ import com.entidades.buenSabor.domain.entities.Base;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,7 @@ public abstract class BaseControllerImp <E extends Base,D extends BaseDto, DC, D
 
     private static final Logger logger = LoggerFactory.getLogger(BaseControllerImp.class);
     protected F facade;
+
     public BaseControllerImp(F facade){
         this.facade = facade;
     }
@@ -47,9 +49,10 @@ public abstract class BaseControllerImp <E extends Base,D extends BaseDto, DC, D
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity<?> deleteById(@PathVariable ID id) throws RestrictDeleteException {
         logger.info("INICIO DELETE BY ID");
         facade.deleteById(id);
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok(true);
     }
 }
