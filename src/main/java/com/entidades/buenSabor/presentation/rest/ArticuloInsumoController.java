@@ -11,10 +11,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/ArticuloInsumo")
@@ -23,7 +19,21 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
         super(facade);
     }
 
+    @PostMapping
+    @Override
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
+    public ResponseEntity<ArticuloInsumoDto> create (ArticuloInsumoCreateDto entity){
+        return super.create(entity);
+    }
 
+    @PutMapping
+    @Override
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
+    public ResponseEntity<ArticuloInsumoDto> edit(ArticuloInsumoEditDto editDto, Long id){
+        return super.edit(editDto, id);
+    }
+
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     @PutMapping("/changeHabilitado/{id}")
     public ResponseEntity<?> changeHabilitado(@PathVariable Long id){
         facade.changeHabilitado(id);
@@ -37,6 +47,7 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
 
 
     // Método POST para subir imágenes
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     @PostMapping("/uploads")
     public ResponseEntity<String> uploadImages(
             @RequestParam(value = "uploads", required = true) MultipartFile[] files,
@@ -50,6 +61,7 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
     }
 
     // Método POST para eliminar imágenes por su publicId y Long
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     @PostMapping("/deleteImg")
     public ResponseEntity<String> deleteById(
             @RequestParam(value = "publicId", required = true) String publicId,
