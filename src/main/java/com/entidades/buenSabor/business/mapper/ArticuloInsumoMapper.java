@@ -25,6 +25,7 @@ public interface ArticuloInsumoMapper extends BaseMapper<ArticuloInsumo, Articul
 
     @Named("toDTO")
     @Mapping(source = "categoria.denominacion",target = "categoriaNombre")
+    @Mapping(source = "sucursal.id", target = "idSucursal")
     ArticuloInsumoDto toDTO(ArticuloInsumo source);
 
     // Utiliza la anotación @Mapping para especificar el mapeo entre los campos del DTO y la entidad,

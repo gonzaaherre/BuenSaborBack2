@@ -40,6 +40,11 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
         return ResponseEntity.ok().body("Se cambio el estado del Insuomo");
     }
 
+    @GetMapping("/allArticulos")
+    public ResponseEntity<?>all(){
+        return ResponseEntity.ok(facade.getAlllArticulos());
+    }
+
     @GetMapping("/getHabilitados")
     public ResponseEntity<?> getHabilitados(){
         return ResponseEntity.ok(facade.getAllHabilitados());

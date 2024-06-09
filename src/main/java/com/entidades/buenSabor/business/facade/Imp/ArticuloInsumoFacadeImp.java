@@ -5,6 +5,7 @@ import com.entidades.buenSabor.business.facade.Base.BaseFacadeImp;
 import com.entidades.buenSabor.business.mapper.BaseMapper;
 import com.entidades.buenSabor.business.service.ArticuloInsumoService;
 import com.entidades.buenSabor.business.service.Base.BaseService;
+import com.entidades.buenSabor.domain.dto.Articulo.CardArticulo;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoCreateDto;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoDto;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoEditDto;
@@ -50,5 +51,10 @@ public class ArticuloInsumoFacadeImp extends BaseFacadeImp<ArticuloInsumo, Artic
     @Override
     public ResponseEntity<String> deleteImage(String publicId, Long id) {
         return articuloInsumoService.deleteImage(publicId, id);
+    }
+
+    @Override
+    public List<CardArticulo> getAlllArticulos() {
+        return articuloInsumoService.allArticulos();
     }
 }
