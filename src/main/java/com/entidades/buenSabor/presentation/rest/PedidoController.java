@@ -4,10 +4,11 @@ import com.entidades.buenSabor.business.facade.Imp.PedidoFacadeImp;
 import com.entidades.buenSabor.domain.dto.Pedido.PedidoCreateDto;
 import com.entidades.buenSabor.domain.dto.Pedido.PedidoDto;
 import com.entidades.buenSabor.domain.entities.Pedido;
+import com.entidades.buenSabor.domain.enums.Estado;
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin("*")
@@ -15,5 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PedidoController extends BaseControllerImp<Pedido, PedidoDto, PedidoCreateDto,PedidoCreateDto,Long, PedidoFacadeImp> {
     public PedidoController(PedidoFacadeImp facade) {
         super(facade);
+    }
+
+    @PutMapping("/cambiaEstado/{id}")
+    @PreAuthorize("hasAnyAuthority('COCINERO')")
+    public ResponseEntity<PedidoDto> cambiaEstado(@RequestBody Estado estado,@PathVariable Long id ){
+        return ResponseEntity.ok(facade.cambiaEstado(estado, id));
     }
 }
