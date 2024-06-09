@@ -60,6 +60,11 @@ dependencies {
 
 	//ENVERS
 	implementation 'org.hibernate.orm:hibernate-envers:6.4.4.Final'
+
+	// EXCEL
+	// https://mvnrepository.com/artifact/org.apache.poi/poi
+	implementation group: 'org.apache.poi', name: 'poi', version: '5.2.5'
+
 }
 
 tasks.named('test') {

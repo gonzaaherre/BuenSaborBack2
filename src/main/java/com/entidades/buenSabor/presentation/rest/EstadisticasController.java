@@ -3,9 +3,12 @@ package com.entidades.buenSabor.presentation.rest;
 import com.entidades.buenSabor.business.facade.EstadisticasFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -50,5 +53,20 @@ public class EstadisticasController {
             @RequestParam("fechaDesde") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaDesde,
             @RequestParam("fechaHasta") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaHasta){
         return ResponseEntity.ok(estadisticasFacade.findCantidadPedidosPorCliente(fechaDesde, fechaHasta));
+    }
+
+    @GetMapping("/excel")
+    public ResponseEntity<?> excel (
+            @RequestParam("fechaDesde") @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaDesde,
+            @RequestParam("fechaHasta") @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaHasta) throws IOException {
+        byte[] excelContent = estadisticasFacade.generarReporteExcel(fechaDesde, fechaHasta);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        headers.set(HttpHeaders.CONTENT_DISPOSITION,"attachment;filename=estadisticas.xls");
+        headers.setContentLength(excelContent.length);
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(excelContent);
     }
 }

@@ -1,6 +1,8 @@
 package com.entidades.buenSabor.repositories;
 
 import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.CostoGanancia;
+import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.IngresosDiarios;
+import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.IngresosMensuales;
 import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.PedidosCliente;
 import com.entidades.buenSabor.domain.entities.Pedido;
 import org.springframework.data.jpa.repository.Query;
@@ -20,7 +22,7 @@ public interface PedidoRepository extends BaseRepository<Pedido,Long>{
             "FROM pedido p " +
             "WHERE p.fecha_pedido BETWEEN :initialDate AND :endDate " +
             "GROUP BY FORMATDATETIME(p.fecha_pedido, 'yyyy-MM-dd')", nativeQuery = true)
-    List<Object[]> ingresosDiarios(Date initialDate, Date endDate);
+    List<IngresosDiarios> ingresosDiarios(Date initialDate, Date endDate);
 
     // mysql -> date(p.fecha_pedido)
     // H2 ->  PARSEDATETIME(p.fecha_pedido, 'yyyy-MM-dd') || FORMATDATETIME(p.fecha_pedido, 'yyyy-MM-dd')
@@ -29,7 +31,7 @@ public interface PedidoRepository extends BaseRepository<Pedido,Long>{
             "FROM Pedido p " +
             "WHERE p.fecha_pedido BETWEEN :startDate AND :endDate " +
             "GROUP BY FORMATDATETIME(p.fecha_pedido, 'yyyy-MM')", nativeQuery = true)
-    List<Object[]> ingresosMensuales(Date startDate, Date endDate);
+    List<IngresosMensuales> ingresosMensuales(Date startDate, Date endDate);
 
     @Query(value = "SELECT " +
             "SUM(dp.cantidad * ai.precioCompra) AS costos, " +
