@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 // En este caso, se utiliza el componente "spring" para la inyección de dependencias y se especifican
 // las clases de servicio y mappers que utiliza.
 @Mapper(componentModel = "spring", uses = {SucursalService.class, ArticuloInsumoMapper.class,
-        ArticuloManufacturadoMapper.class, SucursalMapper.class, ImagenArticuloMapper.class})
+        ArticuloManufacturadoMapper.class, SucursalMapper.class})
 public interface CategoriaMapper extends BaseMapper<Categoria, CategoriaDto,CategoriaCreateDto, CategoriaEditDto> {
     // Esta es una instancia estática de la interfaz, que se utiliza para obtener una instancia del Mapper.
     CategoriaMapper INSTANCE = Mappers.getMapper(CategoriaMapper.class);

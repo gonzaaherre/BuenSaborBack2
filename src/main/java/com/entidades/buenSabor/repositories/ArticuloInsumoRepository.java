@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ArticuloInsumoRepository extends BaseRepository<ArticuloInsumo,Long> {
     List<ArticuloInsumo> findByEliminadoFalseAndHabilitadoTrue();
+    List<ArticuloInsumo> findBySucursalId(Long sucursalId);
 }

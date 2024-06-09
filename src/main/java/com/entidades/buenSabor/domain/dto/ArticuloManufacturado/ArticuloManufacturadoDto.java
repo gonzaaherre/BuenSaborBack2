@@ -25,4 +25,5 @@ public class ArticuloManufacturadoDto extends BaseDto {
     private Boolean habilitado;
     private String categoriaNombre;
     private Set<ImagenDto> imagenes;
+    private Long sucursalId;
 }

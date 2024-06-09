@@ -23,4 +23,5 @@ public class ArticuloManufacturadoCreateDto {
     private Long idUnidadMedida;
     private Long idCategoria;
     private Set<ArticuloManufacturadoDetalleCreateDto> ArticuloManufacturadoDetalles;
+    private Long idSucursal;
 }

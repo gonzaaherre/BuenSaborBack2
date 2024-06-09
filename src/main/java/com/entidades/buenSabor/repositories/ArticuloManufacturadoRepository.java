@@ -13,4 +13,5 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
     // Método para buscar artículos manufacturados por detalles de artículo manufacturado dado.
     List<ArticuloManufacturado> findByArticuloManufacturadoDetalles(ArticuloManufacturadoDetalle detalleId);
     List<ArticuloManufacturado> findByEliminadoFalseAndHabilitadoTrue();
+    List<ArticuloManufacturado> findBySucursalId(Long sucursalId);
 }
