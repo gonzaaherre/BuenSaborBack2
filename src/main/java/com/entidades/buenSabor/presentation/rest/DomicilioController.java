@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 public class DomicilioController extends BaseControllerImp<Domicilio, DomicilioDto, DomicilioCreateDto, DomicilioEditDto,Long, DomicilioFacadeImp> {
     public DomicilioController(DomicilioFacadeImp facade) {
-        super(facade, "");
+        super(facade);
     }
 }

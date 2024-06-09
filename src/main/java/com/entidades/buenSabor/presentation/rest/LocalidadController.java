@@ -18,7 +18,7 @@ import java.util.List;
 public class LocalidadController extends BaseControllerImp<Localidad, LocalidadDto, LocalidadCreateDto, LocalidadCreateDto,Long, LocalidadFacadeImp> {
 
     public LocalidadController(LocalidadFacadeImp facade) {
-        super(facade,"");
+        super(facade);
     }
     private static final Logger logger = LoggerFactory.getLogger(LocalidadController.class);
 

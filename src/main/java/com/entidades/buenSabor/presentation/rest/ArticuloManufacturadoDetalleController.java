@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/ArticuloManufacturadoDetalle")
 public class ArticuloManufacturadoDetalleController extends BaseControllerImp<ArticuloManufacturadoDetalle, ArticuloManufacturadoDetalleDto, ArticuloManufacturadoDetalleCreateDto, ArticuloManufacturadoDetalleEditDto, Long, ArticuloManufacturadoDetalleFacadeImp> {
     public ArticuloManufacturadoDetalleController(ArticuloManufacturadoDetalleFacadeImp facade) {
-        super(facade, "ADMIN");
+        super(facade);
     }
 }

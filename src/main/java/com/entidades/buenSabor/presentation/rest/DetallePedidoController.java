@@ -14,6 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/detallesPedido")
 public class DetallePedidoController extends BaseControllerImp<DetallePedido, DetallePedidoDto, DetallePedidoCreateDto,DetallePedidoCreateDto,Long, DetallePedidoFacadeImpl> {
     public DetallePedidoController(DetallePedidoFacadeImpl facade) {
-        super(facade, "");
+        super(facade);
     }
 }

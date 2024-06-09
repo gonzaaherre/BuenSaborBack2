@@ -7,6 +7,7 @@ import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoEditDto;
 import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,7 +20,7 @@ import java.util.UUID;
 @RequestMapping("/ArticuloInsumo")
 public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo, ArticuloInsumoDto, ArticuloInsumoCreateDto, ArticuloInsumoEditDto, Long, ArticuloInsumoFacadeImp> {
     public ArticuloInsumoController(ArticuloInsumoFacadeImp facade) {
-        super(facade, "ADMIN");
+        super(facade);
     }
 
 

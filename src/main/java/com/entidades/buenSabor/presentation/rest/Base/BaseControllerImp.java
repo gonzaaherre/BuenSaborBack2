@@ -19,11 +19,9 @@ public abstract class BaseControllerImp <E extends Base,D extends BaseDto, DC, D
 
     private static final Logger logger = LoggerFactory.getLogger(BaseControllerImp.class);
     protected F facade;
-    private final String role;
 
-    public BaseControllerImp(F facade, String role){
+    public BaseControllerImp(F facade){
         this.facade = facade;
-        this.role = role;
     }
 
     @GetMapping("/{id}")
@@ -39,7 +37,6 @@ public abstract class BaseControllerImp <E extends Base,D extends BaseDto, DC, D
     }
 
     @PostMapping()
-    @PreAuthorize("hasRole(#role)")
     public ResponseEntity<D> create(@RequestBody DC entity){
         logger.info("INICIO CREATE {}",entity.getClass());
         return ResponseEntity.ok(facade.createNew(entity));

@@ -7,10 +7,13 @@ import com.entidades.buenSabor.domain.dto.Empresa.EmpresaDto;
 
 import com.entidades.buenSabor.domain.dto.Empresa.EmpresaEditDto;
 import com.entidades.buenSabor.domain.dto.Empresa.EmpresaLargeDto;
+import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoCreateDto;
+import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoDto;
 import com.entidades.buenSabor.domain.entities.Empresa;
 
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,15 +22,24 @@ import org.springframework.web.multipart.MultipartFile;
 @CrossOrigin("*")
 public class EmpresaController extends BaseControllerImp<Empresa, EmpresaDto, EmpresaCreateDto, EmpresaEditDto,Long, EmpresaFacadeImpl> {
     public EmpresaController(EmpresaFacadeImpl facade) {
-        super(facade, "ADMIN");
+        super(facade);
     }
 
+    @Override
+    @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<EmpresaDto> create(@RequestBody EmpresaCreateDto entity) {
+        return super.create(entity);
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/sucursales/{idEmpresa}")
     public ResponseEntity<EmpresaLargeDto> getEmpresaSucursales(@PathVariable Long idEmpresa){
         return ResponseEntity.ok(facade.getEmpresaSucursales(idEmpresa));
     }
 
     // Método POST para subir imágenes
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/uploads")
     public ResponseEntity<String> uploadImages(
             @RequestParam(value = "uploads", required = true) MultipartFile[] files,
@@ -41,6 +53,7 @@ public class EmpresaController extends BaseControllerImp<Empresa, EmpresaDto, Em
     }
 
     // Método POST para eliminar imágenes por su publicId y Long
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/deleteImg")
     public ResponseEntity<String> deleteById(
             @RequestParam(value = "publicId", required = true) String publicId,
