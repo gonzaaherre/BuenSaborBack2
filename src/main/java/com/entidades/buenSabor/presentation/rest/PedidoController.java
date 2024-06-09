@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/pedido")
@@ -20,7 +22,13 @@ public class PedidoController extends BaseControllerImp<Pedido, PedidoDto, Pedid
 
     @PutMapping("/cambiaEstado/{id}")
     @PreAuthorize("hasAnyAuthority('COCINERO')")
-    public ResponseEntity<PedidoDto> cambiaEstado(@RequestBody Estado estado,@PathVariable Long id ){
+    public ResponseEntity<PedidoDto> cambiaEstado(@RequestBody Estado estado,@PathVariable Long id ) {
         return ResponseEntity.ok(facade.cambiaEstado(estado, id));
+    }
+
+    @GetMapping("/en-preparacion")
+    public ResponseEntity<List<PedidoDto>> getPedidosEnPreparacion() {
+        List<PedidoDto> pedidosEnPreparacion = facade.getPedidosEnPreparacion();
+        return ResponseEntity.ok(pedidosEnPreparacion);
     }
 }

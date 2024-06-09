@@ -5,6 +5,7 @@ import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.IngresosDiari
 import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.IngresosMensuales;
 import com.entidades.buenSabor.domain.dto.ProyeccionesEstadisticas.PedidosCliente;
 import com.entidades.buenSabor.domain.entities.Pedido;
+import com.entidades.buenSabor.domain.enums.Estado;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +15,7 @@ import java.util.List;
 
 @Repository
 public interface PedidoRepository extends BaseRepository<Pedido,Long>{
-
+    List<Pedido> findByEstado(Estado estado);
     // mysql -> date(p.fecha_pedido)
     // H2 ->  PARSEDATETIME(p.fecha_pedido, 'yyyy-MM-dd') || FORMATDATETIME(p.fecha_pedido, 'yyyy-MM-dd')
 

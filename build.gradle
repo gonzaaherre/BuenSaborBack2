@@ -65,6 +65,9 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.poi/poi
 	implementation group: 'org.apache.poi', name: 'poi', version: '5.2.5'
 
+	//Mercado Pago
+	implementation 'com.mercadopago:sdk-java:2.1.24'
+
 }
 
 tasks.named('test') {

@@ -29,8 +29,8 @@ public class Empleado extends Base{
 
     //@OneToOne
     //private Usuario usuario;
-
-    private Rol tipoEmpleado;
+    @Enumerated(EnumType.STRING)
+    private Rol rol;
 
     @OneToMany(mappedBy = "empleado", cascade = CascadeType.REFRESH, orphanRemoval = true)
     @ToString.Exclude

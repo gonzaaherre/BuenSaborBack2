@@ -1,5 +1,6 @@
 package com.entidades.buenSabor.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -45,5 +46,9 @@ public abstract class Articulo  extends Base {
     @ManyToOne
     protected UnidadMedida unidadMedida;
 
-
+    @ManyToOne
+    @JoinColumn(name = "sucursal_id")
+    @JsonIgnoreProperties("articulos")
+    @NotAudited
+    private Sucursal sucursal;
 }
