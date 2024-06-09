@@ -29,7 +29,8 @@ public class Cliente extends Base{
     @OneToOne
     protected Usuario usuario;
 
-    private Rol rol = Rol.CLIENTE;
+    //no se necesita rol para cliente
+    //private Rol rol = Rol.CLIENTE;
 
     private LocalDate fechaNacimiento;
 

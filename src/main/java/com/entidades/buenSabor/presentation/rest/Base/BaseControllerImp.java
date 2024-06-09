@@ -7,6 +7,7 @@ import com.entidades.buenSabor.domain.entities.Base;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +19,11 @@ public abstract class BaseControllerImp <E extends Base,D extends BaseDto, DC, D
 
     private static final Logger logger = LoggerFactory.getLogger(BaseControllerImp.class);
     protected F facade;
-    public BaseControllerImp(F facade){
+    private final String role;
+
+    public BaseControllerImp(F facade, String role){
         this.facade = facade;
+        this.role = role;
     }
 
     @GetMapping("/{id}")
@@ -35,6 +39,7 @@ public abstract class BaseControllerImp <E extends Base,D extends BaseDto, DC, D
     }
 
     @PostMapping()
+    @PreAuthorize("hasRole(#role)")
     public ResponseEntity<D> create(@RequestBody DC entity){
         logger.info("INICIO CREATE {}",entity.getClass());
         return ResponseEntity.ok(facade.createNew(entity));

@@ -17,7 +17,7 @@ import java.util.Optional;
 @RestController
 public class PromocionController extends BaseControllerImp<Promocion, PromocionDto, PromocionCreate, PromocionEdit, Long, PromocionFacadeImp> {
     public PromocionController(PromocionFacadeImp facade) {
-        super(facade);
+        super(facade, "ADMIN");
     }
 
     @PutMapping("/changeHabilitado/{id}")

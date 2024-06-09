@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/empleado")
 public class EmpleadoController extends BaseControllerImp<Empleado, EmpleadoDto, EmpleadoCreateDto, EmpleadoEditDto, Long, EmpleadoFacadeImp> {
     public EmpleadoController(EmpleadoFacadeImp facade) {
-        super(facade);
+        super(facade, "ADMIN");
     }
 
     @GetMapping("/findByEmail")

@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class PaisController extends BaseControllerImp<Pais, PaisDto, PaisCreateDto, PaisCreateDto,Long, PaisFacadeImp> {
 
     public PaisController(PaisFacadeImp facade) {
-        super(facade);
+        super(facade,"");
     }
 }

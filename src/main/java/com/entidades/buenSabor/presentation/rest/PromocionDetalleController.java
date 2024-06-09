@@ -17,6 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 public class PromocionDetalleController extends BaseControllerImp<PromocionDetalle, PromocionDetalleDto, PromocionDetalleCreate, PromocionDetalleEdit,Long, PromocionDetalleFacadeImp> {
     public PromocionDetalleController(PromocionDetalleFacadeImp facade) {
-        super(facade);
+        super(facade, "ADMIN");
     }
 }

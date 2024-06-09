@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 @CrossOrigin("*")
 public class EmpresaController extends BaseControllerImp<Empresa, EmpresaDto, EmpresaCreateDto, EmpresaEditDto,Long, EmpresaFacadeImpl> {
     public EmpresaController(EmpresaFacadeImpl facade) {
-        super(facade);
+        super(facade, "ADMIN");
     }
 
     @GetMapping("/sucursales/{idEmpresa}")

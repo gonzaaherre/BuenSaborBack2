@@ -21,7 +21,7 @@ import java.util.List;
 @CrossOrigin("*")
 public class SucursalController extends BaseControllerImp<Sucursal, SucursalDto, SucursalCreateDto, SucursalEditDto,Long, SucursalFacadeImp> {
     public SucursalController(SucursalFacadeImp facade) {
-        super(facade);
+        super(facade, "ADMIN");
     }
 
     @GetMapping("/getCategorias/{idSucursal}")

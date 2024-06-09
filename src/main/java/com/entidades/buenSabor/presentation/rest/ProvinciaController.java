@@ -17,7 +17,7 @@ import java.util.List;
 @CrossOrigin("*")
 public class ProvinciaController extends BaseControllerImp<Provincia, ProvinciaDto, ProvinciaCreateDto, ProvinciaCreateDto,Long, ProvinciaFacadeImp>  {
     public ProvinciaController(ProvinciaFacadeImp facade) {
-        super(facade);
+        super(facade,"");
     }
 
     private static final Logger logger = LoggerFactory.getLogger(ProvinciaController.class);

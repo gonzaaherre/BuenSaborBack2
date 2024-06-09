@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class FacturaController extends BaseControllerImp<Factura, FacturaDto, FacturaCreateDto,FacturaCreateDto, Long, FacturaFacadeImpl> {
 
     public FacturaController(FacturaFacadeImpl facade) {
-        super(facade);
+        super(facade,"");
     }
 }

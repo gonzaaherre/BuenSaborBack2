@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 public class UnidadMedidaController extends BaseControllerImp<UnidadMedida, UnidadMedidaDto, UnidadMedidaCreateDto, UnidadDeMedidaEditDto,Long, UnidadMedidaFacadeImp> {
     public UnidadMedidaController(UnidadMedidaFacadeImp facade) {
-        super(facade);
+        super(facade, "ADMIN");
     }
 }

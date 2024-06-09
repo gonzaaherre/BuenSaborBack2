@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/ArticuloManufacturado")
 public class ArticuloManufacturadoController extends BaseControllerImp<ArticuloManufacturado, ArticuloManufacturadoDto, ArticuloManufacturadoCreateDto, ArticuloManufacturadoEditDto, Long, ArticuloManufacturadoFacadeImp> {
     public ArticuloManufacturadoController(ArticuloManufacturadoFacadeImp facade) {
-        super(facade);
+        super(facade, "ADMIN");
     }
 
     @GetMapping("/allDetalles/{id}")

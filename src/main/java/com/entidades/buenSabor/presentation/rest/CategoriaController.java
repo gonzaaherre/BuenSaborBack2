@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/categoria")
 public class CategoriaController extends BaseControllerImp<Categoria, CategoriaDto, CategoriaCreateDto, CategoriaEditDto, Long, CategoriaFacadeImp> {
     public CategoriaController(CategoriaFacadeImp facade) {
-        super(facade);
+        super(facade, "ADMIN");
     }
 /*
     @PutMapping("/addInsumo/{idCategoria}/{idInsumo}")

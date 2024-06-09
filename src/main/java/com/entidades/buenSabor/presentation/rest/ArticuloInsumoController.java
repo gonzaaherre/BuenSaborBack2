@@ -19,7 +19,7 @@ import java.util.UUID;
 @RequestMapping("/ArticuloInsumo")
 public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo, ArticuloInsumoDto, ArticuloInsumoCreateDto, ArticuloInsumoEditDto, Long, ArticuloInsumoFacadeImp> {
     public ArticuloInsumoController(ArticuloInsumoFacadeImp facade) {
-        super(facade);
+        super(facade, "ADMIN");
     }
 
 
