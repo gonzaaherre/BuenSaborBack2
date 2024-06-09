@@ -27,8 +27,8 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	//SEGURIDAD
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+	// implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+	// implementation 'org.springframework.boot:spring-boot-starter-security'
 
 	//CLOUDINARY
 	// https://mvnrepository.com/artifact/com.cloudinary/cloudinary
@@ -60,6 +60,10 @@ dependencies {
 
 	//ENVERS
 	implementation 'org.hibernate.orm:hibernate-envers:6.4.4.Final'
+
+	//Mercado Pago
+	implementation 'com.mercadopago:sdk-java:2.1.24'
+
 }
 
 tasks.named('test') {

@@ -22,15 +22,15 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PedidoCreateDto {//este va en el post
-    @Schema(type = "string", format = "time", pattern = "HH:mm:ss", description = "Horario de apertura en formato HH:mm:ss")
-    private LocalTime horaEstimadaFinalizacion;
+//    @Schema(type = "string", format = "time", pattern = "HH:mm:ss", description = "Horario de apertura en formato HH:mm:ss")
+//    private LocalTime horaEstimadaFinalizacion;
     private Double total;
     private Double totalCosto;
-    private Estado estado;
+//    private Estado estado;
     private TipoEnvio tipoEnvio;
     private FormaPago formaPago;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaPedido;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    private LocalDate fechaPedido;
 
 
    // private Long idSucursal;
@@ -39,7 +39,7 @@ public class PedidoCreateDto {//este va en el post
    private Set<DetallePedidoCreateDto> detallePedidos;
 
 
-    private Long idSucursal;
+    //private Long idSucursal;
 
     private Long iDdomicilio;
 

@@ -154,6 +154,17 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
             return new ResponseEntity<>("{\"status\":\"ERROR\", \"message\":\"" + e.getMessage() + "\"}", HttpStatus.BAD_REQUEST);
         }
     }
+
+    @Override
+    public void decrementStock(Long articuloInsumoId, Integer cantidad) {
+        ArticuloInsumo articuloInsumo = articuloInsumoRepository.findById(articuloInsumoId)
+                .orElseThrow(() -> new RuntimeException("Artículo insumo no encontrado"));
+        if (articuloInsumo.getStockActual() < cantidad) {
+            throw new RuntimeException("Stock insuficiente para el artículo: " + articuloInsumo.getDenominacion());
+        }
+        articuloInsumo.setStockActual(articuloInsumo.getStockActual() - cantidad);
+        articuloInsumoRepository.save(articuloInsumo);
+    }
 }
 
 

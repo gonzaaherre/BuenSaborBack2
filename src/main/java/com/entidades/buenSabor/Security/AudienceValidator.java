@@ -1,5 +1,5 @@
 package com.entidades.buenSabor.Security;
-
+/*
 import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.core.OAuth2TokenValidator;
 import org.springframework.security.oauth2.core.OAuth2TokenValidatorResult;
@@ -20,4 +20,4 @@ class AudienceValidator implements OAuth2TokenValidator<Jwt> {
         }
         return OAuth2TokenValidatorResult.failure(error);
     }
-}
+}*/
