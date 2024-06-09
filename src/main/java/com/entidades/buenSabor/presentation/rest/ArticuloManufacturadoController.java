@@ -82,7 +82,6 @@ public class ArticuloManufacturadoController extends BaseControllerImp<ArticuloM
     }
 
     // Método GET para obtener todas las imágenes almacenadas
-    @PreAuthorize("hasAnyAuthority('COCINERO','ADMIN')")
     @GetMapping("/getImagesByArticuloId/{id}")
     public ResponseEntity<?> getAll(@PathVariable Long id) {
         try {
