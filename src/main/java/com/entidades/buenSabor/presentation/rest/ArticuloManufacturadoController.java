@@ -27,7 +27,7 @@ public class ArticuloManufacturadoController extends BaseControllerImp<ArticuloM
     }
 
     @Override
-    @PutMapping
+    @PutMapping("/{id}")
     @PreAuthorize("hasAnyAuthority('COCINERO','ADMIN')")
     public ResponseEntity<ArticuloManufacturadoDto> edit(ArticuloManufacturadoEditDto entity, Long id){
         return super.edit(entity, id);

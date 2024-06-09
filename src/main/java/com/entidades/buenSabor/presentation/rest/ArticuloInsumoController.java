@@ -26,7 +26,7 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
         return super.create(entity);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Override
     @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     public ResponseEntity<ArticuloInsumoDto> edit(ArticuloInsumoEditDto editDto, Long id){

@@ -31,6 +31,15 @@ public class SucursalController extends BaseControllerImp<Sucursal, SucursalDto,
     public ResponseEntity<SucursalDto> create(SucursalCreateDto entity){
         return super.create(entity);
     }
+
+    @Override
+    @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<SucursalDto> edit (SucursalEditDto entity, Long id){
+        return super.edit(entity, id);
+    }
+
+
     @GetMapping("/getCategorias/{idSucursal}")
     public ResponseEntity<List<CategoriaDto>>getCategorias(@PathVariable Long idSucursal){
         return ResponseEntity.ok(facade.findAllCategoriasByIdSucursal(idSucursal));

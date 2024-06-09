@@ -32,6 +32,13 @@ public class EmpresaController extends BaseControllerImp<Empresa, EmpresaDto, Em
         return super.create(entity);
     }
 
+    @Override
+    @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<EmpresaDto> edit (EmpresaEditDto entity, Long id){
+        return super.edit(entity,id);
+    }
+
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/sucursales/{idEmpresa}")
     public ResponseEntity<EmpresaLargeDto> getEmpresaSucursales(@PathVariable Long idEmpresa){
