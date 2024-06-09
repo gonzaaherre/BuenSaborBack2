@@ -27,4 +27,6 @@ public class ClienteCreateDto {
 
     private Set<DomicilioCreateDto> domicilios;
 
+    private String imagenUrl;
+
 }
