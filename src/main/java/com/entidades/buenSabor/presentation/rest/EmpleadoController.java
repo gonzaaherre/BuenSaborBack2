@@ -25,6 +25,7 @@ public class EmpleadoController extends BaseControllerImp<Empleado, EmpleadoDto,
     public ResponseEntity<EmpleadoDto> create (EmpleadoCreateDto entity){
         return super.create(entity);
     }
+
     @GetMapping("/findByEmail")
     public ResponseEntity<?> findByEmail(@RequestBody String email){
         return ResponseEntity.ok(facade.findByEmail(email));
