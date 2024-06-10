@@ -36,6 +36,13 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
 
     @Override
     public Pedido create(Pedido pedido) {
+        // Asignar sucursal desde el artículo del pedido
+        if (!pedido.getDetallePedidos().isEmpty()) {
+            Articulo articulo = pedido.getDetallePedidos().iterator().next().getArticulo();
+            if (articulo != null && articulo.getSucursal() != null) {
+                pedido.setSucursal(articulo.getSucursal());
+            }
+        }
         validarStock(pedido.getDetallePedidos());
         aplicarDescuento(pedido);
         calcularTiempoEstimado(pedido);
