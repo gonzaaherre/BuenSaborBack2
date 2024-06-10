@@ -57,4 +57,9 @@ public class ArticuloInsumoFacadeImp extends BaseFacadeImp<ArticuloInsumo, Artic
     public List<CardArticulo> getAlllArticulos() {
         return articuloInsumoService.allArticulos();
     }
+
+    @Override
+    public List<ArticuloInsumoDto> findBySucursalId(Long sucursalId) {
+        return baseMapper.toDTOsList(articuloInsumoService.findBySucursalId(sucursalId));
+    }
 }

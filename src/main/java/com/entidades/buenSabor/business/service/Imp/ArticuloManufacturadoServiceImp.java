@@ -156,4 +156,9 @@ public class ArticuloManufacturadoServiceImp extends BaseServiceImp<ArticuloManu
             return new ResponseEntity<>("{\"status\":\"ERROR\", \"message\":\"" + e.getMessage() + "\"}", HttpStatus.BAD_REQUEST);
         }
     }
+
+    @Override
+    public List<ArticuloManufacturado> findBySucursalId(Long sucursalId) {
+        return articuloManufacturadoRepository.findBySucursalId(sucursalId);
+    }
 }

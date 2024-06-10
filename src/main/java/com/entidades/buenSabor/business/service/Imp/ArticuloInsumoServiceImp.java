@@ -198,6 +198,11 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
 
         return articulos;
     }
+
+    @Override
+    public List<ArticuloInsumo> findBySucursalId(Long sucursalId) {
+        return articuloInsumoRepository.findBySucursalId(sucursalId);
+    }
 }
 
 

@@ -45,6 +45,11 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
         return ResponseEntity.ok(facade.getAlllArticulos());
     }
 
+    @GetMapping("/bySucursalId/{idSucursal}")
+    public ResponseEntity<?>getAllById(@PathVariable Long idSucursal) {
+        return ResponseEntity.ok(facade.findBySucursalId(idSucursal));
+    }
+
     @GetMapping("/getHabilitados")
     public ResponseEntity<?> getHabilitados(){
         return ResponseEntity.ok(facade.getAllHabilitados());
