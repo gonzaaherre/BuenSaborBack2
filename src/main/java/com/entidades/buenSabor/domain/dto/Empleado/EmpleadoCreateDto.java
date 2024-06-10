@@ -18,7 +18,7 @@ public class EmpleadoCreateDto {
     private String apellido;
     private String telefono;
     private String email;
-    private Rol tipoEmpleado;
+    private Rol rol;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaNacimiento;
     private Long idSucursal;

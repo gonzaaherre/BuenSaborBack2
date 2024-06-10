@@ -676,7 +676,7 @@ public class BuenSaborApplication {
 			Empleado empleado=new Empleado();
 
 			empleado.setEmail("correoFalso@hotmail.com");
-			empleado.setTipoEmpleado(Rol.CAJERO);
+			empleado.setRol(Rol.CAJERO);
 			empleado.setNombre("CorreoFalso");
 			empleado.setApellido("Falsin");
 			//empleado.setUsuario(usuario2);

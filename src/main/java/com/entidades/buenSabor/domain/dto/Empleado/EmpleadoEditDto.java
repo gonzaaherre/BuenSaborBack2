@@ -11,5 +11,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EmpleadoEditDto {
-    private Rol tipoEmpleado;
+    private Rol rol;
 }
