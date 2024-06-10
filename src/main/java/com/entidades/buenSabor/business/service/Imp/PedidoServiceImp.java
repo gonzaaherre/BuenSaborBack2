@@ -43,6 +43,7 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
                 pedido.setSucursal(articulo.getSucursal());
             }
         }
+        pedido.setEstado(Estado.PREPARACION);
         validarStock(pedido.getDetallePedidos());
         aplicarDescuento(pedido);
         calcularTiempoEstimado(pedido);
