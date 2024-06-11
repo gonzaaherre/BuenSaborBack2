@@ -8,6 +8,8 @@ import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoEditDto;
 import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Map;
@@ -24,6 +26,6 @@ public interface ArticuloInsumoFacade extends BaseFacade<ArticuloInsumoDto, Arti
     // Método para eliminar una imagen por su identificador público y UUID
     ResponseEntity<String> deleteImage(String publicId, Long id);
 
-    public List<CardArticulo> getAlllArticulos();
+    public Page<CardArticulo> getAlllArticulos();
     List<ArticuloInsumoDto> findBySucursalId(Long sucursalId);
 }

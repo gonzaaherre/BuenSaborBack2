@@ -22,13 +22,12 @@ import java.util.List;
 @SuperBuilder
 @Audited
 public class Factura extends Base{
-    private LocalDate fechaFcturacion;
-    private Integer mpPaymentId;
-    private Integer mpMerchantOrderId;
-    private String mpPreferenceId;
-    private String mpPaymentType;
+    private LocalDate fechaFacturacion;
+    //private int numeroFactura;
+    private int montoDescuento;
     private FormaPago formaPago;
     private Double totalVenta;
+
 
 
 }

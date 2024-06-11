@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Map;
@@ -54,7 +56,7 @@ public class ArticuloInsumoFacadeImp extends BaseFacadeImp<ArticuloInsumo, Artic
     }
 
     @Override
-    public List<CardArticulo> getAlllArticulos() {
+    public Page<CardArticulo> getAlllArticulos() {
         return articuloInsumoService.allArticulos();
     }
 

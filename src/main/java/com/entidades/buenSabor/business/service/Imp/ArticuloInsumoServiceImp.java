@@ -10,10 +10,13 @@ import com.entidades.buenSabor.domain.dto.Articulo.CardArticulo;
 import com.entidades.buenSabor.domain.entities.*;
 import com.entidades.buenSabor.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 
 import java.util.*;
 
@@ -169,34 +172,39 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
         articuloInsumoRepository.save(articuloInsumo);
     }
 
-    @Override
-    public List<CardArticulo> allArticulos() {
+    public Page<CardArticulo> allArticulos(Pageable pageable) {
         List<CardArticulo> articulos = new ArrayList<>();
-        for (ArticuloInsumo ai : articuloInsumoRepository.getAll()){
+
+        // Obtener la página de artículos insumo
+        Page<ArticuloInsumo> pageArticuloInsumo = articuloInsumoRepository.getAll(pageable);
+        for (ArticuloInsumo ai : pageArticuloInsumo.getContent()) {
             CardArticulo ar = new CardArticulo();
             ar.setId(ai.getId());
             ar.setDenominacion(ai.getDenominacion());
             ar.setEsInsumo(true);
-            for (ImagenArticulo i : ai.getImagenes()){
+            for (ImagenArticulo i : ai.getImagenes()) {
                 ar.getImagenes().add(imagenArticuloMapper.toDTO(i));
             }
             ar.setPrecioVenta(ai.getPrecioVenta());
             articulos.add(ar);
         }
 
-        for (ArticuloManufacturado am : articuloManufacturadoRepository.getAll()){
+        // Obtener la página de artículos manufacturados
+        Page<ArticuloManufacturado> pageArticuloManufacturado = articuloManufacturadoRepository.getAll(pageable);
+        for (ArticuloManufacturado am : pageArticuloManufacturado.getContent()) {
             CardArticulo ar = new CardArticulo();
             ar.setId(am.getId());
             ar.setDenominacion(am.getDenominacion());
             ar.setEsInsumo(false);
-            for (ImagenArticulo i : am.getImagenes()){
+            for (ImagenArticulo i : am.getImagenes()) {
                 ar.getImagenes().add(imagenArticuloMapper.toDTO(i));
             }
             ar.setPrecioVenta(am.getPrecioVenta());
             articulos.add(ar);
         }
 
-        return articulos;
+        // Combinar las listas de artículos insumo y manufacturados en una sola página
+        return new PageImpl<>(articulos, pageable, pageArticuloInsumo.getTotalElements() + pageArticuloManufacturado.getTotalElements());
     }
 
     @Override

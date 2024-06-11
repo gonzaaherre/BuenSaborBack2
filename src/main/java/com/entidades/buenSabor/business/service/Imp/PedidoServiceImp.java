@@ -8,16 +8,16 @@ import com.entidades.buenSabor.domain.enums.Estado;
 import com.entidades.buenSabor.domain.entities.*;
 import com.entidades.buenSabor.domain.enums.Rol;
 import com.entidades.buenSabor.domain.enums.TipoEnvio;
+import com.entidades.buenSabor.repositories.FacturaRepository;
 import com.entidades.buenSabor.repositories.PedidoRepository;
 import com.itextpdf.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ByteArrayResource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -38,6 +38,9 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
     private FacturaService facturaService;
     @Autowired
     private EmailService emailService;
+    @Autowired
+    private FacturaRepository facturaRepository;
+
 
     @Override
     public Pedido create(Pedido pedido) {
@@ -75,11 +78,14 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
     }
 
     @Override
-    public void aplicarDescuento(Pedido pedido) {
+    public boolean aplicarDescuento(Pedido pedido) {
         if (pedido.getTipoEnvio() == TipoEnvio.TAKE_AWAY) {
             pedido.setTotal(pedido.getTotal() * 0.9); // Aplicar 10% de descuento
+            return true;
         }
+        return false;
     }
+
 
     @Override
     public void calcularTiempoEstimado(Pedido pedido) {
@@ -129,7 +135,23 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
         Pedido pedido = getById(id);
         pedido.setEstado(estado);
 
-        if (estado == Estado.ENTREGADO) {
+        if (estado == Estado.PREPARACION) {
+            Factura factura = new Factura();
+            factura.setFechaFacturacion(LocalDate.now());
+            if (aplicarDescuento(pedido)){
+                factura.setMontoDescuento(10);
+            }else {
+                factura.setMontoDescuento(0);
+            }
+            factura.setFormaPago(pedido.getFormaPago());
+            factura.setTotalVenta(pedido.getTotal());
+            pedido.setFactura(factura);
+
+            facturaRepository.save(factura);
+        }
+
+
+        if (estado == Estado.FACTURADO) {
             try {
                 // creamos la factura  la factura PDF
                 byte[] facturaPdf = facturaService.generarFacturaPDF(pedido);
@@ -152,5 +174,12 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
     public List<Pedido> findByEstado(Estado estado) {
         return pedidoRepository.findByEstado(estado);
     }
+
+    @Override
+    public Optional<Pedido> findById(Long id) {
+        return pedidoRepository.findById(id);
+    }
+
+
 }
 

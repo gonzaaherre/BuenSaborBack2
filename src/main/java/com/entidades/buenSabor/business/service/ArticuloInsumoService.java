@@ -6,7 +6,8 @@ import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
 import com.entidades.buenSabor.domain.entities.ImagenArticulo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
-
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -25,7 +26,7 @@ public interface ArticuloInsumoService extends BaseService<ArticuloInsumo, Long>
 
     void decrementStock(Long articuloInsumoId, Integer cantidad);
 
-    public List<CardArticulo> allArticulos();
+    public Page<CardArticulo> allArticulos(Pageable pageable);
 
     List<ArticuloInsumo> findBySucursalId(Long sucursalId);
 }

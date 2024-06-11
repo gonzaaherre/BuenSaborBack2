@@ -29,8 +29,8 @@ public class PromocionController extends BaseControllerImp<Promocion, PromocionD
     }
 
     @Override
-    @PutMapping
-    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
+    @PutMapping("/{id}")
+     @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     public ResponseEntity<PromocionDto> edit(PromocionEdit edit, Long id){
         return super.edit(edit, id);
     }
