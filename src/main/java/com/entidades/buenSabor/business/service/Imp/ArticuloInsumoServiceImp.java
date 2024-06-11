@@ -1,17 +1,14 @@
 package com.entidades.buenSabor.business.service.Imp;
 
 import com.entidades.buenSabor.MyException.RestrictDeleteException;
+import com.entidades.buenSabor.business.mapper.ImagenArticuloMapper;
 import com.entidades.buenSabor.business.service.ArticuloInsumoService;
 import com.entidades.buenSabor.business.service.Base.BaseServiceImp;
 import com.entidades.buenSabor.business.service.CloudinaryService;
-import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
-import com.entidades.buenSabor.domain.entities.ArticuloManufacturadoDetalle;
-import com.entidades.buenSabor.domain.entities.ImagenArticulo;
-import com.entidades.buenSabor.domain.entities.PromocionDetalle;
-import com.entidades.buenSabor.repositories.ArticuloInsumoRepository;
-import com.entidades.buenSabor.repositories.ArticuloManufacturadoDetalleRepository;
-import com.entidades.buenSabor.repositories.ImagenArticuloRepository;
-import com.entidades.buenSabor.repositories.PromocionDetalleRepository;
+import com.entidades.buenSabor.domain.dto.Articulo.ArticuloDto;
+import com.entidades.buenSabor.domain.dto.Articulo.CardArticulo;
+import com.entidades.buenSabor.domain.entities.*;
+import com.entidades.buenSabor.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +34,12 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
 
     @Autowired
     ArticuloInsumoRepository articuloInsumoRepository;
+
+    @Autowired
+    ArticuloManufacturadoRepository articuloManufacturadoRepository;
+
+    @Autowired
+    ImagenArticuloMapper imagenArticuloMapper;
 
     @Override
     public void deleteById(Long id) throws RestrictDeleteException {
@@ -164,6 +167,41 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
         }
         articuloInsumo.setStockActual(articuloInsumo.getStockActual() - cantidad);
         articuloInsumoRepository.save(articuloInsumo);
+    }
+
+    @Override
+    public List<CardArticulo> allArticulos() {
+        List<CardArticulo> articulos = new ArrayList<>();
+        for (ArticuloInsumo ai : articuloInsumoRepository.getAll()){
+            CardArticulo ar = new CardArticulo();
+            ar.setId(ai.getId());
+            ar.setDenominacion(ai.getDenominacion());
+            ar.setEsInsumo(true);
+            for (ImagenArticulo i : ai.getImagenes()){
+                ar.getImagenes().add(imagenArticuloMapper.toDTO(i));
+            }
+            ar.setPrecioVenta(ai.getPrecioVenta());
+            articulos.add(ar);
+        }
+
+        for (ArticuloManufacturado am : articuloManufacturadoRepository.getAll()){
+            CardArticulo ar = new CardArticulo();
+            ar.setId(am.getId());
+            ar.setDenominacion(am.getDenominacion());
+            ar.setEsInsumo(false);
+            for (ImagenArticulo i : am.getImagenes()){
+                ar.getImagenes().add(imagenArticuloMapper.toDTO(i));
+            }
+            ar.setPrecioVenta(am.getPrecioVenta());
+            articulos.add(ar);
+        }
+
+        return articulos;
+    }
+
+    @Override
+    public List<ArticuloInsumo> findBySucursalId(Long sucursalId) {
+        return articuloInsumoRepository.findBySucursalId(sucursalId);
     }
 }
 

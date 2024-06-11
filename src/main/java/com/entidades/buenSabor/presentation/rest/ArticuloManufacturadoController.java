@@ -27,7 +27,7 @@ public class ArticuloManufacturadoController extends BaseControllerImp<ArticuloM
     }
 
     @Override
-    @PutMapping
+    @PutMapping("/{id}")
     @PreAuthorize("hasAnyAuthority('COCINERO','ADMIN')")
     public ResponseEntity<ArticuloManufacturadoDto> edit(ArticuloManufacturadoEditDto entity, Long id){
         return super.edit(entity, id);
@@ -48,6 +48,11 @@ public class ArticuloManufacturadoController extends BaseControllerImp<ArticuloM
     @GetMapping("/getHabilitados")
     public ResponseEntity<?> getHabilitados(){
         return ResponseEntity.ok(facade.getAllHabilitado());
+    }
+
+    @GetMapping("/bySucursalId/{idSucursal}")
+    public ResponseEntity<?>getAllById(@PathVariable Long idSucursal) {
+        return ResponseEntity.ok(facade.findBySucursalId(idSucursal));
     }
 
     // Método POST para subir imágenes

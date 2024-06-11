@@ -1,6 +1,7 @@
 package com.entidades.buenSabor.business.service;
 
 import com.entidades.buenSabor.business.service.Base.BaseService;
+import com.entidades.buenSabor.domain.dto.Articulo.CardArticulo;
 import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
 import com.entidades.buenSabor.domain.entities.ImagenArticulo;
 import org.springframework.http.ResponseEntity;
@@ -23,4 +24,8 @@ public interface ArticuloInsumoService extends BaseService<ArticuloInsumo, Long>
     ResponseEntity<String> deleteImage(String publicId, Long id);
 
     void decrementStock(Long articuloInsumoId, Integer cantidad);
+
+    public List<CardArticulo> allArticulos();
+
+    List<ArticuloInsumo> findBySucursalId(Long sucursalId);
 }

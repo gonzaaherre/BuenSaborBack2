@@ -34,7 +34,7 @@ public class Cliente extends Base{
 
     private LocalDate fechaNacimiento;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @NotAudited
     protected ImagenCliente imagenCliente;
 

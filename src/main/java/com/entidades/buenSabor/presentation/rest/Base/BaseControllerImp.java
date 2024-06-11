@@ -49,9 +49,10 @@ public abstract class BaseControllerImp <E extends Base,D extends BaseDto, DC, D
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     public ResponseEntity<?> deleteById(@PathVariable ID id) throws RestrictDeleteException {
         logger.info("INICIO DELETE BY ID");
         facade.deleteById(id);
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok(true);
     }
 }

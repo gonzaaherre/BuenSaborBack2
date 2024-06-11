@@ -8,6 +8,7 @@ import com.entidades.buenSabor.domain.entities.Cliente;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
+import org.mapstruct.Named;
 
 import java.util.Set;
 
@@ -17,7 +18,9 @@ public interface ClienteMapper extends BaseMapper<Cliente, ClienteDto, ClienteCr
     //target = a donde va
     @Mappings({
 //            //@Mapping(source = "idPedido", target = "pedidos",qualifiedByName = "getById"),
-            @Mapping(source = "domicilios", target = "domicilios",qualifiedByName = "toEntityCreateSetDomicilio")
+            @Mapping(source = "domicilios", target = "domicilios",qualifiedByName = "toEntityCreateSetDomicilio"),
+            @Mapping(source = "imagenUrl", target = "imagenCliente.url"), // creamos un objeto Imagen cliente con la url recibida
+            @Mapping(source = "email",target = "imagenCliente.name") // le asignamos como nombre el email del usuario
     })
     Cliente toEntityCreate(ClienteCreateDto source);
 

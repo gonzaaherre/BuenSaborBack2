@@ -20,4 +20,5 @@ public class ArticuloInsumoCreateDto {
     private Integer stockMinimo;
     private Boolean esParaElaborar;
     private Long idCategoria;
+    private Long idSucursal;
 }

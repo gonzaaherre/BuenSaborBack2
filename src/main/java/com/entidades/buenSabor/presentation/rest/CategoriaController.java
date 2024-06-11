@@ -43,7 +43,7 @@ public class CategoriaController extends BaseControllerImp<Categoria, CategoriaD
         return ResponseEntity.status(HttpStatus.CREATED).body(facade.addSubCategoria(idCategoria,subCategoria));
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Override
     @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     public ResponseEntity<CategoriaDto> edit(CategoriaEditDto entity, Long id){

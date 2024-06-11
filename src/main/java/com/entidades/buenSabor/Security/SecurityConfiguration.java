@@ -43,7 +43,6 @@ public class SecurityConfiguration {
         http
                 .csrf((csrf) -> csrf.disable())
                 .cors(withDefaults()) //por defecto spring va a buscar un bean con el nombre "corsConfigurationSource".
-
                 // PARA QUE FUNCIONE H2
                 .headers(httpSecurityHeadersConfigurer -> {
                     httpSecurityHeadersConfigurer.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable);

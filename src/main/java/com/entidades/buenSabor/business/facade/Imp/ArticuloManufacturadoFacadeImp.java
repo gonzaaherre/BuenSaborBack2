@@ -63,4 +63,9 @@ public class ArticuloManufacturadoFacadeImp extends BaseFacadeImp<ArticuloManufa
     public ResponseEntity<String> deleteImage(String publicId, Long id) {
         return articuloManufacturadoService.deleteImage(publicId, id);
     }
+
+    @Override
+    public List<ArticuloManufacturadoDto> findBySucursalId(Long sucursalId) {
+        return baseMapper.toDTOsList(articuloManufacturadoService.findBySucursalId(sucursalId));
+    }
 }

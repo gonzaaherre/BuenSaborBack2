@@ -26,7 +26,7 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
         return super.create(entity);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Override
     @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     public ResponseEntity<ArticuloInsumoDto> edit(ArticuloInsumoEditDto editDto, Long id){
@@ -38,6 +38,16 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
     public ResponseEntity<?> changeHabilitado(@PathVariable Long id){
         facade.changeHabilitado(id);
         return ResponseEntity.ok().body("Se cambio el estado del Insuomo");
+    }
+
+    @GetMapping("/allArticulos")
+    public ResponseEntity<?>all(){
+        return ResponseEntity.ok(facade.getAlllArticulos());
+    }
+
+    @GetMapping("/bySucursalId/{idSucursal}")
+    public ResponseEntity<?>getAllById(@PathVariable Long idSucursal) {
+        return ResponseEntity.ok(facade.findBySucursalId(idSucursal));
     }
 
     @GetMapping("/getHabilitados")

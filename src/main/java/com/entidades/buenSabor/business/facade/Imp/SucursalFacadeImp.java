@@ -7,11 +7,13 @@ import com.entidades.buenSabor.business.mapper.CategoriaMapper;
 import com.entidades.buenSabor.business.mapper.PromocionMapper;
 import com.entidades.buenSabor.business.service.Base.BaseService;
 import com.entidades.buenSabor.business.service.SucursalService;
+import com.entidades.buenSabor.domain.dto.Articulo.ArticuloDto;
 import com.entidades.buenSabor.domain.dto.Categoria.CategoriaDto;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionDto;
 import com.entidades.buenSabor.domain.dto.Sucursal.SucursalCreateDto;
 import com.entidades.buenSabor.domain.dto.Sucursal.SucursalDto;
 import com.entidades.buenSabor.domain.dto.Sucursal.SucursalEditDto;
+import com.entidades.buenSabor.domain.entities.Articulo;
 import com.entidades.buenSabor.domain.entities.Sucursal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +43,11 @@ public class SucursalFacadeImp extends BaseFacadeImp<Sucursal, SucursalDto, Sucu
     @Override
     public List<PromocionDto> findAllPromocionesBySucursal(Long idSucursal) {
         return promocionMapper.toDTOsList(sucursalService.findPromocionBySucursalId(idSucursal));
+    }
+
+    @Override
+    public List<ArticuloDto> getAllArticulosBySucursal(Long sucursalId) {
+        return sucursalService.getAllArticulosBySucursal(sucursalId);
     }
 
 

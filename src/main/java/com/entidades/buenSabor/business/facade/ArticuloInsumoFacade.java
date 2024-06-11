@@ -1,9 +1,11 @@
 package com.entidades.buenSabor.business.facade;
 
 import com.entidades.buenSabor.business.facade.Base.BaseFacade;
+import com.entidades.buenSabor.domain.dto.Articulo.CardArticulo;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoCreateDto;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoDto;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoEditDto;
+import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,4 +23,7 @@ public interface ArticuloInsumoFacade extends BaseFacade<ArticuloInsumoDto, Arti
     ResponseEntity<String> uploadImages(MultipartFile[] files, Long id);
     // Método para eliminar una imagen por su identificador público y UUID
     ResponseEntity<String> deleteImage(String publicId, Long id);
+
+    public List<CardArticulo> getAlllArticulos();
+    List<ArticuloInsumoDto> findBySucursalId(Long sucursalId);
 }
