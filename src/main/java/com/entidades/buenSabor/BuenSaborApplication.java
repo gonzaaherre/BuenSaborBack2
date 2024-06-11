@@ -20,7 +20,7 @@ import java.time.LocalTime;
 @SpringBootApplication
 public class BuenSaborApplication {
         private static final Logger logger = LoggerFactory.getLogger(BuenSaborApplication.class);
-
+/*
         @Autowired
         private ClienteRepository clienteRepository;
         @Autowired
@@ -71,14 +71,14 @@ public class BuenSaborApplication {
         private ArticuloManufacturadoDetalleRepository articuloManufacturadoDetalleRepository;
 
         @Autowired
-        private PedidoRepository pedidoRepository;
+        private PedidoRepository pedidoRepository;*/
 
         public static void main(String[] args) {
                 SpringApplication.run(BuenSaborApplication.class, args);
                 logger.info("Estoy activo en el main");
         }
 
-        @Bean
+      /*  @Bean
         @Transactional
         CommandLineRunner init(ClienteRepository clienteRepository,
                                ImagenEmpleadoRepository imagenEmpleadoRepository,
@@ -538,7 +538,7 @@ public class BuenSaborApplication {
 			logger.info("{}",pedido);
 		};
 	}*/
-                };}}
+                };
 
 
 

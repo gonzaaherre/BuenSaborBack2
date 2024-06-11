@@ -56,8 +56,8 @@ public class ArticuloInsumoFacadeImp extends BaseFacadeImp<ArticuloInsumo, Artic
     }
 
     @Override
-    public Page<CardArticulo> getAlllArticulos() {
-        return articuloInsumoService.allArticulos();
+    public Page<CardArticulo> getAlllArticulos(Pageable pageable) {
+        return articuloInsumoService.allArticulos(pageable);
     }
 
     @Override

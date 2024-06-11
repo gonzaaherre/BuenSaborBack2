@@ -6,6 +6,7 @@ import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoDto;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoEditDto;
 import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -41,8 +42,8 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
     }
 
     @GetMapping("/allArticulos")
-    public ResponseEntity<?>all(){
-        return ResponseEntity.ok(facade.getAlllArticulos());
+    public ResponseEntity<?>all(Pageable pageable){
+        return ResponseEntity.ok(facade.getAlllArticulos(pageable));
     }
 
     @GetMapping("/bySucursalId/{idSucursal}")

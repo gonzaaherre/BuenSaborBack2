@@ -171,7 +171,7 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
         articuloInsumo.setStockActual(articuloInsumo.getStockActual() - cantidad);
         articuloInsumoRepository.save(articuloInsumo);
     }
-
+    @Override
     public Page<CardArticulo> allArticulos(Pageable pageable) {
         List<CardArticulo> articulos = new ArrayList<>();
 
