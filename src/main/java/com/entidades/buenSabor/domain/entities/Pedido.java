@@ -29,8 +29,11 @@ public class Pedido extends Base{
     private LocalTime horaEstimadaFinalizacion;
     private Double total;
     private Double totalCosto;
+    @Enumerated(EnumType.STRING)
     private Estado estado;
+    @Enumerated(EnumType.STRING)
     private TipoEnvio tipoEnvio;
+    @Enumerated(EnumType.STRING)
     private FormaPago formaPago;
     private LocalDate fechaPedido;
 

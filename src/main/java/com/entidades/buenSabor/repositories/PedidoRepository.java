@@ -51,4 +51,6 @@ public interface PedidoRepository extends BaseRepository<Pedido,Long>{
             "GROUP BY p.cliente.email " +
             "ORDER BY cantidadPedidos DESC")
     List<PedidosCliente> findCantidadPedidosPorCliente(LocalDate startDate, LocalDate endDate);
+
+    List<Pedido> findByClienteId(Long clienteId);
 }

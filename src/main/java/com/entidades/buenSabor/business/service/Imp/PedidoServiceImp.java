@@ -147,5 +147,10 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
 
         return create(pedido);
     }
+
+    @Override
+    public List<Pedido> findByEstado(Estado estado) {
+        return pedidoRepository.findByEstado(estado);
+    }
 }
 

@@ -12,4 +12,5 @@ public interface PedidoFacade extends BaseFacade<PedidoDto, PedidoCreateDto,Pedi
     public PedidoDto cambiaEstado(Estado estado, Long id);
     //void actualizarStockArticulos(Long pedidoId);
     List<PedidoDto> getPedidosEnPreparacion();
+    public List<PedidoDto> findByEstado(Estado estado);
 }

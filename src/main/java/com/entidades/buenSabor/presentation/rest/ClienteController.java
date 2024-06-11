@@ -17,16 +17,14 @@ public class ClienteController extends BaseControllerImp<Cliente, ClienteDto, Cl
     public ClienteController(ClienteFacadeImpl facade) {
         super(facade);
     }
-    @Autowired
-    private ClienteService clienteService;
 
     @GetMapping("/email/{email}")
-    public ResponseEntity<Cliente> getClienteByEmail(@PathVariable String email) {
-        Cliente cliente = clienteService.findByEmail(email);
-        if (cliente != null) {
-            return ResponseEntity.ok(cliente);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<?> getClienteByEmail(@PathVariable String email) {
+        return ResponseEntity.ok(facade.findByEmail(email));
+    }
+
+    @GetMapping("/pedidos/{id}")
+    public ResponseEntity<?> getAllPedidos(@PathVariable Long id) {
+        return ResponseEntity.ok(facade.getAllPedidos(id));
     }
 }

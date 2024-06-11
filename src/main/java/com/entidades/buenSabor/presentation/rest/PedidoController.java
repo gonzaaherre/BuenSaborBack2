@@ -31,4 +31,9 @@ public class PedidoController extends BaseControllerImp<Pedido, PedidoDto, Pedid
         List<PedidoDto> pedidosEnPreparacion = facade.getPedidosEnPreparacion();
         return ResponseEntity.ok(pedidosEnPreparacion);
     }
+
+    @GetMapping("/findByEstado")
+    public ResponseEntity<List<PedidoDto>> findByEstado(@RequestParam Estado estado) {
+        return ResponseEntity.ok(facade.findByEstado(estado));
+    }
 }

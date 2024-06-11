@@ -24,4 +24,6 @@ public interface PedidoService extends BaseService<Pedido,Long> {
     int contarCocineros();
 
     Pedido cambiaEstado(Estado estado, Long id);
+
+    List<Pedido> findByEstado(Estado estado);
 }

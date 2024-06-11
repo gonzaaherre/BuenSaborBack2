@@ -37,6 +37,14 @@ public class PedidoFacadeImp extends BaseFacadeImp<Pedido, PedidoDto,PedidoCreat
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<PedidoDto> findByEstado(Estado estado) {
+        List<Pedido> pedidos =  pedidoService.findByEstado(estado);
+        return pedidos.stream()
+                .map(baseMapper::toDTO)
+                .collect(Collectors.toList());
+    }
+
 //    @Override
 //    public void actualizarStockArticulos(Long pedidoId) {
 //        pedidoService.actualizarStockArticulos(pedidoId);
