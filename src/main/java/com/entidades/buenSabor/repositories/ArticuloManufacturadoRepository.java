@@ -16,5 +16,5 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
     List<ArticuloManufacturado> findByArticuloManufacturadoDetalles(ArticuloManufacturadoDetalle detalleId);
     List<ArticuloManufacturado> findByEliminadoFalseAndHabilitadoTrue();
     List<ArticuloManufacturado> findBySucursalId(Long sucursalId);
-    Page<ArticuloManufacturado> getAll(Pageable pageable);
+    Page<ArticuloManufacturado> findAll(Pageable pageable);
 }

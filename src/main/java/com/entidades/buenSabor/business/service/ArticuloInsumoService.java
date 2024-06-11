@@ -26,7 +26,5 @@ public interface ArticuloInsumoService extends BaseService<ArticuloInsumo, Long>
 
     void decrementStock(Long articuloInsumoId, Integer cantidad);
 
-    public Page<CardArticulo> allArticulos(Pageable pageable);
-
     List<ArticuloInsumo> findBySucursalId(Long sucursalId);
 }

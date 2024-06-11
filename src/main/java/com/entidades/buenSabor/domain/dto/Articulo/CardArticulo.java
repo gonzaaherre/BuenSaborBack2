@@ -17,6 +17,6 @@ import java.util.Set;
 public class CardArticulo extends BaseDto {
     String denominacion;
     boolean esInsumo;
-    Set<ImagenDto> imagenes = new HashSet<>();
+    Set<String> imagenes = new HashSet<>();
     Double precioVenta;
 }

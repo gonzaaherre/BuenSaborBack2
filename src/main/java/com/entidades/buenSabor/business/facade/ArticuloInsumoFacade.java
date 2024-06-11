@@ -26,6 +26,5 @@ public interface ArticuloInsumoFacade extends BaseFacade<ArticuloInsumoDto, Arti
     // Método para eliminar una imagen por su identificador público y UUID
     ResponseEntity<String> deleteImage(String publicId, Long id);
 
-    public Page<CardArticulo> getAlllArticulos(Pageable pageable);
     List<ArticuloInsumoDto> findBySucursalId(Long sucursalId);
 }

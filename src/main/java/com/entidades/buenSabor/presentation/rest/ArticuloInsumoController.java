@@ -41,10 +41,6 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
         return ResponseEntity.ok().body("Se cambio el estado del Insuomo");
     }
 
-    @GetMapping("/allArticulos")
-    public ResponseEntity<?>all(Pageable pageable){
-        return ResponseEntity.ok(facade.getAlllArticulos(pageable));
-    }
 
     @GetMapping("/bySucursalId/{idSucursal}")
     public ResponseEntity<?>getAllById(@PathVariable Long idSucursal) {

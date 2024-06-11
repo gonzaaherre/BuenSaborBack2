@@ -11,5 +11,5 @@ import java.util.List;
 public interface ArticuloInsumoRepository extends BaseRepository<ArticuloInsumo,Long> {
     List<ArticuloInsumo> findByEliminadoFalseAndHabilitadoTrue();
     List<ArticuloInsumo> findBySucursalId(Long sucursalId);
-    Page<ArticuloInsumo> getAll(Pageable pageable);
+    Page<ArticuloInsumo> findAll(Pageable pageable);
 }

@@ -171,41 +171,6 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
         articuloInsumo.setStockActual(articuloInsumo.getStockActual() - cantidad);
         articuloInsumoRepository.save(articuloInsumo);
     }
-    @Override
-    public Page<CardArticulo> allArticulos(Pageable pageable) {
-        List<CardArticulo> articulos = new ArrayList<>();
-
-        // Obtener la página de artículos insumo
-        Page<ArticuloInsumo> pageArticuloInsumo = articuloInsumoRepository.getAll(pageable);
-        for (ArticuloInsumo ai : pageArticuloInsumo.getContent()) {
-            CardArticulo ar = new CardArticulo();
-            ar.setId(ai.getId());
-            ar.setDenominacion(ai.getDenominacion());
-            ar.setEsInsumo(true);
-            for (ImagenArticulo i : ai.getImagenes()) {
-                ar.getImagenes().add(imagenArticuloMapper.toDTO(i));
-            }
-            ar.setPrecioVenta(ai.getPrecioVenta());
-            articulos.add(ar);
-        }
-
-        // Obtener la página de artículos manufacturados
-        Page<ArticuloManufacturado> pageArticuloManufacturado = articuloManufacturadoRepository.getAll(pageable);
-        for (ArticuloManufacturado am : pageArticuloManufacturado.getContent()) {
-            CardArticulo ar = new CardArticulo();
-            ar.setId(am.getId());
-            ar.setDenominacion(am.getDenominacion());
-            ar.setEsInsumo(false);
-            for (ImagenArticulo i : am.getImagenes()) {
-                ar.getImagenes().add(imagenArticuloMapper.toDTO(i));
-            }
-            ar.setPrecioVenta(am.getPrecioVenta());
-            articulos.add(ar);
-        }
-
-        // Combinar las listas de artículos insumo y manufacturados en una sola página
-        return new PageImpl<>(articulos, pageable, pageArticuloInsumo.getTotalElements() + pageArticuloManufacturado.getTotalElements());
-    }
 
     @Override
     public List<ArticuloInsumo> findBySucursalId(Long sucursalId) {

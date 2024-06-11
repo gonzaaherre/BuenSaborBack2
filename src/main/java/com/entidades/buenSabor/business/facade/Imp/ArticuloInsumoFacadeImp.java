@@ -55,10 +55,6 @@ public class ArticuloInsumoFacadeImp extends BaseFacadeImp<ArticuloInsumo, Artic
         return articuloInsumoService.deleteImage(publicId, id);
     }
 
-    @Override
-    public Page<CardArticulo> getAlllArticulos(Pageable pageable) {
-        return articuloInsumoService.allArticulos(pageable);
-    }
 
     @Override
     public List<ArticuloInsumoDto> findBySucursalId(Long sucursalId) {
