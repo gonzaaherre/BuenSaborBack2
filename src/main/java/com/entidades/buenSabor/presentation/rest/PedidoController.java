@@ -21,7 +21,6 @@ public class PedidoController extends BaseControllerImp<Pedido, PedidoDto, Pedid
     }
 
     @PutMapping("/cambiaEstado/{id}")
-    @PreAuthorize("hasAnyAuthority('COCINERO')")
     public ResponseEntity<PedidoDto> cambiaEstado(@RequestBody Estado estado,@PathVariable Long id ) {
         return ResponseEntity.ok(facade.cambiaEstado(estado, id));
     }
