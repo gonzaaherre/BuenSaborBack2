@@ -167,7 +167,7 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
             }
         }
 
-        return create(pedido);
+        return pedidoRepository.save(pedido);
     }
 
     @Override
