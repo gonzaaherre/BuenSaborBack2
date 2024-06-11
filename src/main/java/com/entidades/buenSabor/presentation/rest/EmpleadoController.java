@@ -30,4 +30,9 @@ public class EmpleadoController extends BaseControllerImp<Empleado, EmpleadoDto,
     public ResponseEntity<?> findByEmail(@RequestBody String email){
         return ResponseEntity.ok(facade.findByEmail(email));
     }
+
+    @GetMapping("/bySucursalId/{id}")
+    public ResponseEntity<?> findBySucursalId(@PathVariable Long id){
+        return ResponseEntity.ok(facade.findAllBySucursalId(id));
+    }
 }
