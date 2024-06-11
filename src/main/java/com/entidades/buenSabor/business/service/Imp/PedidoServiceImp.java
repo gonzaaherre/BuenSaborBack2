@@ -1,20 +1,21 @@
 package com.entidades.buenSabor.business.service.Imp;
 
 import com.entidades.buenSabor.business.mapper.PedidoMapper;
-import com.entidades.buenSabor.business.service.ArticuloInsumoService;
-import com.entidades.buenSabor.business.service.ArticuloService;
+import com.entidades.buenSabor.business.service.*;
 import com.entidades.buenSabor.business.service.Base.BaseServiceImp;
-import com.entidades.buenSabor.business.service.EmpleadoService;
-import com.entidades.buenSabor.business.service.PedidoService;
 import com.entidades.buenSabor.domain.entities.Pedido;
 import com.entidades.buenSabor.domain.enums.Estado;
 import com.entidades.buenSabor.domain.entities.*;
 import com.entidades.buenSabor.domain.enums.Rol;
 import com.entidades.buenSabor.domain.enums.TipoEnvio;
 import com.entidades.buenSabor.repositories.PedidoRepository;
+import com.itextpdf.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Set;
@@ -33,9 +34,17 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
     private ArticuloService articuloService;
     @Autowired
     EmpleadoService empleadoService;
+    @Autowired
+    private FacturaService facturaService;
+    @Autowired
+    private EmailService emailService;
 
     @Override
     public Pedido create(Pedido pedido) {
+        //le asignamos la fecha actual
+        pedido.setFechaPedido(LocalDate.now());
+        //seteamos por default el estado en pendiendte
+        pedido.setEstado(Estado.PENDIENTE);
         // Asignar sucursal desde el artículo del pedido
         if (!pedido.getDetallePedidos().isEmpty()) {
             Articulo articulo = pedido.getDetallePedidos().iterator().next().getArticulo();
@@ -97,6 +106,7 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
                 .sum();
 
         int cantidadCocineros = contarCocineros();
+        //Si no hay cocineros disponibles, devuelve 0
         int tiempoCocinaPromedio = cantidadCocineros > 0 ? tiempoCocina / cantidadCocineros : 0;
 
         int tiempoDelivery = pedido.getTipoEnvio() == TipoEnvio.DELIVERY ? 10 : 0;
@@ -118,6 +128,23 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
     public Pedido cambiaEstado(Estado estado, Long id) {
         Pedido pedido = getById(id);
         pedido.setEstado(estado);
+
+        if (estado == Estado.ENTREGADO) {
+            try {
+                // creamos la factura  la factura PDF
+                byte[] facturaPdf = facturaService.generarFacturaPDF(pedido);
+
+                // traemos el email del cliente
+                String emailCliente = pedido.getCliente().getEmail();
+
+                // Enviar el email con la factura
+                emailService.sendMail(facturaPdf, emailCliente, null, "Factura de Pedido " + pedido.getId(), "Adjunto encontrará la factura de su pedido.", "factura_" + pedido.getId() + ".pdf");
+
+            } catch (IOException | java.io.IOException e) {
+                throw new RuntimeException("Error al generar o enviar la factura: " + e.getMessage(), e);
+            }
+        }
+
         return create(pedido);
     }
 }

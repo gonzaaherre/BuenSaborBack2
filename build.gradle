@@ -27,8 +27,8 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	//SEGURIDAD
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+	 implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+	 implementation 'org.springframework.boot:spring-boot-starter-security'
 
 	//CLOUDINARY
 	// https://mvnrepository.com/artifact/com.cloudinary/cloudinary
@@ -67,6 +67,15 @@ dependencies {
 
 	//Mercado Pago
 	implementation 'com.mercadopago:sdk-java:2.1.24'
+
+	//GMAIL
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '3.3.0'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '3.3.0'
+
+	//PDF
+	implementation 'com.itextpdf:kernel:7.1.15'
+	implementation 'com.itextpdf:layout:7.1.15'
+
 
 }
 
