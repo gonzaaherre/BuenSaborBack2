@@ -1,7 +1,9 @@
 package com.entidades.buenSabor.business.mapper;
 
 import com.entidades.buenSabor.business.service.ArticuloService;
+import com.entidades.buenSabor.domain.dto.ArticuloManufacturado.ArticuloManufacturadoCategoriaDto;
 import com.entidades.buenSabor.domain.dto.ArticuloManufacturado.ArticuloManufacturadoDto;
+import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoCategoriaDto;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoDto;
 import com.entidades.buenSabor.domain.dto.PromocionDetalle.PromocionDetalleCreate;
 import com.entidades.buenSabor.domain.dto.PromocionDetalle.PromocionDetalleDto;
@@ -36,12 +38,12 @@ public interface PromocionDetalleMapper extends BaseMapper<PromocionDetalle, Pro
     public PromocionDetalle toEntityCreate(PromocionDetalleCreate source);
 
     // Este método consulta si el articulo es insumo
-    default ArticuloInsumoDto filterArticuloInsumo(PromocionDetalle source) {
-        return (source.getArticulo() instanceof ArticuloInsumo) ? ArticuloInsumoMapper.INSTANCE.toDTO((ArticuloInsumo) source.getArticulo()) : null;
+    default ArticuloInsumoCategoriaDto filterArticuloInsumo(PromocionDetalle source) {
+        return (source.getArticulo() instanceof ArticuloInsumo) ? ArticuloInsumoMapper.INSTANCE.toDTOCategoria((ArticuloInsumo) source.getArticulo()) : null;
     }
 
     // Este método consulta si el articulo es insumo
-    default ArticuloManufacturadoDto filterArticuloManufacturado(PromocionDetalle source) {
-        return (source.getArticulo() instanceof ArticuloManufacturado) ? ArticuloManufacturadoMapper.INSTANCE.toDTO((ArticuloManufacturado) source.getArticulo()) : null;
+    default ArticuloManufacturadoCategoriaDto filterArticuloManufacturado(PromocionDetalle source) {
+        return (source.getArticulo() instanceof ArticuloManufacturado) ? ArticuloManufacturadoMapper.INSTANCE.toDTOCategoria((ArticuloManufacturado) source.getArticulo()) : null;
     }
 }
