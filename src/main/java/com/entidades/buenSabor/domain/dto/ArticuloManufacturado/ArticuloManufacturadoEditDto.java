@@ -17,6 +17,6 @@ public class ArticuloManufacturadoEditDto {
     private Double precioVenta;
     private String preparacion;
     private Integer tiempoEstimadoMinutos;
-    private Set<ArticuloManufacturadoDetalleCreateDto> detalles;
+    private Set<ArticuloManufacturadoDetalleCreateDto> articuloManufacturadoDetalles;
     private Long idUnidadMedida;
 }

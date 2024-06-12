@@ -7,8 +7,6 @@ import com.entidades.buenSabor.domain.dto.Empresa.EmpresaDto;
 
 import com.entidades.buenSabor.domain.dto.Empresa.EmpresaEditDto;
 import com.entidades.buenSabor.domain.dto.Empresa.EmpresaLargeDto;
-import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoCreateDto;
-import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoDto;
 import com.entidades.buenSabor.domain.entities.Empresa;
 
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;

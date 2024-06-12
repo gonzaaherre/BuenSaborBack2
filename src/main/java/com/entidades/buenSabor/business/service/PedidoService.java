@@ -1,12 +1,12 @@
 package com.entidades.buenSabor.business.service;
 
 import com.entidades.buenSabor.business.service.Base.BaseService;
-import com.entidades.buenSabor.domain.dto.Pedido.PedidoCreateDto;
 import com.entidades.buenSabor.domain.entities.DetallePedido;
 import com.entidades.buenSabor.domain.entities.Pedido;
 import com.entidades.buenSabor.domain.enums.Estado;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public interface PedidoService extends BaseService<Pedido,Long> {
@@ -15,7 +15,8 @@ public interface PedidoService extends BaseService<Pedido,Long> {
 //    void actualizarStockArticulos(Long pedidoId);
     void validarStock(Set<DetallePedido> detalles);
 
-    void aplicarDescuento(Pedido pedido);
+    boolean aplicarDescuento(Pedido pedido);
+
 
     void calcularTiempoEstimado(Pedido pedido);
 
@@ -24,4 +25,8 @@ public interface PedidoService extends BaseService<Pedido,Long> {
     int contarCocineros();
 
     Pedido cambiaEstado(Estado estado, Long id);
+
+    List<Pedido> findByEstado(Estado estado);
+
+    Optional<Pedido> findById(Long id);
 }

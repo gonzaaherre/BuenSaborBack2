@@ -2,7 +2,6 @@ package com.entidades.buenSabor.business.service;
 
 import com.entidades.buenSabor.business.service.Base.BaseService;
 import com.entidades.buenSabor.domain.dto.Articulo.ArticuloDto;
-import com.entidades.buenSabor.domain.entities.Articulo;
 import com.entidades.buenSabor.domain.entities.Categoria;
 import com.entidades.buenSabor.domain.entities.Promocion;
 import com.entidades.buenSabor.domain.entities.Sucursal;

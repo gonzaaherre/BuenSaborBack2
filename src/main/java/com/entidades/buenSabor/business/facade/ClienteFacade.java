@@ -5,4 +5,6 @@ import com.entidades.buenSabor.domain.dto.Cliente.ClienteCreateDto;
 import com.entidades.buenSabor.domain.dto.Cliente.ClienteDto;
 
 public interface ClienteFacade extends BaseFacade<ClienteDto, ClienteCreateDto,ClienteCreateDto,Long> {
+    ClienteDto findByEmail(String email);
+    public Object getAllPedidos(Long id);
 }

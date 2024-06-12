@@ -3,6 +3,7 @@ package com.entidades.buenSabor.domain.dto.ArticuloManufacturado;
 import com.entidades.buenSabor.domain.dto.ArticuloManufacturadoDetalle.ArticuloManufacturadoDetalleDto;
 import com.entidades.buenSabor.domain.dto.BaseDto;
 import com.entidades.buenSabor.domain.dto.Imagen.ImagenDto;
+import com.entidades.buenSabor.domain.dto.Sucursal.SucursalShortShort;
 import com.entidades.buenSabor.domain.dto.UnidadMedida.UnidadMedidaDto;
 import lombok.*;
 

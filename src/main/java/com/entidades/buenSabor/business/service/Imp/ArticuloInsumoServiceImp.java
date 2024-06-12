@@ -1,22 +1,22 @@
 package com.entidades.buenSabor.business.service.Imp;
 
 import com.entidades.buenSabor.MyException.RestrictDeleteException;
+import com.entidades.buenSabor.business.mapper.ImagenArticuloMapper;
 import com.entidades.buenSabor.business.service.ArticuloInsumoService;
 import com.entidades.buenSabor.business.service.Base.BaseServiceImp;
 import com.entidades.buenSabor.business.service.CloudinaryService;
-import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
-import com.entidades.buenSabor.domain.entities.ArticuloManufacturadoDetalle;
-import com.entidades.buenSabor.domain.entities.ImagenArticulo;
-import com.entidades.buenSabor.domain.entities.PromocionDetalle;
-import com.entidades.buenSabor.repositories.ArticuloInsumoRepository;
-import com.entidades.buenSabor.repositories.ArticuloManufacturadoDetalleRepository;
-import com.entidades.buenSabor.repositories.ImagenArticuloRepository;
-import com.entidades.buenSabor.repositories.PromocionDetalleRepository;
+import com.entidades.buenSabor.domain.dto.Articulo.ArticuloDto;
+import com.entidades.buenSabor.domain.dto.Articulo.CardArticulo;
+import com.entidades.buenSabor.domain.entities.*;
+import com.entidades.buenSabor.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 
 import java.util.*;
 
@@ -37,6 +37,12 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
 
     @Autowired
     ArticuloInsumoRepository articuloInsumoRepository;
+
+    @Autowired
+    ArticuloManufacturadoRepository articuloManufacturadoRepository;
+
+    @Autowired
+    ImagenArticuloMapper imagenArticuloMapper;
 
     @Override
     public void deleteById(Long id) throws RestrictDeleteException {
@@ -164,6 +170,11 @@ public class ArticuloInsumoServiceImp extends BaseServiceImp<ArticuloInsumo, Lon
         }
         articuloInsumo.setStockActual(articuloInsumo.getStockActual() - cantidad);
         articuloInsumoRepository.save(articuloInsumo);
+    }
+
+    @Override
+    public List<ArticuloInsumo> findBySucursalId(Long sucursalId) {
+        return articuloInsumoRepository.findBySucursalId(sucursalId);
     }
 }
 

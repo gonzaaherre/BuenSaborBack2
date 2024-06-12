@@ -24,6 +24,4 @@ public interface ClienteMapper extends BaseMapper<Cliente, ClienteDto, ClienteCr
     })
     Cliente toEntityCreate(ClienteCreateDto source);
 
-
-
 }

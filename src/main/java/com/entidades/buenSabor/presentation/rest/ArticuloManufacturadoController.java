@@ -50,6 +50,11 @@ public class ArticuloManufacturadoController extends BaseControllerImp<ArticuloM
         return ResponseEntity.ok(facade.getAllHabilitado());
     }
 
+    @GetMapping("/bySucursalId/{idSucursal}")
+    public ResponseEntity<?>getAllById(@PathVariable Long idSucursal) {
+        return ResponseEntity.ok(facade.findBySucursalId(idSucursal));
+    }
+
     // Método POST para subir imágenes
     @PreAuthorize("hasAnyAuthority('COCINERO','ADMIN')")
     @PostMapping("/uploads")

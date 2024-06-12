@@ -4,6 +4,7 @@ import com.entidades.buenSabor.business.facade.Imp.PromocionFacadeImp;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionCreate;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionDto;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionEdit;
+import com.entidades.buenSabor.domain.dto.PromocionDetalle.PromocionDetalleCreate;
 import com.entidades.buenSabor.domain.entities.Promocion;
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @CrossOrigin("*")
 @RequestMapping("/promocion")
@@ -29,10 +32,16 @@ public class PromocionController extends BaseControllerImp<Promocion, PromocionD
     }
 
     @Override
-    @PutMapping
-    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
+    @PutMapping("/{id}")
+     @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
     public ResponseEntity<PromocionDto> edit(PromocionEdit edit, Long id){
         return super.edit(edit, id);
+    }
+
+    @PutMapping("/detalles/{id}")
+    @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
+    public ResponseEntity<PromocionDto> editDetalles(@RequestBody Set<PromocionDetalleCreate> detalles,@PathVariable Long id){
+        return ResponseEntity.ok(facade.editDetalles(detalles, id));
     }
 
     @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")

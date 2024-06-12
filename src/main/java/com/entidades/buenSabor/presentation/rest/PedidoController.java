@@ -21,7 +21,6 @@ public class PedidoController extends BaseControllerImp<Pedido, PedidoDto, Pedid
     }
 
     @PutMapping("/cambiaEstado/{id}")
-    @PreAuthorize("hasAnyAuthority('COCINERO')")
     public ResponseEntity<PedidoDto> cambiaEstado(@RequestBody Estado estado,@PathVariable Long id ) {
         return ResponseEntity.ok(facade.cambiaEstado(estado, id));
     }
@@ -30,5 +29,10 @@ public class PedidoController extends BaseControllerImp<Pedido, PedidoDto, Pedid
     public ResponseEntity<List<PedidoDto>> getPedidosEnPreparacion() {
         List<PedidoDto> pedidosEnPreparacion = facade.getPedidosEnPreparacion();
         return ResponseEntity.ok(pedidosEnPreparacion);
+    }
+
+    @GetMapping("/findByEstado")
+    public ResponseEntity<List<PedidoDto>> findByEstado(@RequestParam Estado estado) {
+        return ResponseEntity.ok(facade.findByEstado(estado));
     }
 }

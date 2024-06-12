@@ -3,7 +3,6 @@ package com.entidades.buenSabor.business.facade.Imp;
 import com.entidades.buenSabor.business.facade.Base.BaseFacadeImp;
 import com.entidades.buenSabor.business.facade.PedidoFacade;
 import com.entidades.buenSabor.business.mapper.BaseMapper;
-import com.entidades.buenSabor.business.mapper.PedidoMapper;
 import com.entidades.buenSabor.business.service.Base.BaseService;
 import com.entidades.buenSabor.business.service.PedidoService;
 import com.entidades.buenSabor.domain.dto.Pedido.PedidoCreateDto;
@@ -34,6 +33,14 @@ public class PedidoFacadeImp extends BaseFacadeImp<Pedido, PedidoDto,PedidoCreat
     public List<PedidoDto> getPedidosEnPreparacion() {
         List<Pedido> pedidosEnCocina = pedidoService.obtenerPedidosEnCocina();
         return pedidosEnCocina.stream()
+                .map(baseMapper::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PedidoDto> findByEstado(Estado estado) {
+        List<Pedido> pedidos =  pedidoService.findByEstado(estado);
+        return pedidos.stream()
                 .map(baseMapper::toDTO)
                 .collect(Collectors.toList());
     }

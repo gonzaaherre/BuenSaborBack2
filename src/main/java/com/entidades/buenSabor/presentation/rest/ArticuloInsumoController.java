@@ -6,6 +6,7 @@ import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoDto;
 import com.entidades.buenSabor.domain.dto.Insumo.ArticuloInsumoEditDto;
 import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +39,12 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
     public ResponseEntity<?> changeHabilitado(@PathVariable Long id){
         facade.changeHabilitado(id);
         return ResponseEntity.ok().body("Se cambio el estado del Insuomo");
+    }
+
+
+    @GetMapping("/bySucursalId/{idSucursal}")
+    public ResponseEntity<?>getAllById(@PathVariable Long idSucursal) {
+        return ResponseEntity.ok(facade.findBySucursalId(idSucursal));
     }
 
     @GetMapping("/getHabilitados")
