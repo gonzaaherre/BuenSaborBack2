@@ -57,10 +57,10 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
                 pedido.setSucursal(articulo.getSucursal());
             }
         }
+        calcularTotal(pedido);
         validarStock(pedido.getDetallePedidos());
         aplicarDescuento(pedido);
         calcularTiempoEstimado(pedido);
-        calcularTotal(pedido);
         calcularTotalCosto(pedido);
         return super.create(pedido);
     }
