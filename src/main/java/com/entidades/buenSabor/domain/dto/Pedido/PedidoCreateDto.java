@@ -24,8 +24,8 @@ import java.util.Set;
 public class PedidoCreateDto {//este va en el post
 //    @Schema(type = "string", format = "time", pattern = "HH:mm:ss", description = "Horario de apertura en formato HH:mm:ss")
 //    private LocalTime horaEstimadaFinalizacion;
-    private Double total;
-    private Double totalCosto;
+//    private Double total;
+//   private Double totalCosto;
 //    private Estado estado;
     private TipoEnvio tipoEnvio;
     private FormaPago formaPago;

@@ -58,6 +58,8 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
         validarStock(pedido.getDetallePedidos());
         aplicarDescuento(pedido);
         calcularTiempoEstimado(pedido);
+        calcularTotal(pedido);
+        calcularTotalCosto(pedido);
         return super.create(pedido);
     }
 
@@ -169,7 +171,31 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
 
         return pedidoRepository.save(pedido);
     }
+    private void calcularTotal(Pedido pedido) {
+        double total = 0.0;
+        for (DetallePedido detalle : pedido.getDetallePedidos()) {
+            total += detalle.getCantidad() * detalle.getArticulo().getPrecioVenta();
+        }
+        pedido.setTotal(total);
+    }
+    private void calcularTotalCosto(Pedido pedido) {
+        double totalCosto = 0.0;
+        for (DetallePedido detalle : pedido.getDetallePedidos()) {
+            Articulo articulo = detalle.getArticulo();
+            if (articulo instanceof ArticuloInsumo) {
+                ArticuloInsumo insumo = (ArticuloInsumo) articulo;
+                totalCosto += detalle.getCantidad() * insumo.getPrecioCompra();
+            } else if (articulo instanceof ArticuloManufacturado) {
+                ArticuloManufacturado manufacturado = (ArticuloManufacturado) articulo;
+                for (ArticuloManufacturadoDetalle detalleManufacturado : manufacturado.getArticuloManufacturadoDetalles()) {
+                    ArticuloInsumo insumo = detalleManufacturado.getArticuloInsumo();
+                    totalCosto += detalleManufacturado.getCantidad() * insumo.getPrecioCompra();
+                }
+            }
+        }
+        pedido.setTotalCosto(totalCosto);
 
+    }
     @Override
     public List<Pedido> findByEstado(Estado estado) {
         return pedidoRepository.findByEstado(estado);
