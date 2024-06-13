@@ -4,6 +4,7 @@ import com.entidades.buenSabor.business.service.Base.BaseServiceImp;
 import com.entidades.buenSabor.business.service.CloudinaryService;
 import com.entidades.buenSabor.business.service.PromocionService;
 import com.entidades.buenSabor.business.service.SucursalService;
+import com.entidades.buenSabor.domain.dto.PromocionDetalle.PromocionDetalleCreate;
 import com.entidades.buenSabor.domain.entities.ImagenArticulo;
 import com.entidades.buenSabor.domain.entities.Promocion;
 import com.entidades.buenSabor.domain.entities.PromocionDetalle;
@@ -149,6 +150,13 @@ public class PromocionServiceImp extends BaseServiceImp<Promocion, Long> impleme
             // Devolver un error (400) si ocurre alguna excepción durante la eliminación
             return new ResponseEntity<>("{\"status\":\"ERROR\", \"message\":\"" + e.getMessage() + "\"}", HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @Override
+    public Promocion updateDetalles(Set<PromocionDetalle> detalles, Long id) {
+        Promocion p = promocionRepository.getById(id);
+        p.setDetalles(detalles);
+        return promocionRepository.save(p);
     }
 
     @Override

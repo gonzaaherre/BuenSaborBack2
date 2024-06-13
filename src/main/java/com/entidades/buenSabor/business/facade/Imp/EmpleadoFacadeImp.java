@@ -12,6 +12,8 @@ import com.entidades.buenSabor.domain.entities.Empleado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmpleadoFacadeImp extends BaseFacadeImp<Empleado, EmpleadoDto, EmpleadoCreateDto, EmpleadoEditDto, Long> implements EmpleadoFacade {
     public EmpleadoFacadeImp(BaseService<Empleado, Long> baseService, BaseMapper<Empleado, EmpleadoDto, EmpleadoCreateDto, EmpleadoEditDto> baseMapper) {
@@ -24,5 +26,9 @@ public class EmpleadoFacadeImp extends BaseFacadeImp<Empleado, EmpleadoDto, Empl
     @Override
     public EmpleadoDto findByEmail(String email) {
         return baseMapper.toDTO(empleadoService.findByEmail(email));
+    }
+
+    public List<EmpleadoDto> findAllBySucursalId(Long id) {
+        return baseMapper.toDTOsList(empleadoService.findAllBySucursalId(id));
     }
 }

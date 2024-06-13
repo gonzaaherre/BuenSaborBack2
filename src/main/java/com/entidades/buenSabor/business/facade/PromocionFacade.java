@@ -4,12 +4,14 @@ import com.entidades.buenSabor.business.facade.Base.BaseFacade;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionCreate;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionDto;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionEdit;
+import com.entidades.buenSabor.domain.dto.PromocionDetalle.PromocionDetalleCreate;
 import com.entidades.buenSabor.domain.dto.PromocionDetalle.PromocionDetalleDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public interface PromocionFacade extends BaseFacade<PromocionDto, PromocionCreate, PromocionEdit, Long> {
 
@@ -20,6 +22,7 @@ public interface PromocionFacade extends BaseFacade<PromocionDto, PromocionCreat
     public List<PromocionDto> getAllActiveNow();
 
     public List<PromocionDto> getHabilitadas();
+    public PromocionDto editDetalles(Set<PromocionDetalleCreate> detalles, Long id);
 
     //Imagenes
     // Método para obtener todas las imágenes almacenadas

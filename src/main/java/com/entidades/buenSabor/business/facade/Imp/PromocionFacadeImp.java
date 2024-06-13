@@ -9,6 +9,7 @@ import com.entidades.buenSabor.business.service.PromocionService;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionCreate;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionDto;
 import com.entidades.buenSabor.domain.dto.Promocion.PromocionEdit;
+import com.entidades.buenSabor.domain.dto.PromocionDetalle.PromocionDetalleCreate;
 import com.entidades.buenSabor.domain.dto.PromocionDetalle.PromocionDetalleDto;
 import com.entidades.buenSabor.domain.entities.Promocion;
 import com.entidades.buenSabor.domain.entities.PromocionDetalle;
@@ -20,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class PromocionFacadeImp extends BaseFacadeImp<Promocion, PromocionDto, PromocionCreate, PromocionEdit, Long> implements PromocionFacade {
@@ -64,5 +66,9 @@ public class PromocionFacadeImp extends BaseFacadeImp<Promocion, PromocionDto, P
     @Override
     public List<PromocionDto> getHabilitadas() {
         return baseMapper.toDTOsList(promocionService.getAllHabilitados());
+    }
+
+    public PromocionDto editDetalles(Set<PromocionDetalleCreate> detalles, Long id) {
+        return baseMapper.toDTO(promocionService.updateDetalles(promocionDetalleMapper.toEntityCreateSetDetalle(detalles), id));
     }
 }

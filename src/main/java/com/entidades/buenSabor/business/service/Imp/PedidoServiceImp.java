@@ -194,6 +194,7 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
             }
         }
         pedido.setTotalCosto(totalCosto);
+
     }
     @Override
     public List<Pedido> findByEstado(Estado estado) {
