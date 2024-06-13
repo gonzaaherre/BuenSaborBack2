@@ -24,7 +24,7 @@ import java.util.List;
 public class MercadoPagoController {
 
     @PostMapping
-    public MpPreference getList(@RequestBody PedidoMPDto pedido) {
+    public MpPreference getList(@RequestBody Pedido pedido) {
 
         /*
         *  List<PreferenceItemRequest> items = new ArrayList<>();
