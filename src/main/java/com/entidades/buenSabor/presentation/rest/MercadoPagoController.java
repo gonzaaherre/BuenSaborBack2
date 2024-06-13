@@ -1,5 +1,7 @@
 package com.entidades.buenSabor.presentation.rest;
 
+import com.entidades.buenSabor.domain.dto.Pedido.PedidoCreateDto;
+import com.entidades.buenSabor.domain.dto.Pedido.PedidoMPDto;
 import com.entidades.buenSabor.domain.entities.MpPreference;
 import com.entidades.buenSabor.domain.entities.Pedido;
 import com.mercadopago.MercadoPagoConfig;
@@ -22,7 +24,7 @@ import java.util.List;
 public class MercadoPagoController {
 
     @PostMapping
-    public MpPreference getList(@RequestBody Pedido pedido) {
+    public MpPreference getList(@RequestBody PedidoMPDto pedido) {
 
         /*
         *  List<PreferenceItemRequest> items = new ArrayList<>();
@@ -40,16 +42,15 @@ public class MercadoPagoController {
 
 
         try {
-            MercadoPagoConfig.setAccessToken("TEST-741015966603778-060614-c9bf254c22cb8cfbf84bf96326e74f84-1187616281");
+            MercadoPagoConfig.setAccessToken("TEST-182017131393567-052314-e380d4acd3c0c980e92f8be8a22892d9-296809149");
 
             //Creamos la preferencia
             //PREFERENCIA DE VENTA
             PreferenceItemRequest itemRequest = PreferenceItemRequest.builder()
-                    .id(pedido.getId().toString())//id hardcodeado
-                    .title("compra producto")
+                    .id(pedido.getId().toString())
+                    .title("pedido realizado")
                     .description("Pedido realizado desde el carrito de compras")
                     .pictureUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwIO85PD8j6F_gTdPtZC20xoE6MOVD0dcR_Q&s")
-                    .quantity(1)
                     .currencyId("ARG")
                     .unitPrice(new BigDecimal(pedido.getTotal()))
                     .build();
