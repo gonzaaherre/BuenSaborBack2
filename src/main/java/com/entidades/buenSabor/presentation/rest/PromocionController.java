@@ -27,7 +27,7 @@ public class PromocionController extends BaseControllerImp<Promocion, PromocionD
     @Override
     @PostMapping
     @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
-    public ResponseEntity<PromocionDto> create(PromocionCreate entity){
+    public ResponseEntity<?> create(PromocionCreate entity){
         return super.create(entity);
     }
 

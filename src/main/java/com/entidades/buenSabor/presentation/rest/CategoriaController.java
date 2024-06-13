@@ -33,7 +33,7 @@ public class CategoriaController extends BaseControllerImp<Categoria, CategoriaD
     @PostMapping
     @Override
     @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
-    public ResponseEntity<CategoriaDto> create(CategoriaCreateDto entity){
+    public ResponseEntity<?> create(CategoriaCreateDto entity){
         return super.create(entity);
     }
 

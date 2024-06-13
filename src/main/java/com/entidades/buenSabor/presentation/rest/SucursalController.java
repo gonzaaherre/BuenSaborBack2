@@ -30,7 +30,7 @@ public class SucursalController extends BaseControllerImp<Sucursal, SucursalDto,
     @Override
     @PostMapping
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<SucursalDto> create(SucursalCreateDto entity){
+    public ResponseEntity<?> create(SucursalCreateDto entity){
         return super.create(entity);
     }
 

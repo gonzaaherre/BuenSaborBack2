@@ -22,7 +22,7 @@ public class EmpleadoController extends BaseControllerImp<Empleado, EmpleadoDto,
     @Override
     @PostMapping
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<EmpleadoDto> create (EmpleadoCreateDto entity){
+    public ResponseEntity<?> create (EmpleadoCreateDto entity){
         return super.create(entity);
     }
 

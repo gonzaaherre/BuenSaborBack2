@@ -19,7 +19,7 @@ public interface PedidoMapper extends BaseMapper<Pedido, PedidoDto, PedidoCreate
     //target = a donde va
     @Mappings({
             @Mapping( target = "detallePedidos", qualifiedByName = "toEntityCreateSetArticulo"),
-            @Mapping(target = "domicilio", source = "IDdomicilio",qualifiedByName = "getById"), // Mapear directamente el objeto Domicilio
+            @Mapping(target = "domicilio", source = "idDomicilio",qualifiedByName = "getById"), // Mapear directamente el objeto Domicilio
             //@Mapping(target = "factura", source = "factura"),
             @Mapping(target = "cliente", source = "idCliente",qualifiedByName = "getById"),
     })

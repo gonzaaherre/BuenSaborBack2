@@ -3,6 +3,7 @@ package com.entidades.buenSabor.business.service.Imp;
 import com.entidades.buenSabor.business.mapper.PedidoMapper;
 import com.entidades.buenSabor.business.service.*;
 import com.entidades.buenSabor.business.service.Base.BaseServiceImp;
+import com.entidades.buenSabor.domain.dto.Pedido.TieneStock;
 import com.entidades.buenSabor.domain.entities.Pedido;
 import com.entidades.buenSabor.domain.enums.Estado;
 import com.entidades.buenSabor.domain.entities.*;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -45,7 +47,7 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
 
 
     @Override
-    public Pedido create(Pedido pedido) {
+    public Pedido create(Pedido pedido) throws RuntimeException{
         //le asignamos la fecha actual
         pedido.setFechaPedido(LocalDate.now());
         //seteamos por default el estado en pendiendte
@@ -66,7 +68,7 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
     }
 
     @Override
-    public void validarStock(Set<DetallePedido> detalles) {
+    public void validarStock(Set<DetallePedido> detalles) throws RuntimeException {
         for (DetallePedido detalle : detalles) {
             Articulo articulo = detalle.getArticulo();
             if (articulo instanceof ArticuloInsumo) {

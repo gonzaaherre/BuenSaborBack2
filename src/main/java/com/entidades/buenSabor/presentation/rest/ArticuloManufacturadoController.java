@@ -22,7 +22,7 @@ public class ArticuloManufacturadoController extends BaseControllerImp<ArticuloM
     @Override
     @PostMapping
     @PreAuthorize("hasAnyAuthority('COCINERO','ADMIN')")
-    public ResponseEntity<ArticuloManufacturadoDto> create(ArticuloManufacturadoCreateDto entity){
+    public ResponseEntity<?> create(ArticuloManufacturadoCreateDto entity){
         return super.create(entity);
     }
 

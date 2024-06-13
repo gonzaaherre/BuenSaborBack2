@@ -40,7 +40,7 @@ public class PedidoCreateDto {//este va en el post
 
     //private Long idSucursal;
 
-    private Long iDdomicilio;
+    private Long idDomicilio;
 
     //private FacturaCreateDto factura;
 

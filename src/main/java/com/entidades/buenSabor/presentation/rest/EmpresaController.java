@@ -26,7 +26,7 @@ public class EmpresaController extends BaseControllerImp<Empresa, EmpresaDto, Em
     @Override
     @PostMapping
     @PreAuthorize("hasAuthority('ADMIN')")
-    public ResponseEntity<EmpresaDto> create(@RequestBody EmpresaCreateDto entity) {
+    public ResponseEntity<?> create(@RequestBody EmpresaCreateDto entity) {
         return super.create(entity);
     }
 

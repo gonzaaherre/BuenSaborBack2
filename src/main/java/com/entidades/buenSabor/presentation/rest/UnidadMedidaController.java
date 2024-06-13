@@ -21,7 +21,7 @@ public class UnidadMedidaController extends BaseControllerImp<UnidadMedida, Unid
     @PostMapping
     @Override
     @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
-    public ResponseEntity<UnidadMedidaDto> create(UnidadMedidaCreateDto entity){
+    public ResponseEntity<?> create(UnidadMedidaCreateDto entity){
         return super.create(entity);
     }
 

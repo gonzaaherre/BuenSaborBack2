@@ -13,7 +13,7 @@ public interface BaseController <D extends BaseDto, DC, DE, ID extends Serializa
 
     ResponseEntity<List<D>> getAll();
 
-    ResponseEntity<D> create(DC entity);
+    ResponseEntity<?> create(DC entity);
 
     ResponseEntity<D> edit(DE entity, ID id);
 

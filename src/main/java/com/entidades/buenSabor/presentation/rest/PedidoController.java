@@ -20,6 +20,15 @@ public class PedidoController extends BaseControllerImp<Pedido, PedidoDto, Pedid
         super(facade);
     }
 
+    @PostMapping
+    public ResponseEntity<?> create (@RequestBody PedidoCreateDto pedidoCreateDto){
+        try {
+            return super.create(pedidoCreateDto);
+        }catch (RuntimeException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
     @PutMapping("/cambiaEstado/{id}")
     public ResponseEntity<PedidoDto> cambiaEstado(@RequestBody Estado estado,@PathVariable Long id ) {
         return ResponseEntity.ok(facade.cambiaEstado(estado, id));

@@ -37,7 +37,7 @@ public abstract class BaseControllerImp <E extends Base,D extends BaseDto, DC, D
     }
 
     @PostMapping()
-    public ResponseEntity<D> create(@RequestBody DC entity){
+    public ResponseEntity<?> create(@RequestBody DC entity){
         logger.info("INICIO CREATE {}",entity.getClass());
         return ResponseEntity.ok(facade.createNew(entity));
     }

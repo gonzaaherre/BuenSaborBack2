@@ -23,7 +23,7 @@ public class ArticuloInsumoController  extends BaseControllerImp<ArticuloInsumo,
     @PostMapping
     @Override
     @PreAuthorize("hasAnyAuthority('EMPLEADO','ADMIN')")
-    public ResponseEntity<ArticuloInsumoDto> create (ArticuloInsumoCreateDto entity){
+    public ResponseEntity<?> create (ArticuloInsumoCreateDto entity){
         return super.create(entity);
     }
 
