@@ -1,5 +1,6 @@
 package com.entidades.buenSabor.presentation.rest;
 
+import com.entidades.buenSabor.business.service.PedidoService;
 import com.entidades.buenSabor.domain.dto.Pedido.PedidoCreateDto;
 import com.entidades.buenSabor.domain.dto.Pedido.PedidoMPDto;
 import com.entidades.buenSabor.domain.entities.MpPreference;
@@ -12,6 +13,7 @@ import com.mercadopago.client.preference.PreferenceRequest;
 import com.mercadopago.exceptions.MPApiException;
 import com.mercadopago.exceptions.MPException;
 import com.mercadopago.resources.preference.Preference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -23,8 +25,11 @@ import java.util.List;
 @CrossOrigin("*")
 public class MercadoPagoController {
 
-    @PostMapping
-    public MpPreference getList(@RequestBody Pedido pedido) {
+    @Autowired
+    PedidoService pedidoService;
+
+    @PostMapping("/{idPedido}")
+    public MpPreference getList(@PathVariable Long idPedido) {
 
         /*
         *  List<PreferenceItemRequest> items = new ArrayList<>();
@@ -38,19 +43,20 @@ public class MercadoPagoController {
         }
         *
         * */
-
+        Pedido pedido = pedidoService.getById(idPedido);
 
 
         try {
-            MercadoPagoConfig.setAccessToken("TEST-182017131393567-052314-e380d4acd3c0c980e92f8be8a22892d9-296809149");
+            MercadoPagoConfig.setAccessToken("TEST-2798566161607489-052311-a8e97e298823f472ca61f8c492cbb871-322089866");
 
             //Creamos la preferencia
             //PREFERENCIA DE VENTA
             PreferenceItemRequest itemRequest = PreferenceItemRequest.builder()
-                    .id(pedido.getId().toString())
+                    .id(String.valueOf(pedido.getId()))
                     .title("pedido realizado")
                     .description("Pedido realizado desde el carrito de compras")
                     .pictureUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwIO85PD8j6F_gTdPtZC20xoE6MOVD0dcR_Q&s")
+                    .quantity(1)
                     .currencyId("ARG")
                     .unitPrice(new BigDecimal(pedido.getTotal()))
                     .build();
@@ -84,10 +90,10 @@ public class MercadoPagoController {
 
 
         } catch (MPException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e.getMessage());
 
         } catch (MPApiException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e.getMessage());
         }
     }
 }
