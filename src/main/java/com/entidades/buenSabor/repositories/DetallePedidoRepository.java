@@ -18,7 +18,7 @@ public interface DetallePedidoRepository extends BaseRepository<DetallePedido,Lo
             "                    on dp.pedido_id = p.id\n" +
             // mysql -> date(p.fecha_pedido)
             // H2 ->  PARSEDATETIME(p.fecha_pedido, 'yyyy-MM-dd')
-            "where PARSEDATETIME(p.fecha_pedido, 'yyyy-MM-dd') between :initialDate and :endDate \n" +
+            "where date(p.fecha_pedido) between :initialDate and :endDate \n" +
             "group by am.id,am.denominacion \n" +
             "order by countVentas desc;",
             nativeQuery = true)
