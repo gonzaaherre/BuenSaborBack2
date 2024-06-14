@@ -21,6 +21,8 @@ public interface ArticuloRepository  extends BaseRepository<Articulo, Long> {
             "a.precioVenta AS precioVenta, " +
             "i.url AS imagenUrls " +
             "FROM Articulo a LEFT JOIN a.imagenes i " +
+            "WHERE TYPE(a) != com.entidades.buenSabor.domain.entities.ArticuloInsumo " +
+            "OR (TYPE(a) = com.entidades.buenSabor.domain.entities.ArticuloInsumo AND a.esParaElaborar = false) " +
             "ORDER BY a.precioVenta ASC")
     Page<CardArticuloProjection> findAllOrderByPrecioVenta(Pageable pageable);
 
@@ -29,7 +31,9 @@ public interface ArticuloRepository  extends BaseRepository<Articulo, Long> {
             "a.precioVenta AS precioVenta, " +
             "i.url AS imagenUrls " +
             "FROM Articulo a LEFT JOIN a.imagenes i " +
-            "WHERE a.categoria.id = :categoriaId "+
+            "WHERE (a.categoria.id = :categoriaId) " +
+            "AND (TYPE(a) != com.entidades.buenSabor.domain.entities.ArticuloInsumo " +
+            "OR (TYPE(a) = com.entidades.buenSabor.domain.entities.ArticuloInsumo AND a.esParaElaborar = false)) " +
             "ORDER BY a.precioVenta ASC")
     Page<CardArticuloProjection> findAllOrderByPrecioVentaByCategoriaId(@Param("categoriaId") Long categoriaId, Pageable pageable);
 
@@ -38,6 +42,8 @@ public interface ArticuloRepository  extends BaseRepository<Articulo, Long> {
             "a.precioVenta AS precioVenta, " +
             "i.url AS imagenUrls " +
             "FROM Articulo a LEFT JOIN a.imagenes i " +
-            "WHERE a.categoria.id = :categoriaId ")
+            "WHERE (a.categoria.id = :categoriaId) " +
+            "AND (TYPE(a) != com.entidades.buenSabor.domain.entities.ArticuloInsumo " +
+            "OR (TYPE(a) = com.entidades.buenSabor.domain.entities.ArticuloInsumo AND a.esParaElaborar = false))")
     Page<CardArticuloProjection> findByCategoriaId(@Param("categoriaId") Long categoriaId, Pageable pageable);
 }
