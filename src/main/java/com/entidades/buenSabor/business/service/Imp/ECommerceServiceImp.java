@@ -34,7 +34,7 @@ public class ECommerceServiceImp implements ECommerceService {
         // Obtener la página de artículos insumo
         Page<ArticuloInsumo> pageArticuloInsumo = articuloInsumoRepository.findAll(pageable);
         for (ArticuloInsumo ai : pageArticuloInsumo.getContent()) {
-            if(ai.getEsParaElaborar()) {
+            if(!ai.getEsParaElaborar()) {
                 CardArticulo ar = new CardArticulo();
                 ar.setId(ai.getId());
                 ar.setDenominacion(ai.getDenominacion());
