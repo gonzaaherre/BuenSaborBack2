@@ -169,9 +169,9 @@ public class EstadisticasServiceImp implements EstadisticasService {
 
         rowNum = 1;
         Row row = sheet5.createRow(rowNum++);
-        row.createCell(0).setCellValue(costoGanancias.getCostos());
-        row.createCell(1).setCellValue(costoGanancias.getGanancias());
-        row.createCell(2).setCellValue(costoGanancias.getResultado());
+        row.createCell(0).setCellValue((costoGanancias.getCostos() == null) ? 0 :costoGanancias.getCostos() );
+        row.createCell(1).setCellValue((costoGanancias.getGanancias() == null) ? 0 : costoGanancias.getGanancias());
+        row.createCell(2).setCellValue((costoGanancias.getResultado() == null ) ? 0 : costoGanancias.getResultado());
 
 
         // Autosize columns

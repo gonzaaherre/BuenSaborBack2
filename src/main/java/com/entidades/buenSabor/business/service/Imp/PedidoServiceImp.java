@@ -181,9 +181,32 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
             } catch (IOException | java.io.IOException e) {
                 throw new RuntimeException("Error al generar o enviar la factura: " + e.getMessage(), e);
             }
+
+        }
+        if (estado == Estado.RECHAZADO) {
+            revertirStock(pedido.getDetallePedidos());
         }
 
+
         return pedidoRepository.save(pedido);
+    }
+
+    private void revertirStock(Set<DetallePedido> detalles) {
+        for (DetallePedido detalle : detalles) {
+            Articulo articulo = detalle.getArticulo();
+            if (articulo instanceof ArticuloInsumo) {
+                ArticuloInsumo insumo = (ArticuloInsumo) articulo;
+                insumo.setStockActual(insumo.getStockActual() + detalle.getCantidad());
+                articuloInsumoService.update(insumo, insumo.getId());
+            } else {
+                ArticuloManufacturado articuloManufacturado = articuloManufacturadoService.getById(articulo.getId());
+                for (ArticuloManufacturadoDetalle amd : articuloManufacturado.getArticuloManufacturadoDetalles()) {
+                    ArticuloInsumo insumo = amd.getArticuloInsumo();
+                    insumo.setStockActual(insumo.getStockActual() + detalle.getCantidad());
+                    articuloInsumoService.update(insumo, insumo.getId());
+                }
+            }
+        }
     }
     private void calcularTotal(Pedido pedido) {
         double total = 0.0;
