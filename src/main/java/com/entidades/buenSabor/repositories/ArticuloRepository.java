@@ -46,4 +46,14 @@ public interface ArticuloRepository  extends BaseRepository<Articulo, Long> {
             "AND (TYPE(a) != com.entidades.buenSabor.domain.entities.ArticuloInsumo " +
             "OR (TYPE(a) = com.entidades.buenSabor.domain.entities.ArticuloInsumo AND a.esParaElaborar = false))")
     Page<CardArticuloProjection> findByCategoriaId(@Param("categoriaId") Long categoriaId, Pageable pageable);
+
+    @Query("SELECT a.id AS id, a.denominacion AS denominacion, " +
+            "CASE WHEN TYPE(a) = com.entidades.buenSabor.domain.entities.ArticuloInsumo THEN true ELSE false END AS esInsumo, " +
+            "a.precioVenta AS precioVenta, " +
+            "i.url AS imagenUrls " +
+            "FROM Articulo a LEFT JOIN a.imagenes i " +
+            "WHERE a.denominacion LIKE %:searchTerm% " +
+            "AND (TYPE(a) != com.entidades.buenSabor.domain.entities.ArticuloInsumo " +
+            "OR (TYPE(a) = com.entidades.buenSabor.domain.entities.ArticuloInsumo AND a.esParaElaborar = false))")
+    Page<CardArticuloProjection> findByDenominacionContaining(@Param("searchTerm") String searchTerm, Pageable pageable);
 }

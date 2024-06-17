@@ -3,12 +3,8 @@ package com.entidades.buenSabor.business.service.Imp;
 import com.entidades.buenSabor.business.service.ECommerceService;
 import com.entidades.buenSabor.domain.dto.Articulo.CardArticulo;
 import com.entidades.buenSabor.domain.dto.Articulo.CardArticuloProjection;
-import com.entidades.buenSabor.domain.entities.ArticuloInsumo;
-import com.entidades.buenSabor.domain.entities.ArticuloManufacturado;
-import com.entidades.buenSabor.domain.entities.ImagenArticulo;
-import com.entidades.buenSabor.repositories.ArticuloInsumoRepository;
-import com.entidades.buenSabor.repositories.ArticuloManufacturadoRepository;
-import com.entidades.buenSabor.repositories.ArticuloRepository;
+import com.entidades.buenSabor.domain.entities.*;
+import com.entidades.buenSabor.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -26,6 +22,10 @@ public class ECommerceServiceImp implements ECommerceService {
     ArticuloInsumoRepository articuloInsumoRepository;
     @Autowired
     ArticuloRepository articuloRepository;
+    @Autowired
+    CategoriaRepository categoriaRepository;
+    @Autowired
+    PromocionRepository promocionRepository;
 
     @Override
     public Page<CardArticulo> allArticulos(Pageable pageable) {
@@ -78,6 +78,26 @@ public class ECommerceServiceImp implements ECommerceService {
     @Override
     public Page<CardArticuloProjection> findByCategoriaId(Long categoriaId, Pageable pageable) {
         return articuloRepository.findByCategoriaId(categoriaId, pageable);
+    }
+
+    @Override
+    public Page<CardArticuloProjection> buscador(String denominacion, Pageable pageable) {
+        return articuloRepository.findByDenominacionContaining(denominacion, pageable);
+    }
+
+    @Override
+    public List<Categoria> findAllCategoriasConArticulosParaVenta() {
+        return categoriaRepository.findAllCategoriasConArticulosParaVenta();
+    }
+
+    @Override
+    public Page<Promocion> findByEliminadoFalseAndHabilitadoTrue(Pageable pageable) {
+        return promocionRepository.findByEliminadoFalseAndHabilitadoTrue(pageable);
+    }
+
+    @Override
+    public Page<Promocion> findByDenominacionContainingIgnoreCase(String denominacion, Pageable pageable) {
+        return promocionRepository.findByDenominacionContainingIgnoreCase(denominacion,pageable);
     }
 
 
