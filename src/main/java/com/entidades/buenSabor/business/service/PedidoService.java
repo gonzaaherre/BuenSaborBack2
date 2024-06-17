@@ -5,6 +5,8 @@ import com.entidades.buenSabor.domain.entities.DetallePedido;
 import com.entidades.buenSabor.domain.entities.Pedido;
 import com.entidades.buenSabor.domain.enums.Estado;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -29,4 +31,6 @@ public interface PedidoService extends BaseService<Pedido,Long> {
     List<Pedido> findByEstado(Estado estado);
 
     Optional<Pedido> findById(Long id);
+
+    Long contarPedidosEnRango(LocalDate initialDate, LocalDate endDate);
 }

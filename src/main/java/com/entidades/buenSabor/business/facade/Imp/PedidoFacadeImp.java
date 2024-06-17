@@ -12,6 +12,8 @@ import com.entidades.buenSabor.domain.enums.Estado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,6 +45,11 @@ public class PedidoFacadeImp extends BaseFacadeImp<Pedido, PedidoDto,PedidoCreat
         return pedidos.stream()
                 .map(baseMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Long contarPedidosEnRango(LocalDate initialDate, LocalDate endDate) {
+        return pedidoService.contarPedidosEnRango(initialDate,endDate);
     }
 
 //    @Override

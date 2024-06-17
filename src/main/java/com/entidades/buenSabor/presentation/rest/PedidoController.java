@@ -6,15 +6,18 @@ import com.entidades.buenSabor.domain.dto.Pedido.PedidoDto;
 import com.entidades.buenSabor.domain.entities.Pedido;
 import com.entidades.buenSabor.domain.enums.Estado;
 import com.entidades.buenSabor.presentation.rest.Base.BaseControllerImp;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/pedido")
+    @RequestMapping("/pedido")
 public class PedidoController extends BaseControllerImp<Pedido, PedidoDto, PedidoCreateDto,PedidoCreateDto,Long, PedidoFacadeImp> {
     public PedidoController(PedidoFacadeImp facade) {
         super(facade);
@@ -43,5 +46,12 @@ public class PedidoController extends BaseControllerImp<Pedido, PedidoDto, Pedid
     @GetMapping("/findByEstado")
     public ResponseEntity<List<PedidoDto>> findByEstado(@RequestParam Estado estado) {
         return ResponseEntity.ok(facade.findByEstado(estado));
+    }
+
+    @GetMapping("/countPorFecha")
+    public ResponseEntity<Long> contadorPorFecha(
+            @RequestParam("fechaDesde") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaDesde,
+            @RequestParam("fechaHasta") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate fechaHasta) {
+        return ResponseEntity.ok(facade.contarPedidosEnRango(fechaDesde, fechaHasta));
     }
 }

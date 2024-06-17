@@ -53,4 +53,7 @@ public interface PedidoRepository extends BaseRepository<Pedido,Long>{
     List<PedidosCliente> findCantidadPedidosPorCliente(LocalDate startDate, LocalDate endDate);
 
     List<Pedido> findByClienteId(Long clienteId);
+
+    @Query(value = "SELECT COUNT(p) FROM Pedido p WHERE p.fechaPedido BETWEEN :initialDate AND :endDate")
+    Long contarPedidosEnRango(LocalDate initialDate, LocalDate endDate);
 }

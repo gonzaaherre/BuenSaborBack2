@@ -17,10 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements PedidoService {
@@ -243,6 +240,10 @@ public class PedidoServiceImp extends BaseServiceImp<Pedido,Long> implements Ped
         return pedidoRepository.findById(id);
     }
 
+    @Override
+    public Long contarPedidosEnRango(LocalDate initialDate, LocalDate endDate) {
+        return pedidoRepository.contarPedidosEnRango(initialDate, endDate);
+    }
 
 }
 
