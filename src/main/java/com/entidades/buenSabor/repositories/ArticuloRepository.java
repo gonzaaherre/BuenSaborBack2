@@ -52,7 +52,7 @@ public interface ArticuloRepository  extends BaseRepository<Articulo, Long> {
             "a.precioVenta AS precioVenta, " +
             "i.url AS imagenUrls " +
             "FROM Articulo a LEFT JOIN a.imagenes i " +
-            "WHERE a.denominacion LIKE %:searchTerm% " +
+            "WHERE LOWER(a.denominacion) LIKE LOWER(CONCAT('%', :searchTerm, '%')) " +
             "AND (TYPE(a) != com.entidades.buenSabor.domain.entities.ArticuloInsumo " +
             "OR (TYPE(a) = com.entidades.buenSabor.domain.entities.ArticuloInsumo AND a.esParaElaborar = false))")
     Page<CardArticuloProjection> findByDenominacionContaining(@Param("searchTerm") String searchTerm, Pageable pageable);
